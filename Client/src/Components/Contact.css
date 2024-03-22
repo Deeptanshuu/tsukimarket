@@ -1,0 +1,41 @@
+.contact-page{
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 10vh;
+    --dot-bg: rgb(255, 255, 255);
+    --dot-color: rgb(0, 0, 0);
+    --dot-size: 1px;
+    --dot-space: 25px;
+    background:
+    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+.contact-text{
+    display: inline;
+    justify-content: space-evenly;
+    padding: 5rem;
+    max-width: 50vw;
+    max-height: auto;
+    background-color: rgba(245, 222, 179, 0.781);
+    h3{
+        font-weight: 300;
+        text-decoration: underline;
+        text-align: center;
+        padding: 1rem;
+    }
+    p{
+        font-weight: 300;
+    }
+    b{
+        font-weight: 600;
+    }
+    small{
+        display: flex;
+        justify-content: center;
+        font-weight: 200;
+    }
+
+}

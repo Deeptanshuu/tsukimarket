@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: rgb(202, 200, 200);
+    caption{
+        font-size: 0.6rem;
+        letter-spacing: 0.2em;
+    }
+}

@@ -1,0 +1,130 @@
+.cart-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-top: 0px;
+    border-width: 1px;
+    padding: 2rem;
+    h1{
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        transition: all 0.5s 0.2s cubic-bezier(.79,.14,.15,.86);
+    }
+}
+
+.cart-wrapper{
+    display: flex;
+    justify-content: center;
+    --dot-bg: #ffffff;
+    --dot-color: rgb(0, 0, 0);
+    --dot-size: 1.5px;
+    --dot-space: 25px;
+    background:
+    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+.cart-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1px;
+    margin-top: 50px;
+    font-weight: 100;
+    margin-bottom: 50px;
+    border: 1px black dotted;
+}
+
+.cart-item-header{
+    display: flex;
+    justify-content: center;
+    font-weight: 100;
+    font-size: 25px;
+    margin-bottom: 0%;
+    margin-top: 50px;
+    letter-spacing: 0.1em;
+}
+
+.cart-item-details{
+    --background-color: aquamarine;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    ul{
+        padding: 10px;
+        font-size: larger;
+    }
+    p{
+        font-size: larger;
+        padding: 10px;
+    }
+}
+
+.cart-item-quantity{
+    --background-color: rgb(68, 170, 170);
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+    padding: 10px 10px;
+    letter-spacing: 0.1em;
+    P{
+        font-size: larger;
+        margin-top: 10px; 
+    }
+    .btn{
+        padding: 10px;
+        margin-left: 15px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border-radius: 0px;
+        color: red;
+    }
+    svg{
+        display: flex;
+        margin: 0px;
+    }
+}
+
+.cart-list{
+    background-color: beige;
+    min-width: 40vw;
+    min-height: 800px;
+    border: 1px black solid;
+    border-top: 0px;
+}
+
+
+.cart-price{
+    background-color: beige;
+    padding: 10px;
+    letter-spacing: 0.1em;
+    border: 1px black dotted;
+    table{
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+    }
+    tr{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+    }
+    h5{
+        font-size: large;
+        font-weight: lighter;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        font-size: large;
+        font-weight: lighter;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 35.5%;
+        border-radius: 0%;
+        max-width: 350px;
+    }
+}
+

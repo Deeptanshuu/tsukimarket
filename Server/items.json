@@ -1,0 +1,155 @@
+[
+  {
+    "_id": "65ca03738120dea1d9a5c5e7",
+    "melts": [
+      {
+        "id": "m-1",
+        "category": "melts",
+        "img": "/shop/melt-sweat.png",
+        "img2": "/shop/melt-sweat.png",
+        "img3": "/shop/melt-common-2.webp",
+        "img4": "/shop/melt-common.png",
+        "name": "Melted Sweater",
+        "description": "Our ‘so soft it feels like it’s melting’ fabric returns in this cozy crewneck! With a roomy silhouette that maximizes comfort, new embroidered Melted logo, and super soft material Tsuki fans already love - this sweatshirt is easy to toss on and bring out that time-to-relax feeling.",
+        "price": 9000,
+        "inStock": true
+      },
+      {
+        "id": "m-2",
+        "category": "melts",
+        "name": "Melted Sweatpants",
+        "img": "/shop/melt-pants.png",
+        "img2": "/shop/melt-pants.png",
+        "img3": "/shop/melt-common-2.webp",
+        "img4": "/shop/melt-common.png",
+        "description": "Our ‘so soft it feels like it’s melting’ fabric, now available as joggers! Whether you’re cozied up at home or looking for everyday comfort, this causal straight leg style is the perfect go-to. Complete with our new Melt logo, pockets, and added comfort with an elastic waistband plus adjustable drawstring.",
+        "price": 8299,
+        "inStock": false
+      },
+      {
+        "id": "m-3",
+        "category": "melts",
+        "name": "Smiley Embroidered Bucket Hat",
+        "img": "/shop/melt-hat.png",
+        "img2": "/shop/melt-hat.png",
+        "img3": "/shop/melt-common-2.webp",
+        "img4": "/shop/melt-common.png",
+        "description": "A twist on our twill bucket hat with a Tsuki-pink smile embroidery.",
+        "price": 999,
+        "inStock": false
+      },
+      {
+        "id": "m-4",
+        "category": "melts",
+        "name": "Melted Socks",
+        "img": "/shop/melt-socks.png",
+        "img2": "/shop/melt-sweat.png",
+        "img3": "/shop/melt-common-2.webp",
+        "img4": "/shop/melt-common.png",
+        "description": "Just try not to melt over these. Black loop terry socks with pink and yellow details, and the knitted Tsuki logo around the top. ",
+        "price": 699,
+        "inStock": true
+      }
+    ],
+    "knits": [
+      {
+        "id": "k-1",
+        "img": "/shop/knits-2.png",
+        "img2": "/shop/knits-2.png",
+        "img3": "/shop/knits-common-2.webp",
+        "img4": "/shop/knits-common.png",
+        "name": "Tsuki すき Knit Sweater",
+        "description": "This jacquard knit combines everything you could want in a sweater: softness, warmth, and style. Made with fluffy double layered yarn, creating white specks throughout the knit. With TSUKI on one sleeve and つき すき (general translation = tsuki love) on the other, this jumper is a cosy essential.",
+        "price": 11999,
+        "inStock": true,
+        "category": "knits"
+      },
+      {
+        "id": "k-2",
+        "img": "/shop/knits-3.png",
+        "img2": "/shop/knits-3.png",
+        "img3": "/shop/knits-common-2.webp",
+        "img4": "/shop/knits-common.png",
+        "name": "楽しい Tanoshii / 悲しみ Kanashimi Beanies",
+        "description": ":) or :( ? From crisp mornings to cool evenings our Tanoshii [楽しい] and Kanashimi [悲しみ] beanies deliver softness and warmth for every day.",
+        "price": 1999,
+        "inStock": false,
+        "category": "knits"
+      },
+      {
+        "id": "k-3",
+        "img": "/shop/k-beanie.png",
+        "img2": "/shop/k-beanie.png",
+        "img3": "/shop/knits-common-2.webp",
+        "img4": "/shop/knits-common.png",
+        "name": "Mischief Beanie",
+        "description": "The latest addition to our Mischief Collection is a staple for chilly days. This fitted knit beanie has a fold over brim and colourful Tsuki tag to finish.",
+        "price": 899,
+        "inStock": false,
+        "category": "knits"
+      }
+    ],
+    "basics": [
+      {
+        "id": "b-1",
+        "img": "/shop/basic-3.png",
+        "img2": "/shop/basic-3.png",
+        "img3": "/shop/basic-common-2.webp",
+        "img4": "/shop/basic-common.png",
+        "name": "Embroidered Logo T-shirt",
+        "description": "Your new favourite t-shirt. Super soft and versatile, this tee is available in three classic Tsuki colour combinations. Marzia is wearing a size small and Felix is wearing a size medium.",
+        "price": 1899,
+        "inStock": true,
+        "category": "basics"
+      },
+      {
+        "id": "b-2",
+        "img": "/shop/k-cor-cap.png",
+        "img2": "/shop/k-cor-cap.png",
+        "img3": "/shop/basic-common-2.webp",
+        "img4": "/shop/basic-common.png",
+        "name": "Corduroy Tsuki Cap",
+        "description": "Our corduroy six panel curved brim cap features a cheeky smile topped with horns and detailed with TSUKI embroidery on back.",
+        "price": 899,
+        "inStock": true,
+        "category": "basics"
+      },
+      {
+        "id": "b-3",
+        "img": "/shop/knits-1.png",
+        "img2": "/shop/knits-1.png",
+        "img3": "/shop/basic-common-2.webp",
+        "img4": "/shop/basic-common.png",
+        "name": "Tsuki Socks",
+        "description": "Socks with style. Available in two classic Tsuki colour combinations, with knitted logo details and contrast toes and heels.",
+        "price": 599,
+        "inStock": false,
+        "category": "basics"
+      },
+      {
+        "id": "b-4",
+        "img": "/shop/basic-2.png",
+        "img2": "/shop/basic-2.png",
+        "img3": "/shop/basic-common-2.webp",
+        "img4": "/shop/basic-common.png",
+        "name": "夕焼け Sunset Glow Sweatshirt",
+        "description": "Meet our special edition 夕焼け Sunset Glow crewneck, designed by Felix and Marzia to keep you comfy and cozy all season long. This unisex style is made of a bamboo rayon + organic cotton blend, giving it a super soft feel with a warm fleece inside. Detailed with a bright and reimagined old school Tsuki logo.",
+        "price": 6899,
+        "inStock": true,
+        "category": "basics"
+      },
+      {
+        "id": "b-5",
+        "img": "/shop/b-striped-scraf.png",
+        "img2": "/shop/b-striped-scraf.png",
+        "img3": "/shop/basic-common-2.webp",
+        "img4": "/shop/basic-common.png",
+        "name": "ストライプ Basic Scarf",
+        "description": "This big and cosy scarf features a stripe design in our classic Tsuki colours. Made out of super soft acrylic to keep you warm all winter long.",
+        "price": 599,
+        "inStock": false,
+        "category": "basics"
+      }
+    ]
+  }
+]

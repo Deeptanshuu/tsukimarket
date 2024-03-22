@@ -1,0 +1,56 @@
+/* Login.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    min-width: 50vw;
+  }
+  
+  .register-container{
+    display: flex;
+    text-justify:auto;
+    justify-content: center;
+    padding: 0.1rem;
+    a{
+      color: rgb(240, 95, 119) ;
+      text-align: right;
+    }
+  }
+
+  .forgot-container{
+    display: flex;
+    text-justify:auto;
+    justify-content: right;
+    padding: 0.5rem;
+    a{
+      color: rgb(240, 95, 119) ;
+      text-align: right;
+    }
+  }
+
+  .form-container {
+    display: grid;
+    background-color: rgba(245, 222, 179, 0.74);
+    padding: 10vh;
+    min-width: 35vw;
+    justify-content: center;
+    button{
+      border: solid;
+      border-radius: 0;
+      border-width: 1px;
+    }
+  }
+  
+  .form-group{
+    padding: 10px;
+    min-width: 20vw;
+    align-items: center;
+  }
+
+  .form-control{
+    border: var(--bs-border-width) solid #000;
+    border-radius: 0;
+  }
+

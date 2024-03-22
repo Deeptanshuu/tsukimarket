@@ -1,0 +1,112 @@
+.mantra {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    padding: 0.05em;
+    color: black;
+    font-size: large;
+    font-weight: 200;
+    letter-spacing: 0.15em;
+    transition: all 0.3s 0.1s cubic-bezier(.79, .14, .15, .86);
+
+    a {
+        color: black;
+    }
+}
+
+.mantra:hover {
+    font-weight: 500;
+    letter-spacing: 0.3em;
+}
+
+.logo-container:hover {
+    .mantra {
+        font-weight: 500;
+        letter-spacing: 0.3em;
+    }
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    max-height: 60px;
+    padding: 0.5rem;
+    letter-spacing: 0.1em;
+    border: solid;
+    border-width: 1px;
+}
+
+
+ul.nav-links {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin-bottom: 0rem;
+    li {
+        color: rgba(0, 0, 0, 0.75);
+        font-size: 1em;
+        padding: 10px;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+    }
+
+    li:hover {
+        background-color: beige;
+        border: 1px solid black;
+        box-shadow: 15px 15px black;
+        color: #535353;
+        scale: 1.1;
+    }
+}
+
+
+.logo-container {
+    display: grid;
+    justify-items: center;
+    --dot-bg: #ffffff;
+    --dot-color: rgb(0, 0, 0);
+    --dot-size: 1.2px;
+    --dot-space: 25px;
+    background:
+        linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        var(--dot-color);
+}
+
+.nav-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 55px;
+    width: 182px;
+    justify-self: right;
+    line-height: normal;
+    margin-right: 2rem;
+    padding: 0.5rem;
+    a {
+        color: black;
+        line-height: 10px;
+        transition: colour;
+        scale: 1.2;
+        transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+        border: 1px solid black;
+        box-shadow: 5px 5px black;
+        color: #797979;
+    }
+
+    svg {
+        margin: 0.5rem;
+    }
+}
+
+.logo {
+    max-width: 10rem;
+    max-height: auto;
+}
+
+a {
+    text-decoration: none;
+}

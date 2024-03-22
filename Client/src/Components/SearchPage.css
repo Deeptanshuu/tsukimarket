@@ -1,0 +1,85 @@
+.search-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.5em;
+    h1{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        font-size: larger;
+    }
+}
+
+.search-box-outer{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+.defualt-search-page{
+    p{
+        display: flex;
+        justify-content: center;
+        padding: 5rem;
+        font-size: larger;
+    } 
+}
+
+.no-item-page{
+    p{
+        display: flex;
+        justify-content: center;
+        padding: 5rem;
+        font-size: larger;
+    }
+}
+
+.search-box{
+    display: flex;
+    form{
+        display: flex;
+        justify-content:flex-end;
+    }
+    input{
+        color: black;
+        border-radius: 0%;
+        border-right: 0px;
+    }
+    input:focus {
+        outline:none;
+    }
+    .btn{
+        border-radius: 0%;
+    }
+}
+
+.product-grid-header{
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    font-size: 400;
+    font-weight: lighter;
+    border: 1px black solid;
+}
+
+.quick-view{
+    /*View product.css for hover child of this div*/
+    display: grid;
+    background-color:#ace5ee;
+    position: absolute;
+    z-index: -1;
+    bottom: 0px;
+    opacity: 0;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px black solid;
+    h1{
+        letter-spacing: 0.15em;
+        font-weight: 100;
+        font-size: large;
+    }
+}
+

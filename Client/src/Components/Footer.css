@@ -1,0 +1,45 @@
+.footer-container{
+    min-height: 250px;
+    background-color: black;
+    color: white;
+    padding: 5rem;
+    overflow: hidden;
+    h1{
+        font-size: medium;
+        border-bottom: solid;
+        border-color: white;
+        border-width: 1px;
+        line-height: 4rem;
+        letter-spacing: 0.3em;
+        font-weight: bold;
+    }
+    
+    p{
+        font-weight: 100;
+        font-size: smaller
+    }
+}
+.icons-container{
+    margin: 1rem;
+}
+
+.icon{
+    display: inline;
+    justify-content: space-between;
+    margin: 1.4rem;
+}
+
+.quick-links{
+    display: inline
+}
+
+.input-group{
+    a{
+        border-radius: 0px;
+        border: solid;
+        border-width: 1px;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+    }
+
+}
