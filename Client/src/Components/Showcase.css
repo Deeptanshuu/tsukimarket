@@ -47,27 +47,29 @@
     linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
     linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+
     .showcase-text-name{
-        padding: 10px;
+        padding: 5px;
         --background-color: wheat;
         h2{
-            font-weight: lighter;
-            text-decoration: underline;
+            font-weight: 600;
+            text-decoration: underline double;
             letter-spacing: 0.1em;
         }
     }
+
     .showcase-text-price{
         padding: 5px;
         --background-color: brown;
         h4{
-            font-weight: lighter;
+            font-weight: 500;
         }
     }
     .showcase-text-stock{
         --background-color: rgb(253, 253, 253);
         h6{
             font-size: large;
-            font-weight: 500;
+            font-weight: 600;
         }
     }
     .showcase-text-desc{
@@ -82,31 +84,32 @@
 .quantity-box-container{
     --background-color: aqua;
     display: flex;
-    justify-content: safe;
-    min-height: 100px;
+    min-height: 83px;
 }
 
 .quantity-box{
     background-color: rgb(240, 240, 240);
     border: 1px black solid;
     display: flex;
-    margin-top: 30px;
     max-height: 35px;
-    min-width: 140px;
+    min-width: 50px;
     span{
         display: flex;
-        min-width: 80px;
+        min-width: 50px;
         text-align: center;
         justify-content: center;
         font-size: larger;
-        font-weight: 100;
+        font-weight: 600;
+        border-left: 1px black solid;
+        border-right: 1px black solid;
     }
     button{
-        background-color: #000000;
+        z-index: 1;
+        overflow: hidden;
         font-size: larger;
         min-width: 30px;
         border: none;
-        color: white;
+        color: rgb(0, 0, 0);
     }
 }
 
@@ -117,7 +120,7 @@
     max-height: 80vh;
     padding: 0.5em;
     margin: 20px;
-    gap: 10px;
+    gap: 20px;
     img{
         max-width: 100%;
         max-height: 100%;
@@ -130,9 +133,14 @@
     button{
         background: none; /* Remove background color */
         border: none; /* Remove border */
-        padding: 0; /* Remove padding */
+        padding: 0px; /* Remove padding */
         cursor: pointer; /* Change cursor to pointer on hover */
         outline: none;
+        transition: all 0.2s ease-in-out;
+    }
+    button:hover{
+        box-shadow: 8px 8px black;
+        scale: 1.1;
     }
 }
 
@@ -150,7 +158,7 @@
     min-width: 100vw;
     padding: 1rem;
     letter-spacing: 0.1em;
-    border-top: 0.5px solid #000000;
+    border:1px solid #000000;
     transition: all 0.2s ease-in-out;
     a{
         min-height: 100%;
@@ -165,6 +173,7 @@
 
 .footer-showcase:hover{
     background-color: #000000;
+    
     p{
         color: #ffffff;
     }
@@ -220,3 +229,31 @@
 }
 
 
+.more-items{
+    display: flex;
+    padding: 0%;
+    margin-top: 30px;
+    margin-bottom: 200px;
+    border: 1px solid #000000;
+    border-right:0px;
+    scale: 0.9;
+    box-shadow: 20px 20px;
+}
+
+.more-items-cover{
+    padding: 0%;
+    border-top: 1px solid black;
+    background-color: #f5f5dc;
+    .more-items-text{
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff;
+        border-bottom: 1px solid black;
+        h4{
+            font-size: 2rem;
+            font-weight: 200;
+            font-size: 2.5rem;
+            padding: 1rem;
+        }
+    }
+}

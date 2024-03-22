@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false })); // For POST
 connect() // Connect to MongoDB
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+      console.log(`Server is running on port http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
@@ -26,7 +26,7 @@ app.get("/items", async (req, res) => {
     res.json(result);
     // Serialize items to JSON
     const jsonData = JSON.stringify(result, null, 2);
-    console.log(jsonData);
+    //console.log(jsonData);
     // Write JSON data to a file named Items.json
     fs.writeFileSync('Items.json', jsonData);
 

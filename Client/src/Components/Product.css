@@ -49,6 +49,7 @@
     border-top: 0px;
     box-sizing: border-box;
     background-color: #ffffff;
+    height: 100%;
 }
 
 
@@ -57,11 +58,12 @@
     z-index: 3;
     background-color: #000000;
     color: #ffffff;
-    padding: 0.5em;
-    max-width: 100px;
+    padding: 0.4rem;
+    max-width: 25% ;
     h6{
         font-family: 'Segoe UI Light';
-        font-size: small;
+        font-size: medium;
+        letter-spacing: 0.1em;
         text-align: center;
     }
 }
@@ -70,8 +72,9 @@
     display: flex;
     z-index: 1;
     position: relative;
+    justify-content: center;
     align-items: center;
-    padding-left: 13%;
+    padding: 20px;
     max-height: calc(0.88 * 690px);
     background-color: #ffffff;
     overflow: hidden;
@@ -83,14 +86,16 @@
     }
 }
 
+/*View SearchPage.css for parent of this div*/
 .product-card:hover{
     .quick-view{
-        bottom: 82px;      
+        bottom: 0px;      
         opacity: 1;
-        transition: opacity .2s ease-in-out,
-                    bottom .2s ease-in-out;
+        transition: opacity .3s ease-in-out,
+                    bottom 0.5s cubic-bezier(.79,.14,.15,.86); 
     }
 }
+
 
 
 

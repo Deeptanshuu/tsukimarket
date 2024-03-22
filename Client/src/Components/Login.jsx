@@ -9,7 +9,7 @@ const Login = () => {
     <div className="login-container">
       <span class="border border-dark">
 
-        <div className="col align-items-center">
+        <div className="login-box">
           <form className="form-container ">
           <h1 className='text-center fw-lighter' >LOGIN</h1>
           <div className="register-container">

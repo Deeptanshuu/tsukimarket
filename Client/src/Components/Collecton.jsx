@@ -22,18 +22,30 @@ const Collecton = () => {
             <img src="/shop/basic-banner.png" alt="basic-banner" decoding="asycn" fetchpriority="high"/>
           </div>
         </div>
-        <div className="card-container row">
-            <div className="card col-4">
-                <div className="card-img"><Link to="/showcase?id=b-2"><LazyLoadImage effect="blur" src="/shop/k-cor-cap.png" alt="img for card" loading='lazy'/></Link></div>
-                <div className="card-text"><small>Corduroy Tsuki Cap</small><Link to="/showcase?id=b-2">VIEW ITEM</Link></div>
+        <div className="product-grid">
+            <div className="product-card col-4">
+                <div className="product-status-chip" style={{ opacity: 0 }}>
+                  <h6>SOLD OUT</h6>
+                </div>
+                <div className="product-card-image"><Link to="/shop/product/showcase?id=b-2"><LazyLoadImage effect="blur" src="/shop/k-cor-cap.png" alt="img for card" loading='lazy'/></Link></div>
+                <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
+                <div className="product-card-text"><h3>Corduroy Tsuki Cap</h3><Link to="/shop/product/showcase?id=b-2">VIEW ITEM</Link></div>
             </div>
-            <div className="card col-4">
-            <div className="card-img"><Link to="/showcase?id=b-4"><LazyLoadImage effect="blur" src="/shop/basic-2.png" alt="img for card" loading='lazy'/></Link></div>
-            <div className="card-text"><small>夕焼け Sunset Glow Sweatshirt</small><Link to="/showcase?id=b-4">VIEW ITEM</Link></div>
+            <div className="product-card col-4">
+            <div className="product-status-chip" style={{ opacity: 0 }}>
+                  <h6>SOLD OUT</h6>
+              </div>
+            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-4"><LazyLoadImage effect="blur" src="/shop/basic-2.png" alt="img for card" loading='lazy'/></Link></div>
+            <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
+            <div className="product-card-text"><h3>夕焼け Sunset Glow Sweatshirt</h3><Link to="/shop/product/showcase?id=b-4">VIEW ITEM</Link></div>
             </div>
-            <div className="card col-4">
-            <div className="card-img"><Link to="/showcase?id=b-1"><LazyLoadImage effect="blur" src="/shop/basic-3.png" alt="img for card" loading='lazy'/></Link></div>
-            <div className="card-text"><small>Embroidered Logo T-shirt</small><Link to="/showcase?id=b-1">VIEW ITEM</Link></div>
+            <div className="product-card col-4">
+            <div className="product-status-chip" style={{ opacity: 0 }}>
+                  <h6>SOLD OUT</h6>
+                </div>
+            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-1"><LazyLoadImage effect="blur" src="/shop/basic-3.png" alt="img for card" loading='lazy'/></Link></div>
+            <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
+            <div className="product-card-text"><h3>Embroidered Logo T-shirt</h3><Link to="/shop/product/showcase?id=b-1">VIEW ITEM</Link></div>
             </div>
         </div>
 
@@ -49,27 +61,65 @@ const Collecton = () => {
           <img src="/shop/melts-banner.png" alt="melts-banner" loading='lazy'/>
         </div>
       </div>
-      <div className="card-container row">
-            <div className="card col-4">
-                <div className="card-img"><Link to="/showcase?id=m-1"><LazyLoadImage effect="blur"src="/shop/melt-sweat.png" alt="img for card" loading='lazy' /></Link></div>
-                <div className="card-text"><small>Melted Sweatshirt</small><Link to="/showcase?id=m-1">VIEW ITEM</Link></div>
-            </div>
-            <div className="card col-4">
-            <div className="product-status-chip" style={{ opacity: 1 }}>
-                      <h6>SOLD OUT</h6>
+      <div className="product-grid">
+    <div className="product-card col-4">
+    <div className="product-status-chip" style={{ opacity: 0 }}>
+                  <h6>SOLD OUT</h6>
                 </div>
-            <div className="card-img"><Link to="/showcase?id=m-2"><LazyLoadImage effect="blur" src="/shop/melt-pants.png" alt="img for card" loading='lazy'/></Link></div>
-            <div className="card-text"><small>Melted Sweatpants</small><Link to="/showcase?id=m-2">VIEW ITEM</Link></div>
-            </div>
-            <div className="card col-4">
-            <div className="card-img"><Link to="/showcase?id=m-4"><LazyLoadImage effect="blur" src="/shop/melt-socks.png" alt="img for card" loading='lazy' /></Link></div>
-            <div className="card-text"><small>Melted Socks</small><Link to="/showcase?id=m-4">VIEW ITEM</Link></div>
-            </div>
+        <div className="product-card-image">
+            <Link to="/shop/product/showcase?id=m-1">
+                <LazyLoadImage effect="blur" src="/shop/melt-sweat.png" alt="img for card" loading='lazy' />
+            </Link>
         </div>
+        <div className="quick-view">
+            <h1>QUICK VIEW</h1>
+        </div>
+        <div className="product-card-text">
+            <h3>Melted Sweatshirt</h3>
+            <Link to="/shop/product/showcase?id=m-1">VIEW ITEM</Link>
+        </div>
+    </div>
+
+    <div className="product-card col-4">
+        <div className="product-status-chip" style={{ opacity: 1 }}>
+            <h6>SOLD OUT</h6>
+        </div>
+        <div className="product-card-image">
+            <Link to="/shop/product/showcase?id=m-2">
+                <LazyLoadImage effect="blur" src="/shop/melt-pants.png" alt="img for card" loading='lazy'/>
+            </Link>
+        </div>
+        <div className="quick-view">
+            <h1>QUICK VIEW</h1>
+        </div>
+        <div className="product-card-text">
+            <h3>Melted Sweatpants</h3>
+            <Link to="/shop/product/showcase?id=m-2">VIEW ITEM</Link>
+        </div>
+    </div>
+
+    <div className="product-card col-4">
+    <div className="product-status-chip" style={{ opacity: 1 }}>
+                  <h6>SOLD OUT</h6>
+        </div>
+        <div className="product-card-image">
+            <Link to="/shop/product/showcase?id=m-4">
+                <LazyLoadImage effect="blur" src="/shop/melt-socks.png" alt="img for card" loading='lazy' />
+            </Link>
+        </div>
+        <div className="quick-view">
+            <h1>QUICK VIEW</h1>
+        </div>
+        <div className="product-card-text">
+            <h3>Melted Socks</h3>
+            <Link to="/shop/product/showcase?id=m-4">VIEW ITEM</Link>
+        </div>
+    </div>
+      </div>
       </div>
 
       <div className="kints" id='kints'>
-      <div className="banner row">
+        <div className="banner row">
         <div className="banner-text banner-knits col-6">
         <div className="banner-text-above-btn"><p>knits.</p></div>
           <Link to="/shop/product?category=knits">-See More-</Link>
@@ -78,27 +128,64 @@ const Collecton = () => {
           <Link to="/shop/product?category=knits"><LazyLoadImage effect="blur" src="/shop/knits-banner.png" alt="knits-banner" loading='lazy'/></Link>
         </div>
       </div>
-      <div className="card-container row">
-            <div className="card col-4">
-                <div className="product-status-chip" style={{ opacity: 1 }}>
-                      <h6>SOLD OUT</h6>
-                </div>
-                <div className="card-img"><Link to="/showcase?id=k-3"><LazyLoadImage effect="blur" src="/shop/k-beanie.png" alt="img for card" loading='lazy'/></Link></div>
-                <div className="card-text"><small>Mischief Beanie</small><Link to="/showcase?id=k-3">VIEW ITEM</Link></div>
-            </div>
-            <div className="card col-4">
 
-            <div className="card-img"><Link to="/showcase?id=k-1"><LazyLoadImage effect="blur" src="/shop/knits-2.png" alt="img for card" loading='lazy'/></Link></div>
-                <div className="card-text"><small>Tsuki すき Knit Sweater</small><Link to="/showcase?id=k-1">VIEW ITEM</Link></div>
-            </div>
-            <div className="card col-4">
+        <div className="product-grid">
+            <div className="product-card col-4">
             <div className="product-status-chip" style={{ opacity: 1 }}>
-                      <h6>SOLD OUT</h6>
+                  <h6>SOLD OUT</h6>
                 </div>
-            <div className="card-img"><Link to="/showcase?id=k-2"><img src="/shop/knits-3.png" alt="img for card" loading='lazy'/></Link></div>
-                <div className="card-text"><small>楽しい Tanoshii / 悲しみ Kanashimi Beanies</small><Link to="/showcase?id=k-2">VIEW ITEM</Link></div>
+                <div className="product-card-image">
+                    <Link to="/shop/product/showcase?id=k-3">
+                        <LazyLoadImage effect="blur" src="/shop/k-beanie.png" alt="img for card" loading="lazy" />
+                    </Link>
+                </div>
+                <div className="quick-view">
+                    <h1>QUICK VIEW</h1>
+                </div>
+                <div className="product-card-text">
+                    <h3>Mischief Beanie</h3>
+                    <Link to="/shop/product/showcase?id=k-3">VIEW ITEM</Link>
+                </div>
+            </div>
+
+            <div className="product-card col-4">
+            <div className="product-status-chip" style={{ opacity: 0 }}>
+                  <h6>SOLD OUT</h6>
+                </div>
+                <div className="product-card-image">
+                    <Link to="/shop/product/showcase?id=k-1">
+                        <LazyLoadImage effect="blur" src="/shop/knits-2.png" alt="img for card" loading="lazy" />
+                    </Link>
+                </div>
+                <div className="quick-view">
+                    <h1>QUICK VIEW</h1>
+                </div>
+                <div className="product-card-text">
+                    <h3>Tsuki すき Knit Sweater</h3>
+                    <Link to="/shop/product/showcase?id=k-1">VIEW ITEM</Link>
+                </div>
+            </div>
+
+            <div className="product-card col-4">
+                <div className="product-status-chip" style={{ opacity: 1 }}>
+                    <h6>SOLD OUT</h6>
+                </div>
+                <div className="product-card-image">
+                    <Link to="/shop/product/showcase?id=k-2">
+                        <img src="shop/knits-3.png" alt="img for card" loading="lazy" />
+                    </Link>
+                </div>
+                <div className="quick-view">
+                    <h1>QUICK VIEW</h1>
+                </div>
+                <div className="product-card-text">
+                    <h3>楽しい Tanoshii / 悲しみ Kanashimi Beanies</h3>
+                    <Link to="/shop/product/showcase?id=k-2">VIEW ITEM</Link>
+                </div>
             </div>
         </div>
+
+
       </div>
 
 

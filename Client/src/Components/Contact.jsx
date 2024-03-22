@@ -3,6 +3,7 @@ import "./Contact.css";
 
 const Contact = () => {
   return (
+    <div className="dotted-bg">
     <div className="contact-page">
       <div className="contact-text">
         <h3>Customer Support & Shipping Information</h3>
@@ -49,6 +50,7 @@ const Contact = () => {
         </small>
         <small>Happy Shopping !😊</small>
       </div>
+    </div>
     </div>
   );
 };

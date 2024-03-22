@@ -1,12 +1,18 @@
 .Toastify__toast {
     height: 60px;
     width: 320px;
-    border-radius: 0px;
+    border-radius: 5px;
     border: 1px solid black;
-    background-color: rgb(253, 220, 159);
+    background-color:  #71f0cc;
     color: rgb(0, 0, 0);
-    box-shadow: 8px 8px;
-    --toastify-color-progress-light:rgb(241, 157, 0) ;
+    box-shadow: 10px 10px;
+    --toastify-color-progress-light:rgb(235, 169, 48);
+    transition: all 0.1s ease-in-out;
+}
+
+.Toastify__toast:hover{
+    background-color:wheat ;
+    --toastify-color-progress-light: #39e6b5;
 }
 
 .Toastify__toast-body > div:last-child {
@@ -14,4 +20,20 @@
     letter-spacing: 0.1em;
   }
 
+a{
+    color: black;
+}
 
+
+.dotted-bg {
+    --dot-bg: rgb(255, 255, 255);
+    --dot-color: rgb(0, 0, 0);
+    --dot-size: 1px;
+    --dot-space: 25px;
+    background: linear-gradient(90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%) center / var(--dot-space) var(--dot-space),
+      linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%) center / var(--dot-space) var(--dot-space),
+      var(--dot-color);
+  }

@@ -8,7 +8,8 @@
         display: flex;
         justify-content: center;
         padding: 10px;
-        font-size: larger;
+        font-size: 30px;
+        font-weight: 100;
     }
 }
 
@@ -19,15 +20,19 @@
 }
 
 .defualt-search-page{
+    min-height: 80vh;
+    font-size: 20px;
     p{
         display: flex;
         justify-content: center;
-        padding: 5rem;
-        font-size: larger;
+        padding: 5rem 5rem;
+        font-weight: bolder;
     } 
 }
 
 .no-item-page{
+    min-height: 80vh;
+    font-size: 20px;
     p{
         display: flex;
         justify-content: center;
@@ -38,9 +43,12 @@
 
 .search-box{
     display: flex;
+    padding: 0.5rem;
     form{
         display: flex;
+        min-width: 350px;
         justify-content:flex-end;
+        padding: 0.5rem;
     }
     input{
         color: black;
@@ -68,14 +76,15 @@
     /*View product.css for hover child of this div*/
     display: grid;
     background-color:#ace5ee;
-    position: absolute;
-    z-index: -1;
-    bottom: 0px;
-    opacity: 0;
+    position: relative;
+    bottom: -80px;
+    z-index: 1;
     text-align: center;
     width: 100%;
     padding: 10px;
     border-top: 1px black solid;
+    transition: opacity .3s ease-in-out,
+                bottom 0.5s cubic-bezier(.79,.14,.15,.86); 
     h1{
         letter-spacing: 0.15em;
         font-weight: 100;

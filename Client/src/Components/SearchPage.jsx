@@ -74,10 +74,10 @@ const SearchPage = () => {
 
               </div>
 
-              <div className="product-card-text">
-                <div className="quick-view">
+              <div className="quick-view">
                       <h1>QUICK VIEW</h1>
                 </div>
+              <div className="product-card-text">
                 <h3>{item.name}</h3>
                 <Link to={`/showcase?id=${item.id}`} className="view-item-button">
                   -See More-

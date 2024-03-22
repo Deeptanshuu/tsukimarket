@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { GlassMagnifier} from "react-image-magnifiers";
+import { GlassMagnifier } from "react-image-magnifiers";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import QuantitySelector from "./QuatitySelector";
 import { useCart } from "./CartContext";
 import { Link, useLocation } from "react-router-dom";
@@ -19,14 +20,15 @@ const Showcase = () => {
   const allItems = Object.values(itemsData).flatMap((category) => category);
   const selectedItem = allItems.find((item) => item.id === id);
 
-
   const [mainImg, setMainImg] = useState(selectedItem.img);
+
   const handleImageClick = (imgSrc) => {
+    window.scrollTo(0, 320);
     setMainImg(imgSrc);
   };
 
   function handleAddToCart() {
-    addToCart(selectedItem);
+    addToCart(selectedItem, quantity);
     toast("Item added to your cart! ✅", {
       position: "bottom-right",
       autoClose: 3000,
@@ -52,6 +54,8 @@ const Showcase = () => {
     }
   };
 
+  //console.log(selectedItem);
+
   return (
     <div>
       <div className="header-showcase">
@@ -67,7 +71,10 @@ const Showcase = () => {
                   className="img-list-button"
                   onClick={() => handleImageClick(selectedItem[imgKey])}
                 >
-                  <img src={selectedItem[imgKey]} alt={`showcase-img-${imgKey}`} />
+                  <img
+                    src={selectedItem[imgKey]}
+                    alt={`showcase-img-${imgKey}`}
+                  />
                 </button>
               </div>
             ))}
@@ -75,16 +82,17 @@ const Showcase = () => {
 
           <div className="magnify-image-container">
             <div className="magnify-image">
-            <GlassMagnifier
-              imageSrc={mainImg}
-              imageAlt="showcase-img"
-              magnifierSize="60%"
-              magnifierBorderColor="rgba(0, 0, 0)"
-              magnifierBorderSize="1"
-            />
+              <GlassMagnifier
+                imageSrc={mainImg}
+                imageAlt="showcase-img"
+                magnifierSize="60%"
+                magnifierBorderColor="rgba(0, 0, 0)"
+                magnifierBorderSize="1"
+              />
             </div>
-            <p>made with love, <br></br>from tsuki ❤️</p>
-            
+            <p>
+              made with love, <br></br>from tsuki ❤️
+            </p>
           </div>
         </div>
 
@@ -98,7 +106,7 @@ const Showcase = () => {
           </div>
 
           <div className="showcase-text-stock">
-            <h6>{selectedItem.inStock ? "In Stock" : "Out of Stock"}</h6>
+            <h6>{selectedItem.inStock ? "In Stock ✅" : "Out of Stock ❌"}</h6>
           </div>
 
           <div class="dropdown">
@@ -171,8 +179,64 @@ const Showcase = () => {
           </div>
         </div>
 
+        <div className="more-items-cover">
+          <div className="more-items-text">
+            <h4>- Explore similar items -</h4>
+          </div>
+          <div className="more-items">
+            {allItems
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 5)
+              .map((item) => (
+                <div className="product-card" id={item.id}>
+                  <Link
+                    to={`/shop/product/showcase?id=${item.id}`}
+                    onClick={() => handleImageClick(item.img)}
+                    className="view-item-button"
+                  >
+                    <div
+                      className="product-status-chip"
+                      style={{opacity: item.inStock ? 0 : 1, }}>
+                      <h6>SOLD OUT</h6>
+                    </div>
+
+                    <div className="product-card-image">
+                      <Link
+                        to={`/shop/product/showcase?id=${item.id}`}
+                        onClick={() => handleImageClick(item.img)}
+                      >
+                        <LazyLoadImage
+                          effect="blur"
+                          src={item.img}
+                          alt="product-card-view"
+                        />
+                      </Link>
+                    </div>
+
+                    <div className="quick-view">
+                      <h1>QUICK VIEW</h1>
+                    </div>
+                    <div className="product-card-text">
+                      <h3>{item.name}</h3>
+                      <Link
+                        to={`/shop/product/showcase?id=${item.id}`}
+                        onClick={() => handleImageClick(item.img)}
+                        className="view-item-button"
+                      >
+                        - View Item -
+                      </Link>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </div>
+
         <div className="footer-showcase">
-          <Link to="/shop" className="back-to-collection-button">
+          <Link
+            to={`/shop/product?category=${selectedItem.category}`}
+            className="back-to-collection-button"
+          >
             <p>- Back to Collection -</p>
           </Link>
         </div>

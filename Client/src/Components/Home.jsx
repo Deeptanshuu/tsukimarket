@@ -29,6 +29,7 @@ const Home = () => {
     };
     img3.src = "/pic-2.png";
   }, []);
+
   const handleClick = (sectionId) => {
     return () => {
       const shopLink = "/shop"; // Replace with the actual path to your '/shop' page
@@ -68,7 +69,7 @@ const Home = () => {
                   className="btn btn-outline-light"
                   onClick={handleClick("basics")}
                 >
-                  See More
+                  Shop Now
                 </button>
               </Link>
             </div>
@@ -96,7 +97,7 @@ const Home = () => {
                   className="btn btn-outline-light"
                   onClick={handleClick("melts")}
                 >
-                  See More
+                  Shop Now
                 </button>
               </Link>
             </div>
@@ -124,7 +125,7 @@ const Home = () => {
                   className="btn btn-outline-light"
                   onClick={handleClick("kints")}
                 >
-                  See More
+                  Shop Now
                 </button>
               </Link>
             </div>

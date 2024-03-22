@@ -13,10 +13,15 @@
         letter-spacing: 0.3em;
         font-weight: bold;
     }
+    h3{
+        font-weight: 100;
+        font-size: medium;
+        padding-bottom: 0.5rem;
+    }
     
     p{
         font-weight: 100;
-        font-size: smaller
+        font-size: smaller;
     }
 }
 .icons-container{
@@ -42,4 +47,9 @@
         letter-spacing: 0.1em;
     }
 
+}
+
+.copyright{
+    display: flex;
+    gap: 30px;
 }

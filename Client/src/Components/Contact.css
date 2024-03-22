@@ -3,14 +3,6 @@
     position: relative;
     justify-content: space-evenly;
     padding: 10vh;
-    --dot-bg: rgb(255, 255, 255);
-    --dot-color: rgb(0, 0, 0);
-    --dot-size: 1px;
-    --dot-space: 25px;
-    background:
-    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
 }
 
 .contact-text{

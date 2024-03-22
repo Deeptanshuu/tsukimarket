@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = window.scrollY;
+      const shouldBeSticky = scrollHeight > 300; // Adjust the threshold as needed
+
+      setIsSticky(shouldBeSticky);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <nav className="Navbar">
@@ -50,21 +67,21 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-        <div className="Navbar-wrapper">
-          <ul className="nav-links">
-            <Link to="/login">
-              <li>| Loginコレクション | </li>
-            </Link>
-            <Link to="/">
-              <li>| Homeホームページ | </li>
-            </Link>
-            <Link to="/shop">
-              <li>| Collectionすべての商品 |</li>
-            </Link>
-            <Link to="/contact">
-              <li>| Contact usお問い合わせ |</li>
-            </Link>
-          </ul>
+        <div className={`Navbar-links-wrapper ${isSticky ? "sticky" : ""}`}>
+            <ul className="nav-links">
+              <Link to="/login">
+                <li> Loginコレクション </li>
+              </Link>
+              <Link to="/">
+                <li> Homeホームページ </li>
+              </Link>
+              <Link to="/shop">
+                <li> Collectionすべての商品 </li>
+              </Link>
+              <Link to="/contact">
+                <li> Contact usお問い合わせ </li>
+              </Link>
+            </ul>
         </div>
       </nav>
 

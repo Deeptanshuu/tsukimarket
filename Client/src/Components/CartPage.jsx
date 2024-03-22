@@ -3,9 +3,12 @@ import React from "react";
 import { useCart } from "./CartContext";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
+import QuantitySelector from "./QuatitySelector";
 
 const CartPage = () => {
   const {
+    addToCartpage,
+    subFromCartpage,
     cart,
     removeFromCart,
     calculateTotalWithTaxAndShipping,
@@ -14,6 +17,21 @@ const CartPage = () => {
     calculateTotal,
   } = useCart();
 
+  const handleIncrement = (item) => {
+    console.log(item)
+    if (item.quantity < 25) {
+    addToCartpage(item, item.quantity)
+    }
+  };
+
+
+  const handleDecrement = (item) => {
+    console.log(item)
+    if (item.quantity > 1) {
+      subFromCartpage(item, item.quantity)
+    }
+  };
+
   return (
     <>
       <div className="cart-header">
@@ -21,23 +39,32 @@ const CartPage = () => {
       </div>
 
       {cart.length === 0 ? (
-        <div className="empty-cart-message fw-bold p-5 text-center">
-          <p>Nothing in your cart....yet.</p>
+        <div className="dotted-bg">
+          <div className="empty-cart-message fw-bold p-5 text-center">
+            <p>Nothing in your cart....yet.🛒</p>
+          </div>
         </div>
       ) : (
-
         <div className="cart-wrapper">
           <div className="cart-list">
             <div className="cart-item-header">- Invoice -</div>
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
                 <div className="cart-item-details">
-                  <ul>-{item.name}-</ul>
-                  <p>| ₹{item.price} | </p>
+                  <ul>● {item.name} </ul>
                 </div>
 
                 <div className="cart-item-quantity">
-                  <p>| x {item.quantity} |</p>
+                
+                  <h5>| ₹{item.price} | </h5>
+                  
+                  <p>
+                    <QuantitySelector
+                      quantity={item.quantity}
+                      onIncrement={() => handleIncrement(item)}
+                      onDecrement={() => handleDecrement(item)}
+                    />
+                  </p>
                   <button
                     className="btn btn-outline-danger btn-lg"
                     onClick={() => removeFromCart(item)}
@@ -62,28 +89,44 @@ const CartPage = () => {
               {cart.length > 0 && (
                 <>
                   <table>
-                  <td>
-                      <tr><h5>Subtotal :</h5></tr> 
-                      
-                      <tr><h5>Total Tax (10%) :</h5></tr> 
-                        
-                      <tr><h5>Total Shipping (₹100/item) :</h5></tr> 
+                    <td>
+                      <tr>
+                        <h5>Subtotal :</h5>
+                      </tr>
 
-                      <tr><h5>Grand Total: </h5></tr>
+                      <tr>
+                        <h5>Total Tax (10%) :</h5>
+                      </tr>
 
-                  </td>
-                  <td>
+                      <tr>
+                        <h5>Total Shipping (₹100/item) :</h5>
+                      </tr>
 
-                    <tr> <h5> ₹{calculateTotal()} </h5> </tr>
+                      <tr>
+                        <h5>Grand Total: </h5>
+                      </tr>
+                    </td>
+                    <td>
+                      <tr>
+                        {" "}
+                        <h5> ₹{calculateTotal()} </h5>{" "}
+                      </tr>
 
-                    <tr> <h5> ₹{calculateTax()} </h5> </tr>
+                      <tr>
+                        {" "}
+                        <h5> ₹{calculateTax()} </h5>{" "}
+                      </tr>
 
-                    <tr> <h5> ₹{calculateShipping()} </h5> </tr>
+                      <tr>
+                        {" "}
+                        <h5> ₹{calculateShipping()} </h5>{" "}
+                      </tr>
 
-                    <tr> <h5> ₹{calculateTotalWithTaxAndShipping()} </h5> </tr>
-
-                  </td>
-
+                      <tr>
+                        {" "}
+                        <h5> ₹{calculateTotalWithTaxAndShipping()} </h5>{" "}
+                      </tr>
+                    </td>
                   </table>
                   <button className="btn btn-outline-dark btn-lg">
                     Proceed to Checkout
@@ -93,7 +136,6 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-
       )}
 
       <div

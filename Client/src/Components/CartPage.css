@@ -13,12 +13,26 @@
     }
 }
 
+
+.empty-cart-message{
+    min-height: 45vh;
+    background-color: #a2e0ce;
+    border-bottom: 1px solid black;
+    p{
+        scale: 1.1;
+        font-weight: 600;
+        font-size: larger;
+        letter-spacing: 0.3rem;
+        margin-top: 5rem;
+    }
+}
+
 .cart-wrapper{
     display: flex;
     justify-content: center;
     --dot-bg: #ffffff;
     --dot-color: rgb(0, 0, 0);
-    --dot-size: 1.5px;
+    --dot-size: 1px;
     --dot-space: 25px;
     background:
     linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
@@ -29,8 +43,8 @@
 .cart-item{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding: 1px;
+    justify-content: space-between;
+    padding: 10px;
     margin-top: 50px;
     font-weight: 100;
     margin-bottom: 50px;
@@ -51,31 +65,35 @@
     --background-color: aquamarine;
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding-top: 20px;
     ul{
-        padding: 10px;
+        margin-left: 50px;
         font-size: larger;
+        font-weight: 500;
+        text-decoration: underline;
     }
-    p{
-        font-size: larger;
-        padding: 10px;
-    }
+}
+
+.quantity-box{
+    margin-right: 5px;
+    margin-top: 22px;
+    min-height: 25px;
+    background-color: #ffffff;
 }
 
 .cart-item-quantity{
     --background-color: rgb(68, 170, 170);
     display: flex;
     flex-direction: row;
-    justify-self: flex-end;
-    padding: 10px 10px;
+    justify-content: space-around;
     letter-spacing: 0.1em;
-    P{
-        font-size: larger;
-        margin-top: 10px; 
+    scale: 0.9;
+    h5{
+        padding: 25px;
     }
     .btn{
-        padding: 10px;
-        margin-left: 15px;
+        padding: 18px;
+        margin-left: 25px;
         margin-bottom: 20px;
         margin-top: 10px;
         border-radius: 0px;
@@ -83,7 +101,7 @@
     }
     svg{
         display: flex;
-        margin: 0px;
+        scale: 1.2;
     }
 }
 

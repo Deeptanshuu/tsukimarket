@@ -30,16 +30,18 @@
     }
   }
 
+
   .form-container {
     display: grid;
     background-color: rgba(245, 222, 179, 0.74);
-    padding: 10vh;
-    min-width: 35vw;
+    box-shadow: 25px 25px;
+    padding: 7rem;
+    min-width: 550px;
+    max-width: 550px;
     justify-content: center;
     button{
-      border: solid;
-      border-radius: 0;
-      border-width: 1px;
+      border: 1px solid black;
+      border-radius: 0%;
     }
   }
   
@@ -48,9 +50,9 @@
     min-width: 20vw;
     align-items: center;
   }
-
+  
   .form-control{
-    border: var(--bs-border-width) solid #000;
-    border-radius: 0;
+    border: 1px solid #000;
+    border-radius: 0px;
   }
 
