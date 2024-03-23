@@ -17,6 +17,7 @@ import Showcase from './Components/Showcase';
 import SearchPage from './Components/SearchPage';
 import CartPage from './Components/CartPage';
 import LoadingScreen from './Components/LoadingScreen';
+import UserPage from './Components/UserPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -79,6 +80,7 @@ function App() {
           <Route path='/shop/product/showcase' element={<Showcase/>}></Route>
           <Route path='/cart' element={<CartPage/>}></Route>
           <Route path='/search' element={<SearchPage/>}></Route>
+          <Route path='/user' element={<UserPage/>}></Route>
         </Routes>
         )}
       </Router>

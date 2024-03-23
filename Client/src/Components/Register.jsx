@@ -19,8 +19,7 @@ const Register = () => {
       if(response.data){      
         // Handle successful login (e.g., redirect to dashboard)
         toast.success('Sign up successful!');
-        //localStorage.setItem('status', response.data);
-        //window.location.href = '/users';
+        window.location.href = '/login';
       }
     } 
     catch (error) {

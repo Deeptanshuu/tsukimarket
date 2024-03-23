@@ -41,7 +41,9 @@ const NavBar = () => {
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
             </svg>
             </Link>
-            <Link to="/register">
+
+            {localStorage.getItem('userData') ? (
+              <Link to="/user"> 
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -52,7 +54,24 @@ const NavBar = () => {
             >
               <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
             </svg>
-            </Link>
+            </Link> 
+            ) : (
+              <Link to="/login">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-person-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+            </svg>
+            </Link> 
+            )}
+
+
+
             <Link to="/cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,9 +88,15 @@ const NavBar = () => {
         </div>
         <div className={`Navbar-links-wrapper ${isSticky ? "sticky" : ""}`}>
             <ul className="nav-links">
-              <Link to="/login">
-                <li> Loginコレクション </li>
-              </Link>
+              {localStorage.getItem('userData') ? (
+                <Link to="/user">
+                  <li>My Account 私のアカウント</li>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <li> Loginコレクション </li>
+                </Link>
+              )}
               <Link to="/">
                 <li> Homeホームページ </li>
               </Link>

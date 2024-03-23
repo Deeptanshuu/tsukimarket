@@ -15,16 +15,14 @@ exports.login = async (req, res) => {
         const user = await collection.findOne({ username });
 
         if (user && user.password === password) {
-            const userData = {
+            const UserData ={
                 username: user.username,
                 email: user.email,
-                _id: user._id
+                id: user._id
             }
-            console.log(userData);
-            return res.status(200).send('Login successful');
-
+            return res.status(200).send(JSON.stringify(UserData));
         } else {
-            return res.status(401).send('Invalid username or password');
+            return res.status(401).send('Invalid credentials. Try again');
         }
     } catch (error) {
         console.error('Error during login:', error);
@@ -40,7 +38,7 @@ exports.signup = async (req, res) => {
 
     // Function to check if an email is valid
     function isValidEmail(email) {
-    return emailRegex.test(email);
+        return emailRegex.test(email);
     }
 
     if (!username || !password || !email) {
@@ -60,7 +58,7 @@ exports.signup = async (req, res) => {
         const existingUser = await collection.findOne({ $or: [{ username }, { email }] });
 
         if (existingUser) {
-            return res.status(400).send('An account with this username or email already exists');
+            return res.status(400).send('Account already exists');
         }
         // Insert the new user into the database
         await collection.insertOne({ username, password, email });
