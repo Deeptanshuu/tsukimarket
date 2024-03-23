@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const [username, setusername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const response = await axios.post('http://localhost:8181/auth/login', { username, password });
+      //console.log(response.data);// Assuming the backend sends back a response upon successful login
+      if(response.data){      
+        // Handle successful login (e.g., redirect to dashboard)
+        toast.success('Login successful!');
+        //localStorage.setItem('status', response.data);
+        //window.location.href = '/users';
+      }
+    } 
+    catch (error) {
+      console.error('Login failed:', error.response.data);
+      toast.error(error.response.data);
+  
+      // Handle login failure (e.g., show error message to user)
+    }
+  };
   return (
     <>
     <div className="dotted-bg">
@@ -16,24 +42,28 @@ const Login = () => {
             <h6>Don't Have an account ? <Link to='/register'>Sign up here.</Link></h6>
             </div>
               <div className="form-group fw-bold">
-                <label htmlFor="email">Email address</label>
+                <label htmlFor="usenmane">Username</label>
                 <input
-                  type="email"
-                  name="email"
+                  type="username"
+                  name="username"
                   className="form-control"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter your Email"
+                  id="username"
+                  aria-describedby="usernameHelp"
+                  placeholder="Enter your username"
+                  value={username}
+                  onChange={(e) => setusername(e.target.value)}
                 />
               </div>
               <div className="form-group fw-bold">
                 <label htmlFor="password">Password</label>
                 <input
-                  type="password"
+                  type="text"
                   name="password"
                   className="form-control"
                   id="password"
                   placeholder="Enter your Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="forgot-container">
@@ -41,7 +71,7 @@ const Login = () => {
             </div>
 
               <div className="d-grid  col-8 mx-auto">
-                  <button className="btn btn-outline-dark" type="button">Login</button>
+                  <button className="btn btn-outline-dark" type="button" onClick={handleSubmit}>Login</button>
                 </div>
 
 
