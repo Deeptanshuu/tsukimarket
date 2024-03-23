@@ -17,7 +17,8 @@ const Login = () => {
       //console.log(response.data);// Assuming the backend sends back a response upon successful login
       if(response.data){      
         // Handle successful login (e.g., redirect to dashboard)
-        toast.success('Login successful!');
+        toast.success(response.data);
+
         //localStorage.setItem('status', response.data);
         //window.location.href = '/users';
       }

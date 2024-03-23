@@ -5,7 +5,7 @@ exports.login = async (req, res) => {
     const { username, password } = req.body;
 
     if(!username || !password) {
-        return res.status(400).send('Please provide all required fields');
+        return res.status(400).send('Please fill all required fields');
     }
 
     const db = client.db("Tsuki");
@@ -15,7 +15,14 @@ exports.login = async (req, res) => {
         const user = await collection.findOne({ username });
 
         if (user && user.password === password) {
+            const userData = {
+                username: user.username,
+                email: user.email,
+                _id: user._id
+            }
+            console.log(userData);
             return res.status(200).send('Login successful');
+
         } else {
             return res.status(401).send('Invalid username or password');
         }
@@ -50,10 +57,10 @@ exports.signup = async (req, res) => {
 
     try {
         // Check if the username or email already exists
-        const existingUser = await collection.findOne({ $or: [ { email }] });
+        const existingUser = await collection.findOne({ $or: [{ username }, { email }] });
 
         if (existingUser) {
-            return res.status(400).send('An account with this email already exists');
+            return res.status(400).send('An account with this username or email already exists');
         }
         // Insert the new user into the database
         await collection.insertOne({ username, password, email });
