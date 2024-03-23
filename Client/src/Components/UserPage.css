@@ -2,5 +2,54 @@
     display: flex;
     justify-content: space-between;
     align-items:center;
-    padding: 10em;
+    padding: 8em;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid black;
+    padding: 5rem;
+    margin: 1rem 1rem;
+    ul{
+        list-style-type: none;
+        font-size: larger;
+        font-weight: 500;
+        text-align: center;
+        li{
+            margin: 1rem 1rem;
+            letter-spacing : 0.2rem;
+        }
+    }
+    a:hover{
+        font-weight: bold;
+    }
+}
+
+#logout{
+    border-radius: 0%;
+    width: 120px;
+}
+
+.user-details{
+    padding-left: 5rem;
+    font-size: larger;
+    margin-bottom: 20rem;
+    letter-spacing : 0.2rem;
+    h1{
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing : 0.5rem;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid black;
+        width: 80%;
+    }
+    svg{
+        border: 2px solid black;
+        border-radius: 50%;
+    }
+
+
 }

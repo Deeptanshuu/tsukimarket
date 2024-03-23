@@ -19,9 +19,8 @@ const Login = () => {
         // Handle successful login (e.g., redirect to dashboard)
         toast.success('Login successful!');
 
-        const userData = JSON.stringify(response.data);
-        localStorage.setItem('userData', userData);
         //console.log(response.data);
+        localStorage.setItem('token', JSON.stringify(response.data));
         window.location.href = '/user';
       }
     } 

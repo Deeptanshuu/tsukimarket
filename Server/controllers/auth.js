@@ -1,4 +1,6 @@
 const { client } = require("../controllers/db");
+const jwt = require("jsonwebtoken");
+
 
 // Function to handle login form submission
 exports.login = async (req, res) => {
@@ -15,12 +17,15 @@ exports.login = async (req, res) => {
         const user = await collection.findOne({ username });
 
         if (user && user.password === password) {
-            const UserData ={
+            const userdata = {
                 username: user.username,
                 email: user.email,
                 id: user._id
-            }
-            return res.status(200).send(JSON.stringify(UserData));
+            };
+            //console.log(process.env.JWT_KEY);
+            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1h' });
+            return res.status(200).send(token);
+
         } else {
             return res.status(401).send('Invalid credentials. Try again');
         }

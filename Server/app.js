@@ -3,9 +3,12 @@ const cors = require("cors");
 const PORT = 8181;
 const { connect } = require("./controllers/db");
 const dbroutes = require("./routes/items");
-const authroutes = require("./routes/authroutes")
-
+const authroutes = require("./routes/authroutes");
 const app = express();
+const cookieParser = require('cookie-parser');
+const dotenv = require("dotenv");
+dotenv.config({path: './.env' });
+
 
 // Allow requests from the frontend application at http://localhost:3000
 app.use(cors({ origin: 'http://localhost:3000' }));
@@ -13,6 +16,8 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 // Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // Parse JSON bodies
+app.use(cookieParser());
+
 
 app.use("/db", dbroutes); 
 app.use("/auth", authroutes);

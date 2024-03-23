@@ -42,7 +42,7 @@ const NavBar = () => {
             </svg>
             </Link>
 
-            {localStorage.getItem('userData') ? (
+            {localStorage.getItem('token') ? (
               <Link to="/user"> 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const NavBar = () => {
         </div>
         <div className={`Navbar-links-wrapper ${isSticky ? "sticky" : ""}`}>
             <ul className="nav-links">
-              {localStorage.getItem('userData') ? (
+              {localStorage.getItem('token') ? (
                 <Link to="/user">
                   <li>My Account 私のアカウント</li>
                 </Link>
