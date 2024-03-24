@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setusername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,13 +17,13 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:8181/auth/login', { username, password });
       //console.log(response.data);// Assuming the backend sends back a response upon successful login
+      
       if(response.data){      
-        // Handle successful login (e.g., redirect to dashboard)
-        toast.success('Login successful!');
-
         //console.log(response.data);
         localStorage.setItem('token', JSON.stringify(response.data));
-        window.location.href = '/user';
+        navigate('/user');
+        // Handle successful login (e.g., redirect to dashboard)
+        toast.success('Login successful!');
       }
     } 
     catch (error) {

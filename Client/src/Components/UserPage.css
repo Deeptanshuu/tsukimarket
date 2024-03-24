@@ -12,6 +12,7 @@
     border-right: 1px solid black;
     padding: 5rem;
     margin: 1rem 1rem;
+    margin-bottom: 18rem;
     ul{
         list-style-type: none;
         font-size: larger;
@@ -32,11 +33,19 @@
     width: 120px;
 }
 
+.user-header{
+    display: flex;
+    flex-direction: row;
+}
+
 .user-details{
+    display: flex;
+    flex-direction: column !important;
     padding-left: 5rem;
     font-size: larger;
     margin-bottom: 20rem;
     letter-spacing : 0.2rem;
+    --background-color: aqua;
     h1{
         font-size: 2rem;
         font-weight: 800;
@@ -44,12 +53,32 @@
         padding-bottom: 1rem;
         margin-bottom: 2rem;
         border-bottom: 1px solid black;
-        width: 80%;
     }
     svg{
+        margin-left: 10rem ;
+        scale: 0.7;
         border: 2px solid black;
         border-radius: 50%;
     }
 
+}
 
+.details-page{
+    --background-color: wheat;
+    padding-right: 50rem;
+    font-size: larger;
+    letter-spacing : 0.2rem;
+    p{
+        letter-spacing: 0.1rem;
+        font-size: large;
+    }
+}
+
+#edit{
+    border-radius: 0%;
+    left: 15rem;
+}
+
+#address,#phone{
+    margin-right: -10rem;
 }

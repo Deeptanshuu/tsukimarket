@@ -20,10 +20,12 @@ exports.login = async (req, res) => {
             const userdata = {
                 username: user.username,
                 email: user.email,
-                id: user._id
+                id: user._id,
+                phone: user.phone,
+                address: user.address
             };
             //console.log(process.env.JWT_KEY);
-            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1h' });
+            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1d' });
             return res.status(200).send(token);
 
         } else {

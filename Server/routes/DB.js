@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 //const fs = require('fs');
 const { client } = require("../controllers/db");
+const userdata = require("../controllers/userdata");
 
 router.get("/items", async (req, res) => {
   try {
@@ -20,5 +21,9 @@ router.get("/items", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+router.post('/user_phone', userdata.userphone);
+router.post('/user_address', userdata.useraddress);
+
 
 module.exports = router;
