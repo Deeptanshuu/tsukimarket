@@ -38,7 +38,7 @@ const UserPage = () => {
         toast.success('Address added successfully!');
         localStorage.clear('token');
         localStorage.setItem('token', JSON.stringify(response.data));
-        window.location.reload();
+        navigate('/user');
         // Update local storage or state with new token if needed
       }
     } catch (error) {
@@ -65,7 +65,7 @@ const UserPage = () => {
         toast.success('Phone added successfully!');
         localStorage.removeItem('token'); // Remove the existing token
         localStorage.setItem('token', JSON.stringify(response.data));
-        window.location.reload();
+        navigate('/user');
         // Update local storage or state with new token if needed
       }
     } catch (error) {
