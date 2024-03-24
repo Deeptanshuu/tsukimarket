@@ -21,12 +21,18 @@
         font-weight: 500;
         text-align: center;
         li{
-            margin: 1rem 1rem;
+            margin: 20px 0;
+            padding: 8px ;
             letter-spacing : 0.2rem;
+            transition: all 0.3s 0.1s cubic-bezier(.79,.14,.15,.86);
         }
-    }
-    a:hover{
-        font-weight: bold;
+        li:hover{
+            scale: 1.1;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: wheat;
+            box-shadow: 10px 10px black;
+        }
     }
 }
 
@@ -74,9 +80,10 @@
 
 .details-page{
     --background-color: wheat;
-    padding-right: 50rem;
+    padding-right: 20rem;
     font-size: larger;
     letter-spacing : 0.2rem;
+    max-width: 50rem;
     p{
         letter-spacing: 0.1rem;
         font-size: large;
@@ -85,7 +92,7 @@
 
 #edit{
     border-radius: 0%;
-    left: 15rem;
+    left: 25rem;
 }
 
 #address,#phone{

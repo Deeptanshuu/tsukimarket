@@ -9,13 +9,15 @@ const UserPage = () => {
 
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [edit_phone, setEdit_phone] = useState(false);
+  const [edit_address, setEdit_address] = useState(false);
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
 
   if (!token || isExpired(token)) {
     localStorage.removeItem("token");
     toast.error("Session expired. Please login again.");
-    navigate("/login");
+    window.location.replace("/login");
     return null;
   }
 
@@ -38,7 +40,7 @@ const UserPage = () => {
         toast.success('Address updated successfully!');
         localStorage.clear('token');
         localStorage.setItem('token', JSON.stringify(response.data));
-        navigate('/user');
+        window.location.reload();
         // Update local storage or state with new token if needed
       }
     } catch (error) {
@@ -65,7 +67,7 @@ const UserPage = () => {
         toast.success('Phone updated successfully!');
         localStorage.removeItem('token'); // Remove the existing token
         localStorage.setItem('token', JSON.stringify(response.data));
-        navigate('/user');
+        window.location.reload();
         // Update local storage or state with new token if needed
       }
     } catch (error) {
@@ -94,7 +96,7 @@ const UserPage = () => {
               <li>
                 <Link to="/user">Change password</Link>
               </li>
-              <li>
+
                 <button
                   type="button"
                   class="btn btn-outline-danger"
@@ -102,12 +104,12 @@ const UserPage = () => {
                   onClick={() => {
                     localStorage.removeItem("token");
                     toast.success("Logged out successfully!");
-                    navigate("/login");
+                    navigate("/");
                   }}
                 >
                   Log out
                 </button>
-              </li>
+
             </ul>
           </div>
 
@@ -134,34 +136,23 @@ const UserPage = () => {
             </div>
 
             <div className="details-page">
-              <h4>Welcome,</h4>
-              <p><b>{UserData.username}</b></p> <br />
+              <h4><b>Welcome,</b></h4>
+              <h4>{UserData.username}</h4> <br />
               <h4>Email:</h4>
               <p>{UserData.email}</p> <br />
-              {UserData.phone ? (
+              {UserData.phone && !edit_phone ? (
                 <>
                   <h4>Phone Number:</h4>
                   <form className="d-inline">
                     <div className="input-group mb-3">
-                      <input
-                        id="phone"
-                        type="text"
-                        className="form-control"
-                        placeholder={`${UserData.phone}`}
-                        aria-label="Mobile Number"
-                        aria-describedby="basic-addon2"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                      />
-                      <div className="input-group-append">
+                    <p>{UserData.phone}</p> <br />
+                    <div className="input-group-append">
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
-                          onClick={handle_phoneSubmit}
-                        >
-                          {" "}
-                          ✏️{" "}
+                          onClick={() => setEdit_phone(!edit_phone)}
+                        > ✏️
                         </button>
                       </div>
                     </div>
@@ -189,9 +180,7 @@ const UserPage = () => {
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={handle_phoneSubmit}
-                        >
-                          {" "}
-                          ✏️{" "}
+                        >Submit
                         </button>
                       </div>
                     </div>
@@ -200,30 +189,19 @@ const UserPage = () => {
                 </>
               )}
 
-              {UserData.address ? (
+              {UserData.address && !edit_address ? (
                 <>
                   <h4>Address:</h4>
                   <form className="d-inline">
                     <div className="input-group mb-3">
-                      <input
-                        id="address"
-                        type="text"
-                        className="form-control"
-                        placeholder={`${UserData.address}`}
-                        aria-label="Mobile Number"
-                        aria-describedby="basic-addon2"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      />
+                    <p>{UserData.address}</p> <br />
                       <div className="input-group-append">
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
-                          onClick={handle_addressSubmit}
-                        >
-                          {" "}
-                          ✏️{" "}
+                          onClick={() => setEdit_address(!edit_address)}
+                        >  ✏️ 
                         </button>
                       </div>
                     </div>
@@ -251,9 +229,7 @@ const UserPage = () => {
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={handle_addressSubmit}
-                        >
-                          {" "}
-                          ✏️{" "}
+                        >Submit
                         </button>
                       </div>
                     </div>
