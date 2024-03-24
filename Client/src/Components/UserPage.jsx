@@ -35,7 +35,7 @@ const UserPage = () => {
       console.log(response);
 
       if (response.data) {
-        toast.success('Address added successfully!');
+        toast.success('Address updated successfully!');
         localStorage.clear('token');
         localStorage.setItem('token', JSON.stringify(response.data));
         navigate('/user');
@@ -62,7 +62,7 @@ const UserPage = () => {
       console.log(response);
 
       if (response.data) {
-        toast.success('Phone added successfully!');
+        toast.success('Phone updated successfully!');
         localStorage.removeItem('token'); // Remove the existing token
         localStorage.setItem('token', JSON.stringify(response.data));
         navigate('/user');
@@ -135,7 +135,7 @@ const UserPage = () => {
 
             <div className="details-page">
               <h4>Welcome,</h4>
-              <p>{UserData.username}</p> <br />
+              <p><b>{UserData.username}</b></p> <br />
               <h4>Email:</h4>
               <p>{UserData.email}</p> <br />
               {UserData.phone ? (
