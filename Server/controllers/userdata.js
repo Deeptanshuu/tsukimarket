@@ -13,6 +13,8 @@ exports.userphone = async (req, res) => {
         if (!phone) return res.status(400).send('Phone number is required');
         
         // Your phone number validation logic here
+        const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
+        if (!phoneRegex.test(phone)) return res.status(400).send('Invalid phone number');
 
         const db = client.db("Tsuki");
         const collection = db.collection("Users");
@@ -57,10 +59,6 @@ exports.useraddress = async (req, res) => {
 
         if (!address) return res.status(400).send('Address is required');
 
-        const addressRegex = /^[a-zA-Z0-9 ,.-]+$/g;
-        if(!addressRegex.test(address)) {
-            return res.status(400).send('Invalid address');
-        }
 
         const db = client.db("Tsuki");
         const collection = db.collection("Users");

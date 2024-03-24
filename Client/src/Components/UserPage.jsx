@@ -141,7 +141,32 @@ const UserPage = () => {
               {UserData.phone ? (
                 <>
                   <h4>Phone Number:</h4>
-                  <p>{UserData.phone}</p> <br />
+                  <form className="d-inline">
+                    <div className="input-group mb-3">
+                      <input
+                        id="phone"
+                        type="text"
+                        className="form-control"
+                        placeholder={`${UserData.phone}`}
+                        aria-label="Mobile Number"
+                        aria-describedby="basic-addon2"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
+                      <div className="input-group-append">
+                        <button
+                          id="edit"
+                          className="btn btn-outline-dark"
+                          type="button"
+                          onClick={handle_phoneSubmit}
+                        >
+                          {" "}
+                          ✏️{" "}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <br />
                 </>
               ) : (
                 <>
@@ -178,7 +203,32 @@ const UserPage = () => {
               {UserData.address ? (
                 <>
                   <h4>Address:</h4>
-                  <p>{UserData.address}</p> <br />
+                  <form className="d-inline">
+                    <div className="input-group mb-3">
+                      <input
+                        id="address"
+                        type="text"
+                        className="form-control"
+                        placeholder={`${UserData.address}`}
+                        aria-label="Mobile Number"
+                        aria-describedby="basic-addon2"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                      />
+                      <div className="input-group-append">
+                        <button
+                          id="edit"
+                          className="btn btn-outline-dark"
+                          type="button"
+                          onClick={handle_addressSubmit}
+                        >
+                          {" "}
+                          ✏️{" "}
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                  <br />
                 </>
               ) : (
                 <>
