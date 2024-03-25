@@ -12,33 +12,37 @@
     border: 1px solid black;    
     padding: 2rem;
     margin-bottom: 30rem;
+    margin-left: 10rem;
     background-color:#a2e0ce;
     box-shadow: 20px 20px black;
-    max-width: 30rem;
+    max-width: 25rem;
     ul{
         list-style-type: none;
         font-size: larger;
-        font-weight: 500;
+        font-weight: 200;
         text-align: center;
+        padding: 0.5%;
         li{
-            margin: 20px 0;
+            margin-bottom: 10px;
             padding: 8px ;
             letter-spacing : 0.2rem;
-            transition: all 0.3s 0.1s cubic-bezier(.79,.14,.15,.86);
+            border-radius: 20px;
+            transition: all 0.2s 0.1s ease-in-out;
         }
         li:hover{
             scale: 1.1;
             border: 1px solid black;
             border-radius: 20px;
-            background-color: wheat;
+            background-color:#f7e5c3;
             box-shadow: 10px 10px black;
         }
     }
 }
 
 #logout{
+    margin-top: 1rem;
     border-radius: 0%;
-    width: 120px;
+    width: 180px;
 }
 
 .user-header{
@@ -53,9 +57,10 @@
     padding: 5rem;
     font-size: larger;
     margin-bottom: 10rem;
-    max-width: 60vw;
+    margin-right: 8rem;
+    max-width: 50vw;
     letter-spacing: 0.2rem;
-    background-color: wheat;
+    background-color: #f7e5c3;
     border: 1px solid black;
     box-shadow: 20px 20px black;
     b{
@@ -84,7 +89,7 @@
     padding-right: 8rem;
     font-size: larger;
     letter-spacing : 0.2rem;
-    max-width: 50rem;
+    max-width: 40rem;
     p{
         letter-spacing: 0.1rem;
         font-size: large;
