@@ -85,7 +85,7 @@ const UserPage = () => {
           <div className="sidebar col-4">
             <ul>
               <li>
-                <Link to="/user">My Account</Link>
+                <a href="/user">My Account</a>
               </li>
               <li>
                 <Link to="/user">Orders History</Link>
@@ -144,7 +144,7 @@ const UserPage = () => {
                 <>
                   <h4>Phone Number:</h4>
                   <form className="d-inline">
-                    <div className="input-group mb-3">
+                    <div className="input-group ">
                     <p>{UserData.phone}</p> <br />
                     <div className="input-group-append">
                         <button
@@ -163,7 +163,7 @@ const UserPage = () => {
                 <>
                   <h4>Phone Number:</h4>
                   <form className="d-inline">
-                    <div className="input-group mb-3">
+                    <div className="input-group ">
                       <input
                         id="phone"
                         type="text"

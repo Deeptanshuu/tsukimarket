@@ -2,8 +2,10 @@
 import React from "react";
 import { useCart } from "./CartContext";
 import "./CartPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import QuantitySelector from "./QuatitySelector";
+import { toast } from "react-toastify";
+import {loadStripe} from '@stripe/stripe-js';
 
 const CartPage = () => {
   const {
@@ -17,9 +19,11 @@ const CartPage = () => {
     calculateTotal,
   } = useCart();
 
+  const navigate = useNavigate();
+
   const handleIncrement = (item) => {
     console.log(item)
-    if (item.quantity < 25) {
+    if (item.quantity < 10) {
     addToCartpage(item, item.quantity)
     }
   };
@@ -30,6 +34,46 @@ const CartPage = () => {
     if (item.quantity > 1) {
       subFromCartpage(item, item.quantity)
     }
+  };
+
+  const makePayment = async () => {
+    const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+    
+    const body = {
+      cart: localStorage.getItem("cart")
+    }
+
+    const header ={
+      "Content-Type":"application/json",
+    }
+
+    const response = await fetch("http://localhost:8181/db/payment", {
+      method: "POST",  
+      headers: header,
+      body: JSON.stringify(body),
+    })
+
+    const Session = await response.json();
+    const stripe = await stripePromise;
+    
+    const result = await stripe.redirectToCheckout({
+      sessionId: Session.id
+    });
+    
+    if (result.error) {
+      console.log(result.error.message);
+      toast.error(result.error.message);
+    }
+  };
+
+  const handleCheckout = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return null;
+    }
+    makePayment();
   };
 
   return (
@@ -128,7 +172,7 @@ const CartPage = () => {
                       </tr>
                     </td>
                   </table>
-                  <button className="btn btn-outline-dark btn-lg">
+                  <button className="btn btn-outline-dark btn-lg" onClick={handleCheckout}>
                     Proceed to Checkout
                   </button>
                 </>
