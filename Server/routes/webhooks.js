@@ -1,18 +1,3 @@
-// server.js
-//
-// Use this sample code to handle webhook events in your integration.
-//
-// 1) Paste this code into a new file (server.js)
-//
-// 2) Install dependencies
-//   npm install stripe
-//   npm install express
-//
-// 3) Run the server on http://localhost:4242
-//   node server.js
-
-// The library needs to be configured with your account's secret key.
-// Ensure the key is kept out of any version control system you might be using.
 const dotenv = require('dotenv');
 dotenv.config({path: './.env'});
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);

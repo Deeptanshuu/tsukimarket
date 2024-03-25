@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Success.css";
-import { toast,ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 
 const Success = () => {
@@ -22,7 +22,6 @@ const Success = () => {
   return (
     <>
     <div className="dotted-bg">
-      <ToastContainer limit={1} />
       <div className="success-container">
       <h1>Payment Successful</h1>
 

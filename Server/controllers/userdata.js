@@ -91,5 +91,34 @@ exports.useraddress = async (req, res) => {
     }
 }
 
+exports.orderhistory = async (req, res) => {
+    const token = req.body.token;
+    if (!token) return res.status(401).send('Missing token');
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_KEY);
+        const db = client.db("Tsuki");
+        const collection = db.collection("Order");
+        const user = await collection.find({ customer: decoded.username, customer_email: decoded.email }).toArray();
+        if (!user) {
+            return res.status(400).send('You have no order history');
+        }
+        const order = user.map((item) => ({
+            id: item._id,
+            name: item.customer,
+            item: item.order,
+            quantity: item.quantity,
+            price: item.price,
+            date: item.date
+        }));
+        return res.status(200).send(order);
+
+    } catch (error) {
+        console.error(error);
+        return res.status(401).send('Invalid token');
+    }
+}
+
+    
 
 

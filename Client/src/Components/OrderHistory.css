@@ -1,0 +1,49 @@
+.order-history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    .order-history-header {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        padding: 1.5rem ;
+        padding-top: 0%;
+        border-bottom:1px solid black;
+        h1{
+            font-size: 3rem;
+            font-weight: 100;
+            letter-spacing: 0.15rem;
+        }
+    }
+}
+
+.order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 50px;
+    border: 1px solid black;
+    border-top: 0cap;
+    background-color: wheat;
+    box-shadow: 15px 15px black;
+    font-size: large;
+    min-width: 50vh;
+    h3{
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: 0.15rem;
+        text-decoration: underline;
+    }
+    li{        
+        display: grid;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+}
+
+.item-details{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}

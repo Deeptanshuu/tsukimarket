@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { toast,ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './Cancel.css';
 
 const Cancel = () => {
@@ -12,7 +12,6 @@ const Cancel = () => {
   return (
     <>
     <div className="dotted-bg">
-      <ToastContainer limit={1} />
       <div className="cancel-container">
       <h1>Transaction Cancelled</h1>
 

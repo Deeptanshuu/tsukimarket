@@ -36,13 +36,38 @@ exports.makePayment = async (req, res) => {
         cancel_url: "http://localhost:3000/cancel",
     });
 
-    console.log(session);
+    //console.log(session);
 
     const order = cart.map((item) => ({
         item: item.name,
         quantity: item.quantity,
         price: item.price,
     }));
+    
+    console.log(order);
+    console.log(session.payment_status);
+    
+
+    try {
+        const db = client.db("Tsuki");
+        const Order = db.collection("Order");
+        
+        const decoded = jwt.verify(token, process.env.JWT_KEY);
+
+        const date = new Date();
+        await Order.insertOne({
+            customer: decoded.username,
+            customer_email: decoded.email,
+            order: order,
+            status: session.payment_status,
+            date: date.toLocaleString(),
+        });
+
+    } catch (error) {
+        console.error("Error inserting order into database:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+
     
 
     res.json({ id: session.id });

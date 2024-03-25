@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-//const fs = require('fs');
 const { client } = require("../controllers/db");
 const userdata = require("../controllers/userdata");
 const payment = require("../controllers/payment");
@@ -25,8 +24,11 @@ router.get("/items", async (req, res) => {
 
 router.post('/user_phone', userdata.userphone);
 router.post('/user_address', userdata.useraddress);
+router.post('/order_history', userdata.orderhistory);
 
 router.post('/payment', payment.makePayment);
+
+
 
 
 module.exports = router;

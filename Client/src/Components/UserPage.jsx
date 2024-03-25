@@ -88,7 +88,7 @@ const UserPage = () => {
                 <a href="/user">My Account</a>
               </li>
               <li>
-                <Link to="/user">Orders History</Link>
+                <Link to="/order_history">Orders History</Link>
               </li>
               <li>
                 <Link to="/cart">Cart</Link>
