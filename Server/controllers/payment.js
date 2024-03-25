@@ -1,12 +1,17 @@
-const Stripe = require("stripe");
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
+const Stripe = require("stripe");
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const jwt = require("jsonwebtoken");
+const { client } = require("../controllers/db");
+
+
 
 exports.makePayment = async (req, res) => {
     //console.log(req.body);
 
     const cart = JSON.parse(req.body.cart);
+    const token = JSON.parse(req.body.token);
 
     const lineitems = cart.map((item) => {
         return {
@@ -30,6 +35,15 @@ exports.makePayment = async (req, res) => {
         success_url: "http://localhost:3000/success",
         cancel_url: "http://localhost:3000/cancel",
     });
+
+    console.log(session);
+
+    const order = cart.map((item) => ({
+        item: item.name,
+        quantity: item.quantity,
+        price: item.price,
+    }));
+    
 
     res.json({ id: session.id });
 }

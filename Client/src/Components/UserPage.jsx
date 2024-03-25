@@ -175,6 +175,13 @@ const UserPage = () => {
                         onChange={(e) => setPhone(e.target.value)}
                       />
                       <div className="input-group-append">
+                      <button
+                          id="edit"
+                          className="btn btn-outline-dark"
+                          type="button"
+                          onClick={() => setEdit_phone(!edit_phone)}
+                        > ❌
+                        </button>
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
@@ -224,6 +231,13 @@ const UserPage = () => {
                         onChange={(e) => setAddress(e.target.value)}
                       />
                       <div className="input-group-append">
+                      <button
+                          id="edit"
+                          className="btn btn-outline-dark"
+                          type="button"
+                          onClick={() => setEdit_address(!edit_address)}
+                        > ❌
+                        </button>
                         <button
                           id="edit"
                           className="btn btn-outline-dark"

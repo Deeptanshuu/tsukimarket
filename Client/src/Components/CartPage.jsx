@@ -40,6 +40,7 @@ const CartPage = () => {
     const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
     
     const body = {
+      token: localStorage.getItem("token"),
       cart: localStorage.getItem("cart")
     }
 
