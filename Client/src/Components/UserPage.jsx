@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./UserPage.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
@@ -11,7 +11,6 @@ const UserPage = () => {
   const [address, setAddress] = useState("");
   const [edit_phone, setEdit_phone] = useState(false);
   const [edit_address, setEdit_address] = useState(false);
-  const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
 
   if (!token || isExpired(token)) {
@@ -102,9 +101,9 @@ const UserPage = () => {
                   class="btn btn-outline-danger"
                   id="logout"
                   onClick={() => {
-                    localStorage.removeItem("token");
+                    localStorage.clear();
                     toast.success("Logged out successfully!");
-                    navigate("/");
+                    window.location.replace("/");
                   }}
                 >
                   Log out

@@ -25,8 +25,10 @@ router.get("/items", async (req, res) => {
 router.post('/user_phone', userdata.userphone);
 router.post('/user_address', userdata.useraddress);
 router.post('/order_history', userdata.orderhistory);
+router.post('/invoice', userdata.invoice);
 
 router.post('/payment', payment.makePayment);
+router.post('/payment_status', payment.paymentstatus);
 
 
 

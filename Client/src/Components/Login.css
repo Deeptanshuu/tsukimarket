@@ -56,3 +56,10 @@
     border-radius: 0px;
   }
 
+label{
+  font-weight: 700;
+  line-height: 5px;
+  padding-top: 1rem;
+  margin-left: 10px;
+}
+

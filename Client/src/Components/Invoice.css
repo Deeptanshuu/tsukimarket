@@ -1,0 +1,111 @@
+.invoice-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.invoice-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f7e5c3;
+    min-width: 50vw;
+    max-width: 1920px;
+    min-height: 1080px;  
+    h1{
+        font-size: 2rem;
+        font-weight: 500;
+        font-weight: bold;
+        text-decoration: underline;
+        letter-spacing: 0.2rem;
+    }
+    p{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
+
+.invoice{
+    width: 45vw;
+    padding: 0.5rem;
+}
+
+.invoice-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid black;
+    caption{
+        font-weight: 900;
+    }
+}
+
+.logo{
+    scale: 0.85;
+}
+
+.invoice-details{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    max-width: 350px;
+    margin-left: -28rem;
+    p{
+        line-height: 1.7em;
+    }
+}
+
+
+.invoice-items{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border:1px solid black;
+    border-top: 0px;
+    font-size: large;
+    font-weight: 100;
+    h2{
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+    }
+    table{
+        border-bottom: 1px solid black;
+        margin: 0.5rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    tr{
+        border: 1px solid black;
+        border-top: 0px;
+        border-bottom: 0px;
+    }
+    thead{
+        border: 1px solid black;
+    }
+    tfoot{
+        font-weight: bold;
+       border: 1px solid black;
+    }
+}
+
+.invoice-footer{
+    padding-top: 1rem;
+    h1{
+        font-size: larger;
+        text-decoration: none;
+        padding-top: 3.8rem;
+        padding-bottom: 3rem;
+    }
+    p{
+        line-height: 0.5rem;
+    }
+}

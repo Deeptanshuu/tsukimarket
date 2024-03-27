@@ -19,6 +19,7 @@ import CartPage from './Components/CartPage';
 import LoadingScreen from './Components/LoadingScreen';
 import UserPage from './Components/UserPage';
 import OrderHistory from './Components/OrderHistory';
+import Invoice from './Components/Invoice';
 import Success from './Components/Success';
 import Cancel from './Components/Cancel';
 import { ToastContainer } from 'react-toastify';
@@ -86,6 +87,7 @@ function App() {
           <Route path='/search' element={<SearchPage/>}></Route>
           <Route path='/user' element={<UserPage/>}></Route>
           <Route path='/order_history' element={<OrderHistory/>}></Route>
+          <Route path='/order_history/invoice' element={<Invoice/>}></Route>
           <Route path='/success' element={<Success/>}></Route>
           <Route path='/cancel' element={<Cancel/>}></Route>
         </Routes>

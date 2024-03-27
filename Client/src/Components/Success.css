@@ -3,10 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
-    scale:1.2;
+    height: 60vh;
     h1{
-        color: green;
+        color: #21c721;
         font-size: 3rem;
         font-weight: 500;
         letter-spacing: 0.2rem;

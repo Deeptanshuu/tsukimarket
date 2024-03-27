@@ -1,27 +1,33 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Success.css";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
 
 
 const Success = () => {
 
     useEffect(() => {
-    toast.success("Payment Successful", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+      const token = JSON.parse(localStorage.getItem("token"));
+      axios.post("http://localhost:8181/db/payment_status",{
+          token: token,
+          status: "ok"
+      }).then((res) => {
+          console.log(res.data);
+      }).catch((err) => {
+          console.log(err);
+      });
 
-    });
-    })
+    toast.success("Payment Successful");
+    }, []);
+
+
+
 
   return (
     <>
     <div className="dotted-bg">
+      <ToastContainer limit={1} />
       <div className="success-container">
       <h1>Payment Successful</h1>
 

@@ -5,8 +5,6 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const jwt = require("jsonwebtoken");
 const { client } = require("../controllers/db");
 
-
-
 exports.makePayment = async (req, res) => {
     //console.log(req.body);
 
@@ -71,5 +69,54 @@ exports.makePayment = async (req, res) => {
     
 
     res.json({ id: session.id });
+}
+
+exports.paymentstatus = async (req, res) => {
+
+    const {token,status} = req.body;
+
+    const db = client.db("Tsuki");
+    const Order = db.collection("Order");
+    const decoded = jwt.verify(token, process.env.JWT_KEY);
+
+    if (!decoded) {
+        return res.status(401).send("Unauthorized");
+    }
+
+    const filter = { customer: decoded.username, status:"unpaid" };
+    const sort = { date: -1 };
+
+    switch (status) {
+        case "ok":
+            var update = { $set: { status: "paid" } };
+
+            var result = await Order.findOneAndUpdate(filter, update, {
+                sort,
+                returnOriginal: false,
+            });
+
+            if (!result) {
+                console.error("Failed to find order to update");
+                return res.status(500).send("Internal Server Error");
+            }
+            break;
+
+        case "fail":
+            var update = { $set: { status: "cancelled" } };
+            var result = await Order.findOneAndUpdate(filter, update, {
+                sort,
+                returnOriginal: false,
+            });
+            if (!result.value) {
+                console.error("Failed to find order to update");
+                return res.status(500).send("Internal Server Error");
+            }
+            break;
+
+        default:
+            console.error("Unknown status:", status);
+            return res.status(400).send("Bad Request");
+    }
+
 }
 

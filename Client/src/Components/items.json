@@ -71,7 +71,7 @@
       "name": "楽しい Tanoshii Beanies",
       "description": ":) or :( ? From crisp mornings to cool evenings our Tanoshii [楽しい] and Kanashimi [悲しみ] beanies deliver softness and warmth for every day.",
       "price": 1999,
-      "inStock": false,
+      "inStock": true,
       "category":"knits"
     },
     {
@@ -83,7 +83,7 @@
       "name": "Mischief Beanie",
       "description": "The latest addition to our Mischief Collection is a staple for chilly days. This fitted knit beanie has a fold over brim and colourful Tsuki tag to finish.",
       "price": 899,
-      "inStock": false,
+      "inStock": true,
       "category":"knits"
     }
   ],

@@ -1,17 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import './Cancel.css';
+import axios from "axios";
 
 const Cancel = () => {
 
   useEffect(() => {
-    toast.error("Transaction Cancelled");
+    const token = JSON.parse(localStorage.getItem("token"));
+    axios.post("http://localhost:8181/db/payment_status",{
+        token: token,
+        status: "fail"
+    }).then((res) => {
+        console.log(res.data);
+    }).catch((err) => {
+        console.log(err);
+    });
+  toast.error("Transaction Cancelled");
   }, []);
 
   return (
     <>
     <div className="dotted-bg">
+      <ToastContainer limit={1}/>
       <div className="cancel-container">
       <h1>Transaction Cancelled</h1>
 
