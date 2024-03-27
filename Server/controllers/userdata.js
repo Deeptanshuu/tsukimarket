@@ -107,7 +107,7 @@ exports.orderhistory = async (req, res) => {
             status: { $in: ["paid", "cancelled"] }
         }).toArray();
         
-        console.log(user);
+        //console.log(user);
         if (user.length === 0) {
             var payload = {
                 status: 400,

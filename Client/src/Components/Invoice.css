@@ -4,6 +4,9 @@
     padding: 5rem;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
+    .logo{
+        scale: 0.85;
+    }
 }
 
 .invoice-container{
@@ -43,10 +46,6 @@
     caption{
         font-weight: 900;
     }
-}
-
-.logo{
-    scale: 0.85;
 }
 
 .invoice-details{

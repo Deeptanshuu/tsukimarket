@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import QuantitySelector from "./QuatitySelector";
 import { useCart } from "./CartContext";
 import { Link, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Slide } from "react-toastify";
 import itemsData from "./items.json";
@@ -29,7 +29,7 @@ const Showcase = () => {
 
   function handleAddToCart() {
     addToCart(selectedItem, quantity);
-    toast("Item added to your cart! ✅", {
+    toast.success("Item added to your cart!", {
       position: "bottom-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -58,6 +58,7 @@ const Showcase = () => {
 
   return (
     <div>
+      <ToastContainer />
       <div className="header-showcase">
         <h1>- Item details -</h1>
       </div>

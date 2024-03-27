@@ -71,7 +71,7 @@ ul.nav-links {
     justify-items: center;
     --dot-bg: #ffffff;
     --dot-color: rgb(0, 0, 0);
-    --dot-size: 1.2px;
+    --dot-size: 1.4px;
     --dot-space: 25px;
     background:
         linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
@@ -112,7 +112,7 @@ ul.nav-links {
 }
 
 .logo {
-    max-width: 8rem;
+    max-width: 11rem;
     max-height: auto;
 }
 
