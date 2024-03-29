@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import itemsData from "./items.json";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Home.css";
 
@@ -39,6 +40,10 @@ const Home = () => {
       }, 300); // Adjust the delay time as needed (in milliseconds)
     };
   };
+
+  const allItems = Object.values(itemsData).flatMap((category) => category);
+
+
 
   return (
     <>
@@ -217,6 +222,56 @@ const Home = () => {
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+        </div>
+
+        <div id="more-items-homepage" className="more-items-cover">
+          <div className="more-items-text">
+            <h4>- Explore Our Collection -</h4>
+          </div>
+          <div className="more-items">
+            {allItems
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 5)
+              .map((item) => (
+                <div className="product-card" id={item.id}>
+                  <Link
+                    to={`/shop/product/showcase?id=${item.id}`}
+                    className="view-item-button"
+                  >
+                    <div
+                      className="product-status-chip"
+                      style={{opacity: item.inStock ? 0 : 1, }}>
+                      <h6>SOLD OUT</h6>
+                    </div>
+
+                    <div className="product-card-image">
+                      <Link
+                        to={`/shop/product/showcase?id=${item.id}`}
+                      >
+                        <LazyLoadImage
+                          effect="blur"
+                          src={item.img}
+                          alt="product-card-view"
+                        />
+                      </Link>
+                    </div>
+
+                    <div className="quick-view">
+                      <h1>QUICK VIEW</h1>
+                    </div>
+                    <div className="product-card-text">
+                      <h3>{item.name}</h3>
+                      <Link
+                        to={`/shop/product/showcase?id=${item.id}`}
+                        className="view-item-button"
+                      >
+                        - View Item -
+                      </Link>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+          </div>
         </div>
 
         <div className="bottom">
