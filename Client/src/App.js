@@ -72,6 +72,7 @@ function App() {
       <ScrollRestoration/>
       <Header/>
       <NavBar/>
+      <ToastContainer limit={10}/>
       {loading ?
         (<LoadingScreen/>) 
         : (
@@ -94,9 +95,6 @@ function App() {
         )}
       </Router>
       <Footer/>
-      <ToastContainer
-      limit={10}
-      />
     </CartProvider>
   );
 }

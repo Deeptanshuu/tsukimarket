@@ -92,9 +92,6 @@ const UserPage = () => {
               <li>
                 <Link to="/cart">Cart</Link>
               </li>
-              <li>
-                <Link to="/user">Change password</Link>
-              </li>
 
                 <button
                   type="button"

@@ -8,19 +8,21 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 
+// Serve static files from the React app
+/*
 const path = require('path');
-app.use(express.static(path.join(__dirname, '../Client/build')));
 
-app.get('/*', function(req, res){
+app.use(express.static(path.join(__dirname, '../Client/build')))
 
-  res.sendFile(path.join(__dirname, '../Client/build/index.html'), 
-  function (err) {
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../Client/build', 'index.html'),
+   function(err) {
     if (err) {
-      res.status(500).send(err)
+      res.status(500).send(err);
     }
-  })
+  });
 });
-
+*/
 
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });

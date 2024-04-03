@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import QuantitySelector from "./QuatitySelector";
 import { toast } from "react-toastify";
 import {loadStripe} from '@stripe/stripe-js';
+import { decodeToken, isExpired } from "react-jwt";
 
 const CartPage = () => {
   const {
@@ -38,6 +39,14 @@ const CartPage = () => {
 
   const makePayment = async () => {
     const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+    const token = localStorage.getItem("token");
+    const decoded = decodeToken(token);
+
+    if(decoded.phone === undefined || decoded.address === undefined || isExpired(token)) {
+      navigate("/user");
+      toast.error("Please update your phone and address first!");
+      return null;
+    }
     
     const body = {
       token: localStorage.getItem("token"),
