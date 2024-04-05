@@ -109,7 +109,7 @@ exports.paymentstatus = async (req, res) => {
                 sort,
                 returnOriginal: false,
             });
-            if (!result.value) {
+            if (!result) {
                 console.error("Failed to find order to update");
                 return res.status(500).send("Internal Server Error");
             }
