@@ -111,7 +111,7 @@ exports.orderhistory = async (req, res) => {
             var payload = {
                 message: "No order history",
             }
-            console.log(payload);
+            //console.log(payload);
             return res.status(400).send(payload);
         }
 

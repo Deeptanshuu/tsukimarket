@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./OrderHistory.css";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import LoadingScreen from './LoadingScreen';
 
 const OrderHistory = () => {
@@ -22,11 +22,8 @@ const OrderHistory = () => {
         if (response.status === 200) {
           setOrderHistory(response.data);
         }
-        if (response.status === 400) {
-          toast.error("No order history");
-          setOrderHistory(null);
-        }
       } catch (error) {
+        toast.error("No order history", error);
         console.error("Error fetching order history:", error);
       } finally {
         setLoading(false);
@@ -61,7 +58,6 @@ const OrderHistory = () => {
 
   return (
     <>
-    <ToastContainer />
       {loading ? (
         <LoadingScreen/>
       )
