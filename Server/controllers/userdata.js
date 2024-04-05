@@ -107,12 +107,11 @@ exports.orderhistory = async (req, res) => {
             status: { $in: ["paid", "cancelled"] }
         }).sort({ date: -1 }).toArray();
         
-        //console.log(user);
         if (user.length === 0) {
             var payload = {
-                status: 400,
                 message: "No order history",
             }
+            console.log(payload);
             return res.status(400).send(payload);
         }
 

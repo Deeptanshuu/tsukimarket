@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./OrderHistory.css";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import LoadingScreen from './LoadingScreen';
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -11,27 +12,25 @@ const OrderHistory = () => {
 
   useEffect(() => {
     const fetchOrderHistory = async () => {
-      setTimeout(async () => {
-        try {
-          const token = JSON.parse(localStorage.getItem("token"));
-          const response = await axios.post(
-            "http://localhost:8181/db/order_history",
-            { token }
-          );
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const response = await axios.post(
+          "http://localhost:8181/db/order_history",
+          { token }
+        );
 
-          if (!response.status === 200) {
-            //setLoading(false);
-            toast.error("No Order History");
-            return;
-          }
-
-          setLoading(false);
+        if (response.status === 200) {
           setOrderHistory(response.data);
-
-        } catch (error) {
-          console.error("Error fetching order history:", error);
         }
-      }, 200);
+        if (response.status === 400) {
+          toast.error("No order history");
+          setOrderHistory(null);
+        }
+      } catch (error) {
+        console.error("Error fetching order history:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchOrderHistory();
@@ -62,13 +61,16 @@ const OrderHistory = () => {
 
   return (
     <>
+    <ToastContainer />
       {loading ? (
+        <LoadingScreen/>
+      )
+       : orderHistory.length === 0 ? (
         <div className="no-order-history">
-          <h1> You have no order history.</h1>
+          <h1>You have no order history.</h1>
         </div>
       ) : (
         <div className="dotted-bg">
-          <ToastContainer />
           <div className="order-history">
             <div className="order-history-header">
               <h1>- Order History -</h1>

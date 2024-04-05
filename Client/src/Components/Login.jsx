@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setusername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const navigate = useNavigate();
 
   const togglePasswordVisibility = (e) => {
     e.preventDefault();
@@ -30,7 +28,7 @@ const Login = () => {
       if (response.data) {
         //console.log(response.data);
         localStorage.setItem("token", JSON.stringify(response.data));
-        navigate("/user");
+        window.location.replace("/user");//dont switch to navigate nav bar wont update
         // Handle successful login (e.g., redirect to dashboard)
         toast.success("Login successful!");
       }
