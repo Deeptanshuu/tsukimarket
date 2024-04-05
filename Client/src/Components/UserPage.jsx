@@ -1,49 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./UserPage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
 
 const UserPage = () => {
-
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [UserData, setUserData] = useState({});
   const [edit_phone, setEdit_phone] = useState(false);
   const [edit_address, setEdit_address] = useState(false);
+
   const token = JSON.parse(localStorage.getItem("token"));
-
-  if (!token || isExpired(token)) {
-    localStorage.removeItem("token");
-    toast.error("Session expired. Please login again.");
-    window.location.replace("/login");
-    return null;
-  }
-
-  const UserData = decodeToken(token);
   //console.log(UserData);
+
+  useEffect(() => {
+    if (!token || isExpired(token)) {
+      localStorage.removeItem("token");
+      toast.error("Session expired. Please login again.");
+      window.location.replace("/login");
+      return null;
+    } 
+    else {
+      const userData = decodeToken(token);
+      if (userData) {
+        setUserData(userData);
+        //Capital U is for display purpose Small u is for if else ladder
+        toast.success("Welcome, " + userData.username);
+      } 
+      else {
+        localStorage.removeItem("token");
+        toast.error("Session expired. Please login again.");
+        window.location.replace("/login");
+        return null;
+      }
+    }
+  }, [token]);
 
   const handle_addressSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const data ={
+      const data = {
         token: token,
         address: address,
-      }
+      };
 
-      const response = await axios.post('http://localhost:8181/db/user_address', data );
-      console.log(response);
+      const response = await axios.post(
+        "http://localhost:8181/db/user_address",
+        data
+      );
+      //console.log(response);
 
       if (response.data) {
-        toast.success('Address updated successfully!');
-        localStorage.clear('token');
-        localStorage.setItem('token', JSON.stringify(response.data));
-        window.location.reload();
+        toast.success("Address updated successfully!");
+        localStorage.setItem("token", JSON.stringify(response.data));
+        setTimeout(() => {
+          window.location.reload();
+        }, 600);
         // Update local storage or state with new token if needed
       }
     } catch (error) {
-      console.error('Address update failed:', error.response.data);
+      console.error("Address update failed:", error.response.data);
       toast.error(error.response.data);
     }
   };
@@ -51,35 +70,35 @@ const UserPage = () => {
   const handle_phoneSubmit = async (e) => {
     e.preventDefault();
     try {
+      const data = {
+        token: token,
+        phone: phone,
+      };
 
-    const data = {
-      token: token,
-      phone: phone
-    };
-    
-    const response = await axios.post('http://localhost:8181/db/user_phone', data);
-    
+      const response = await axios.post(
+        "http://localhost:8181/db/user_phone",
+        data
+      );
 
       console.log(response);
 
       if (response.data) {
-        toast.success('Phone updated successfully!');
-        localStorage.removeItem('token'); // Remove the existing token
-        localStorage.setItem('token', JSON.stringify(response.data));
-        window.location.reload();
-        // Update local storage or state with new token if needed
+        toast.success("Phone updated successfully!");
+        localStorage.setItem("token", JSON.stringify(response.data));
+        setTimeout(() => {
+          window.location.reload();
+        }, 600);
       }
     } catch (error) {
-      console.error('Phone number update failed:', error.response.data);
+      console.error("Phone number update failed:", error.response.data);
       toast.error(error.response.data);
     }
   };
 
-
-
   return (
     <>
       <div className="dotted-bg">
+        <ToastContainer limit={1} />
         <div className="user-page">
           <div className="sidebar col-4">
             <ul>
@@ -93,19 +112,20 @@ const UserPage = () => {
                 <Link to="/cart">Cart</Link>
               </li>
 
-                <button
-                  type="button"
-                  class="btn btn-outline-danger"
-                  id="logout"
-                  onClick={() => {
-                    localStorage.clear();
-                    toast.success("Logged out successfully!");
-                    window.location.replace("/");
-                  }}
-                >
-                  Log out
-                </button>
-
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                id="logout"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  toast.success("Logged out successfully!");
+                  setTimeout(() => {
+                    window.location.replace("/login");
+                  }, 600);
+                }}
+              >
+                Log out
+              </button>
             </ul>
           </div>
 
@@ -132,7 +152,9 @@ const UserPage = () => {
             </div>
 
             <div className="details-page">
-              <h4><b>Welcome,</b></h4>
+              <h4>
+                <b>Welcome,</b>
+              </h4>
               <h4>{UserData.username}</h4> <br />
               <h4>Email:</h4>
               <p>{UserData.email}</p> <br />
@@ -141,14 +163,16 @@ const UserPage = () => {
                   <h4>Phone Number:</h4>
                   <form className="d-inline">
                     <div className="input-group ">
-                    <p>{UserData.phone}</p> <br />
-                    <div className="input-group-append">
+                      <p>{UserData.phone}</p> <br />
+                      <div className="input-group-append">
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={() => setEdit_phone(!edit_phone)}
-                        > ✏️
+                        >
+                          {" "}
+                          ✏️
                         </button>
                       </div>
                     </div>
@@ -171,19 +195,22 @@ const UserPage = () => {
                         onChange={(e) => setPhone(e.target.value)}
                       />
                       <div className="input-group-append">
-                      <button
+                        <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={() => setEdit_phone(!edit_phone)}
-                        > ❌
+                        >
+                          {" "}
+                          ❌
                         </button>
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={handle_phoneSubmit}
-                        >Submit
+                        >
+                          Submit
                         </button>
                       </div>
                     </div>
@@ -191,20 +218,21 @@ const UserPage = () => {
                   <br />
                 </>
               )}
-
               {UserData.address && !edit_address ? (
                 <>
                   <h4>Address:</h4>
                   <form className="d-inline">
                     <div className="input-group mb-3">
-                    <p>{UserData.address}</p> <br />
+                      <p>{UserData.address}</p> <br />
                       <div className="input-group-append">
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={() => setEdit_address(!edit_address)}
-                        >  ✏️ 
+                        >
+                          {" "}
+                          ✏️
                         </button>
                       </div>
                     </div>
@@ -227,19 +255,22 @@ const UserPage = () => {
                         onChange={(e) => setAddress(e.target.value)}
                       />
                       <div className="input-group-append">
-                      <button
+                        <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={() => setEdit_address(!edit_address)}
-                        > ❌
+                        >
+                          {" "}
+                          ❌
                         </button>
                         <button
                           id="edit"
                           className="btn btn-outline-dark"
                           type="button"
                           onClick={handle_addressSubmit}
-                        >Submit
+                        >
+                          Submit
                         </button>
                       </div>
                     </div>
@@ -256,4 +287,3 @@ const UserPage = () => {
 };
 
 export default UserPage;
-

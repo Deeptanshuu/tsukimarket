@@ -5,6 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import itemsData from "./items.json";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Home.css";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   const [highResLoaded1, setHighResLoaded1] = useState(false);
@@ -47,6 +48,7 @@ const Home = () => {
 
   return (
     <>
+    <ToastContainer/>
       <div className="dotted-bg">
         <div className="pic-wrapper row">
           <div className="pic-container basics col-4">

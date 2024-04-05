@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
@@ -43,6 +43,7 @@ const Login = () => {
   };
   return (
     <>
+      <ToastContainer />
       <div className="dotted-bg">
         <div className="login-container">
           <span class="border border-dark">

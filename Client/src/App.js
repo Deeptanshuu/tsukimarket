@@ -70,9 +70,9 @@ function App() {
       <SpeedInsights/>
       <Router restoreScroll={false} >
       <ScrollRestoration/>
+      <ToastContainer limit={10}/>
       <Header/>
       <NavBar/>
-      <ToastContainer limit={10}/>
       {loading ?
         (<LoadingScreen/>) 
         : (

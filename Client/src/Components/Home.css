@@ -148,4 +148,8 @@
 #more-items-homepage{
   margin-top: 5rem;
   border-bottom: 1px solid black;
+  background-color: wheat;
+  .more-items-text{
+    background-color: #a2e0ce;
+  }
 }

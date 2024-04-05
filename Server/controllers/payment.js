@@ -26,12 +26,14 @@ exports.makePayment = async (req, res) => {
 
     //console.log(lineitems);
 
+    const origin = req.get('origin');
+
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
         line_items: lineitems,
         mode: "payment",
-        success_url: "http://localhost:3000/success",
-        cancel_url: "http://localhost:3000/cancel",
+        success_url: `${origin}/success`,
+        cancel_url: `${origin}/cancel`,
     });
 
     //console.log(session);
