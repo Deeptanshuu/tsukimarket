@@ -66,16 +66,14 @@ exports.makePayment = async (req, res) => {
     } catch (error) {
         console.error("Error inserting order into database:", error);
         return res.status(500).send("Internal Server Error");
-    }
-
-    
+    } 
 
     res.json({ id: session.id });
 }
 
 exports.paymentstatus = async (req, res) => {
 
-    const {token,status} = req.body;
+    const { token, status } = req.body;
 
     const db = client.db("Tsuki");
     const Order = db.collection("Order");
@@ -97,10 +95,6 @@ exports.paymentstatus = async (req, res) => {
                 returnOriginal: false,
             });
 
-            if (!result) {
-                console.error("Failed to find order to update");
-                return res.status(500).send("Internal Server Error");
-            }
             break;
 
         case "fail":
@@ -109,10 +103,6 @@ exports.paymentstatus = async (req, res) => {
                 sort,
                 returnOriginal: false,
             });
-            if (!result) {
-                console.error("Failed to find order to update");
-                return res.status(500).send("Internal Server Error");
-            }
             break;
 
         default:
