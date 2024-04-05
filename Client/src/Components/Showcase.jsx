@@ -11,6 +11,7 @@ import itemsData from "./items.json";
 import "./Showcase.css";
 
 const Showcase = () => {
+  const [size, setSize] = useState(".");
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const location = useLocation();
@@ -28,7 +29,7 @@ const Showcase = () => {
   };
 
   function handleAddToCart() {
-    addToCart(selectedItem, quantity);
+    addToCart(selectedItem, quantity,size);
     toast.success("Item added to your cart!", {
       position: "bottom-right",
       autoClose: 3000,
@@ -110,6 +111,10 @@ const Showcase = () => {
             <h6>{selectedItem.inStock ? "In Stock ✅" : "Out of Stock ❌"}</h6>
           </div>
 
+          <div className="showcase-text-stock" style={{ opacity: size === "." ? 0 : 1 }}>
+            <h6>Selected Size: {size}</h6>
+          </div>
+
           <div class="dropdown">
             <button
               class="btn btn-outline-dark dropdown-toggle z-0"
@@ -117,23 +122,23 @@ const Showcase = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Select a Size
+              {size==="." ? "Select Size" : `${size}`}
             </button>
             <ul class="dropdown-menu">
               <li>
-                <button class="dropdown-item">Xtra Small -XS-</button>
+                <button class="dropdown-item" onClick={() => setSize("-XS-")} >Xtra Small -XS-</button>
               </li>
               <li>
-                <button class="dropdown-item">Small -S-</button>
+                <button class="dropdown-item" onClick={() => setSize("-S-")} >Small -S-</button>
               </li>
               <li>
-                <button class="dropdown-item">Medium -M-</button>
+                <button class="dropdown-item" onClick={() => setSize("-M-")} >Medium -M-</button>
               </li>
               <li>
-                <button class="dropdown-item">Large -L-</button>
+                <button class="dropdown-item" onClick={() => setSize("-L-")} >Large -L-</button>
               </li>
               <li>
-                <button class="dropdown-item">Xtra Large -XL-</button>
+                <button class="dropdown-item" onClick={() => setSize("-XL-")} >Xtra Large -XL-</button>
               </li>
             </ul>
           </div>

@@ -40,7 +40,7 @@ const cartReducer = (state, action) => {
 
       } else {
         // If item is not in the cart, add it with quantity 1
-        return [...state, { ...action.payload, quantity: 1 }];//I don't need this
+        return [...state, { ...action.payload, quantity: 1 }];//I don't need this, I fact do need this.
       }
 
     case "SUB_FROM_CART_PAGE":

@@ -53,7 +53,6 @@
     input{
         color: black;
         border-radius: 0%;
-        border-right: 0px;
     }
     input:focus {
         outline:none;
