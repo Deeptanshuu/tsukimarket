@@ -50,7 +50,18 @@
     box-sizing: border-box;
     background-color: #ffffff;
     height: 100%;
+    overflow: hidden;
 }
+
+/*
+.product-card:hover{
+    z-index: 2000;
+    overflow: visible;
+    border: 1px solid #000000;
+    scale : 1.02;
+    transition: all 0.3s cubic-bezier(.79,.14,.15,.86);
+}
+*/
 
 
 .product-status-chip{

@@ -68,7 +68,7 @@ const SearchPage = () => {
                       <h6>SOLD OUT</h6>
                 </div>
               <div className="product-card-image">
-                <Link to={`/showcase?id=${item.id}`}>
+                <Link to={`/shop/product/showcase?id=${item.id}`}>
                   <LazyLoadImage effect="blur" src={item.img} alt={item.name}/>
                 </Link>
 
@@ -79,7 +79,7 @@ const SearchPage = () => {
                 </div>
               <div className="product-card-text">
                 <h3>{item.name}</h3>
-                <Link to={`/showcase?id=${item.id}`} className="view-item-button">
+                <Link to={`/shop/product/showcase?id=${item.id}`}>
                   -See More-
                 </Link>
               </div>
