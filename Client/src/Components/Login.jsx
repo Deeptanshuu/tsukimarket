@@ -95,7 +95,7 @@ const Login = () => {
                 </div>
                 <div className="forgot-container">
                   <h6>
-                    <Link to="/">Forgot your password ?</Link>
+                    <a href="/login" onClick={(e) => {e.preventDefault(); toast.error("Feature Not Available")}}>Forgot Password?</a>
                   </h6>
                 </div>
 
