@@ -187,14 +187,15 @@ const Home = () => {
                 </div>
               ))}
           </div>
-          <div className="more-items-text">
-            <Link
+          <Link
               to={`/shop`}
               className="view-item-button"
             > 
+          <div className="more-items-text">
+
             <h2>- View Items -</h2>
-            </Link>
           </div>
+          </Link>
         </div>
         
         <div id="carouselExample" class="carousel carousel-dark slide" >

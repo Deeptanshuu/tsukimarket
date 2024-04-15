@@ -148,18 +148,20 @@
 #more-items-homepage{
   margin-top: 3rem;
   margin-bottom: 5rem;
-  background-color: #f6e0b5;
+  background-color: rgb(243, 226, 193);
   border-top: 0px;
   .more-items-text{
-    background-color: #a2e0ce;
+    background-color: #a7ddce ;
     border-top: 1px solid black;
+    transition: all 0.3s 0.1s cubic-bezier(.79,.14,.15,.86);
     h2{
       padding: 1rem;
       font-weight: 100;
-      transition: all 0.3s 0.1s cubic-bezier(.79,.14,.15,.86);
     }
-    h2:hover{
-      letter-spacing: 0.2rem;
-    }
+  }
+  .more-items-text:hover{
+    background-color: black;
+    color: #ffffff;
+    letter-spacing: 0.2rem;
   }
 }

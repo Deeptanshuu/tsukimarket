@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.css'
+import { toast } from 'react-toastify'
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const emailRegx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!emailRegx.test(email)) {
+      toast.error("Please enter a valid email");
+      return;
+    }
+    toast.success("Thank you for subscribing!");
+  };
   return (
     <>
       <div className="footer-container">
@@ -9,9 +21,9 @@ const Footer = () => {
           <div className="col-6">
             <h1>NEWSLETTER</h1>
             <h3>Subscribe to be the first to hear about our latest collections, offers and news about the brand.</h3>
-            <div class="input-group mb-4">
-              <input type="text" class="form-control" placeholder="Subscribe to our lettebox just enter your email !" aria-label="letterbox-email" aria-describedby="button-addon2"/>
-              <a href='/' class="btn btn-outline-light" type="button" id="letterbox-email">Join</a>
+            <div className="input-group mb-4">
+              <input type="text" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Subscribe to our lettebox just enter your email !" aria-label="letterbox-email" aria-describedby="button-addon2"/>
+              <button className="btn btn-outline-light btn-md rounded-0 p-2" onClick={handleClick} type="button" id="letterbox-email">Join</button>
             </div>
               <div className="copyright">
                 <p>© Tsuki Market 2077</p><p>© Made with love by Deeptanshu ❤️</p>
