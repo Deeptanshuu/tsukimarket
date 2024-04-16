@@ -4,7 +4,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 //import { useNavigate } from "react-router-dom";
 import itemsData from "./items.json"; // Adjust the path as needed
-import './SearchPage.css'
+import './SearchPage.css';
+import { ToastContainer } from "react-toastify";
 
 const SearchPage = () => {
   const location = useLocation();
@@ -59,6 +60,7 @@ const SearchPage = () => {
     }
     return (
       <>
+      <ToastContainer/>
         <div className="product-grid-header"><p>Your search revealed the following:</p></div>
         <div className="product-grid">
           {filteredItems.map((item) => (

@@ -3,11 +3,13 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from "react-router-dom";
 import './Collection.css'
+import { ToastContainer } from "react-toastify";
 
 const Collecton = () => {
 
   return (
     <>
+    <ToastContainer/>
       <div className="collection-body">
         <div className="head">
             <h1>-Our Collections-</h1>

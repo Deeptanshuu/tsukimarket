@@ -1,9 +1,11 @@
 import React from "react";
 import "./Contact.css";
+import { ToastContainer } from "react-toastify";
 
 const Contact = () => {
   return (
     <div className="dotted-bg">
+    <ToastContainer/>
     <div className="contact-page">
       <div className="contact-text">
         <h3>Customer Support & Shipping Information</h3>

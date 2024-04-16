@@ -2,7 +2,7 @@ import React from 'react';
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import './Invoice.css';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Invoice = () => {
 
@@ -34,6 +34,7 @@ const Invoice = () => {
 
   return (
     <div className="invoice-wrapper">
+    <ToastContainer/>
     <div id='pdf' className="invoice-container">
       <div className="invoice">
         <div className="invoice-header">
