@@ -11,7 +11,7 @@ import itemsData from "./items.json";
 import "./Showcase.css";
 
 const Showcase = () => {
-  const [size, setSize] = useState(".");
+  const [size, setSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const location = useLocation();
@@ -111,31 +111,31 @@ const Showcase = () => {
             <h6>{selectedItem.inStock ? "In Stock ✅" : "Out of Stock ❌"}</h6>
           </div>
 
-          <div className="showcase-text-stock" style={{ opacity: size === "." ? 0 : 1 }}>
+          <div className="showcase-text-stock">
             <h6>Selected Size: {size}</h6>
           </div>
 
-          <div class="dropdown">
+          <div class="dropdown" style={{cursor: selectedItem.inStock ? "pointer" : "not-allowed"}}>
             <button
-              class="btn btn-outline-dark dropdown-toggle z-0"
+              className={`btn btn-outline-dark dropdown-toggle z-0 ${selectedItem.inStock ? "" : "disabled"}`}
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              {size==="." ? "Select Size" : `${size}`}
+              {size===null ? "Select Size" : `${size}`}
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
-                <button class="dropdown-item" onClick={() => setSize("-XS-")} >Xtra Small -XS-</button>
+                <button className="dropdown-item" onClick={() => setSize("-XS-")} >Xtra Small -XS-</button>
               </li>
               <li>
-                <button class="dropdown-item" onClick={() => setSize("-S-")} >Small -S-</button>
+                <button className="dropdown-item" onClick={() => setSize("-S-")} >Small -S-</button>
               </li>
               <li>
-                <button class="dropdown-item" onClick={() => setSize("-M-")} >Medium -M-</button>
+                <button className="dropdown-item" onClick={() => setSize("-M-")} >Medium -M-</button>
               </li>
               <li>
-                <button class="dropdown-item" onClick={() => setSize("-L-")} >Large -L-</button>
+                <button className="dropdown-item" onClick={() => setSize("-L-")} >Large -L-</button>
               </li>
               <li>
                 <button class="dropdown-item" onClick={() => setSize("-XL-")} >Xtra Large -XL-</button>
@@ -148,12 +148,13 @@ const Showcase = () => {
               quantity={quantity}
               onIncrement={handleIncrement}
               onDecrement={handleDecrement}
+              state={selectedItem.inStock}
             />
           </div>
 
-          <div className="add-cart">
+          <div className="add-cart" style={{ cursor: selectedItem.inStock ? "pointer" : "not-allowed" }}>
             <button
-              className={`btn btn-outline-dark ${
+              className={`btn btn-outline-dark  ${
                 selectedItem.inStock ? "" : "disabled"
               }`}
               onClick={() => handleAddToCart()}
