@@ -9,12 +9,12 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       // Check if the item is already in the cart
-      const existingItem = state.find((item) => item.id === action.payload.id);
+      const existingItem = state.find((item) => item.id === action.payload.id && item.size === action.payload.size);
 
       if (existingItem) {
         // If item exists, update quantity
         return state.map((item) =>
-          item.id === action.payload.id
+          item.id === action.payload.id && item.size === action.payload.size
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -28,14 +28,14 @@ const cartReducer = (state, action) => {
 
     case "ADD_TO_CART_PAGE":
       // Check if the item is already in the cart
-      const existingcartItem = state.find(
-        (item) => item.id === action.payload.id
+      const existingcartItem = state.findIndex(
+        (item) => item.id === action.payload.id && item.size === action.payload.size
       );
 
       if (existingcartItem !== -1) {
         // If item exists, update quantity
         return state.map((item) =>
-          item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === action.payload.id && item.size === action.payload.size ? { ...item, quantity: item.quantity + 1 } : item
         );
 
       } else {
@@ -45,14 +45,14 @@ const cartReducer = (state, action) => {
 
     case "SUB_FROM_CART_PAGE":
       // Check if the item is already in the cart
-      const existingItemIndex = state.findIndex(
-        (item) => item.id === action.payload.id
+      const existingItemIndex = state.find(
+        (item) => item.id === action.payload.id && item.size === action.payload.size
       );
 
       if (existingItemIndex !== -1) {
         // If item exists, update quantity
         return state.map((item) =>
-          item.id === action.payload.id ? { ...item, quantity: item.quantity - 1 } : item
+          item.id === action.payload.id && item.size === action.payload.size ? { ...item, quantity: item.quantity - 1 } : item
         );
       }
       else {
@@ -82,23 +82,23 @@ const CartProvider = ({ children }) => {
   }, [cart]);
 
 
-  const addToCart = (item, quantity) => {
+  const addToCart = (item, quantity, size) => {
     for (let i = 0; i < quantity; i++) {
-      dispatch({ type: "ADD_TO_CART", payload: item });
+      dispatch({ type: "ADD_TO_CART", payload: { ...item, size: size } });
     }
   };
 
   //For Cart Page quantity selector
-  const addToCartpage = (item) => {
-    dispatch({ type: "ADD_TO_CART_PAGE", payload: item });
+  const addToCartpage = (item, size) => {
+    dispatch({ type: "ADD_TO_CART_PAGE", payload: { ...item, size: size } });
   };
 
-  const subFromCartpage = (item) => {
-    dispatch({ type: "SUB_FROM_CART_PAGE", payload: item });
+  const subFromCartpage = (item ,size) => {
+    dispatch({ type: "SUB_FROM_CART_PAGE", payload: { ...item, size: size } });
   };
 
-  const removeFromCart = (item) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+  const removeFromCart = (item ,size) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: { ...item, size: size } });
   };
 
   // Calculate total price of items in the cart

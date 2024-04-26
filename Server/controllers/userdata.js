@@ -105,7 +105,7 @@ exports.orderhistory = async (req, res) => {
             customer: decoded.username,
             customer_email: decoded.email,
             status: { $in: ["paid", "cancelled"] }
-        }).sort({ date: -1 }).toArray();
+        }).toArray();
         
         if (user.length === 0) {
             var payload = {

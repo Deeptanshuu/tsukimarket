@@ -23,17 +23,17 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const handleIncrement = (item) => {
-    console.log(item)
+    //console.log(item)
     if (item.quantity < 10) {
-    addToCartpage(item, item.quantity)
+    addToCartpage(item, item.size)
     }
   };
 
 
   const handleDecrement = (item) => {
-    console.log(item)
+    //console.log(item)
     if (item.quantity > 1) {
-      subFromCartpage(item, item.quantity)
+      subFromCartpage(item, item.size)
     }
   };
 
@@ -106,6 +106,7 @@ const CartPage = () => {
               <div key={item.id} className="cart-item">
                 <div className="cart-item-details">
                   <ul>● {item.name} </ul>
+                  <ul><p>Size: {item.size}</p></ul>
                 </div>
 
                 <div className="cart-item-quantity">
@@ -117,6 +118,7 @@ const CartPage = () => {
                       quantity={item.quantity}
                       onIncrement={() => handleIncrement(item)}
                       onDecrement={() => handleDecrement(item)}
+                      state={true}
                     />
                   </p>
                   <button

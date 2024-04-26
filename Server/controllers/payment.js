@@ -11,12 +11,15 @@ exports.makePayment = async (req, res) => {
     const cart = JSON.parse(req.body.cart);
     const token = JSON.parse(req.body.token);
 
+    
+
     const lineitems = cart.map((item) => {
+        const item_name = item.name + " -" + item.size + "- ";
         return {
             price_data: {
                 currency: "inr",
                 product_data: {
-                    name: item.name,
+                    name: item_name,
                 },
                 unit_amount: item.price * 100,
             },
@@ -39,7 +42,7 @@ exports.makePayment = async (req, res) => {
     //console.log(session);
 
     const order = cart.map((item) => ({
-        item: item.name,
+        item: item.name + " -" + item.size + "- ",
         quantity: item.quantity,
         price: item.price,
     }));

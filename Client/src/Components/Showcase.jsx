@@ -29,16 +29,30 @@ const Showcase = () => {
   };
 
   function handleAddToCart() {
-    addToCart(selectedItem, quantity,size);
-    toast.success("Item added to your cart!", {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      transition: Slide,
-      closeOnClick: true,
-      draggable: true,
-      theme: "light",
-    });
+    if (size === null) {
+      toast.error("Please select a size", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        transition: Slide,
+        closeOnClick: true,
+        draggable: true,
+        theme: "light",
+      });
+      return;
+    }
+    else {
+      addToCart(selectedItem, quantity, size);
+      toast.success("Item added to your cart!", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        transition: Slide,
+        closeOnClick: true,
+        draggable: true,
+        theme: "light",
+      });
+    }
   }
 
   if (!selectedItem) {
@@ -126,19 +140,19 @@ const Showcase = () => {
             </button>
             <ul className="dropdown-menu">
               <li>
-                <button className="dropdown-item" onClick={() => setSize("-XS-")} >Xtra Small -XS-</button>
+                <button className="dropdown-item" onClick={() => setSize("XS")} >Xtra Small -XS-</button>
               </li>
               <li>
-                <button className="dropdown-item" onClick={() => setSize("-S-")} >Small -S-</button>
+                <button className="dropdown-item" onClick={() => setSize("S")} >Small -S-</button>
               </li>
               <li>
-                <button className="dropdown-item" onClick={() => setSize("-M-")} >Medium -M-</button>
+                <button className="dropdown-item" onClick={() => setSize("M")} >Medium -M-</button>
               </li>
               <li>
-                <button className="dropdown-item" onClick={() => setSize("-L-")} >Large -L-</button>
+                <button className="dropdown-item" onClick={() => setSize("L")} >Large -L-</button>
               </li>
               <li>
-                <button class="dropdown-item" onClick={() => setSize("-XL-")} >Xtra Large -XL-</button>
+                <button class="dropdown-item" onClick={() => setSize("XL")} >Xtra Large -XL-</button>
               </li>
             </ul>
           </div>
