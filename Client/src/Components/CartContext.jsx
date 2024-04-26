@@ -24,7 +24,7 @@ const cartReducer = (state, action) => {
       }
 
     case "REMOVE_FROM_CART":
-      return state.filter((item) => item.id !== action.payload.id);
+      return state.filter((item) => !(item.id === action.payload.id ));
 
     case "ADD_TO_CART_PAGE":
       // Check if the item is already in the cart
@@ -98,6 +98,7 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (item ,size) => {
+    
     dispatch({ type: "REMOVE_FROM_CART", payload: { ...item, size: size } });
   };
 

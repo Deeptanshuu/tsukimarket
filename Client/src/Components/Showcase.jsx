@@ -42,7 +42,14 @@ const Showcase = () => {
       return;
     }
     else {
-      addToCart(selectedItem, quantity, size);
+      const addedItem = {
+        id: selectedItem.id +" "+ size,
+        name: selectedItem.name,
+        price: selectedItem.price,
+        inStock: selectedItem.inStock,
+        category: selectedItem.category,
+      }
+      addToCart(addedItem, quantity, size);
       toast.success("Item added to your cart!", {
         position: "bottom-right",
         autoClose: 3000,
