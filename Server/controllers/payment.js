@@ -20,6 +20,9 @@ exports.makePayment = async (req, res) => {
                 currency: "inr",
                 product_data: {
                     name: item_name,
+                    metadata: {
+                        size: item.size
+                    }
                 },
                 unit_amount: item.price * 100,
             },
@@ -47,8 +50,8 @@ exports.makePayment = async (req, res) => {
         price: item.price,
     }));
     
-    console.log(order);
-    console.log(session.payment_status);
+    //console.log(order);
+    //console.log(session.payment_status);
     
 
     try {
