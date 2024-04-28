@@ -48,7 +48,8 @@
     margin-top: 50px;
     font-weight: 100;
     margin-bottom: 50px;
-    border: 1px black dotted;
+    border-top: 1px black dashed;
+    border-bottom: 1px black dashed;
 }
 
 .cart-item-header{
@@ -66,12 +67,18 @@
     display: flex;
     justify-content: flex-start;
     padding-top: 20px;
-    ul{
-        margin-left: 50px;
-        font-size: larger;
-        font-weight: 500;
-        text-decoration: underline;
-    }
+        ul{
+            line-height: 11px;
+            margin-left: 50px;
+            font-size: larger;
+            font-weight: 400;
+            text-decoration: none;
+            list-style: none;
+            p{
+                font-weight: 100;
+                margin-left: 10px;
+            }
+        }
 }
 
 .quantity-box{
@@ -118,7 +125,7 @@
     background-color: beige;
     padding: 10px;
     letter-spacing: 0.1em;
-    border: 1px black dotted;
+    border-top: 1px black dashed;
     table{
         display: flex;
         justify-content: flex-end;

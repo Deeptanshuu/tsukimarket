@@ -104,14 +104,14 @@ const CartPage = () => {
             <div className="cart-item-header">- Invoice -</div>
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
-                <div className="cart-item-details">
-                  <ul>● {item.name} </ul>
+                <div className="cart-item-details" style={{ display: "flex", flexDirection: "column" }}>
+                  <ul>{item.name} </ul>
                   <ul><p>Size: {item.size}</p></ul>
                 </div>
 
                 <div className="cart-item-quantity">
                 
-                  <h5>| ₹{item.price} | </h5>
+                  <h5> | ₹{item.price} | </h5>
                   
                   <p>
                     <QuantitySelector
@@ -147,19 +147,19 @@ const CartPage = () => {
                   <table>
                     <td>
                       <tr>
-                        <h5>Subtotal :</h5>
+                        <h5><b>Subtotal :</b></h5>
                       </tr>
 
                       <tr>
-                        <h5>Total Tax (10%) :</h5>
+                        <h5><b>Total Tax (10%) :</b></h5>
                       </tr>
 
                       <tr>
-                        <h5>Total Shipping (₹100/item) :</h5>
+                        <h5><b>Total Shipping (₹100/item) :</b></h5>
                       </tr>
 
                       <tr>
-                        <h5>Grand Total: </h5>
+                        <h5><b>Grand Total: </b></h5>
                       </tr>
                     </td>
                     <td>
