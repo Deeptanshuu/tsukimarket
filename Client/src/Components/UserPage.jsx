@@ -183,7 +183,7 @@ const UserPage = () => {
                 <>
                   <h4>Phone Number:</h4>
                   <form className="d-inline">
-                    <div className="input-group ">
+                    <div className="input-group p-2">
                       <input
                         id="phone"
                         type="text"
@@ -194,10 +194,10 @@ const UserPage = () => {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                       />
-                      <div className="input-group-append">
+                      <div className="input-group-append p-0 ">
                         <button
                           id="edit"
-                          className="btn btn-outline-dark"
+                          className="btn btn-outline-dark border-end-0"
                           type="button"
                           onClick={() => setEdit_phone(!edit_phone)}
                         >
@@ -222,7 +222,7 @@ const UserPage = () => {
                 <>
                   <h4>Address:</h4>
                   <form className="d-inline">
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3 ">
                       <p>{UserData.address}</p> <br />
                       <div className="input-group-append">
                         <button
@@ -243,7 +243,7 @@ const UserPage = () => {
                 <>
                   <h4>Address:</h4>
                   <form className="d-inline">
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3 p-2">
                       <input
                         id="address"
                         type="text"
@@ -254,10 +254,10 @@ const UserPage = () => {
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                       />
-                      <div className="input-group-append">
+                      <div className="input-group-append p-0">
                         <button
                           id="edit"
-                          className="btn btn-outline-dark"
+                          className="btn btn-outline-dark border-end-0"
                           type="button"
                           onClick={() => setEdit_address(!edit_address)}
                         >

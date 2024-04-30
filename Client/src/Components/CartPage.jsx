@@ -44,7 +44,7 @@ const CartPage = () => {
 
     if(decoded.phone === undefined || decoded.address === undefined || isExpired(token)) {
       navigate("/user");
-      toast.error("Please update your phone and address first!");
+      toast.error("Please update your profile");
       return null;
     }
     
