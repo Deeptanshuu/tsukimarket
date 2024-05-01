@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
                 address: user.address
             };
             //console.log(process.env.JWT_KEY);
-            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1d' });
+            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '3h' });
             return res.status(200).send(token);
 
         } else {
