@@ -23,7 +23,8 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8181/auth/signup', { username, email, password });
+      const endpoint = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_ENDPOINT : "http://localhost:8181";
+      const response = await axios.post(`${endpoint}/auth/signup`, { username, email, password });
 
       if (response.data) {
         // Handle successful login (e.g., redirect to dashboard)

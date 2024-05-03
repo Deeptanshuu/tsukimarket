@@ -19,7 +19,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8181/auth/login", {
+      const endpoint = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_ENDPOINT : "http://localhost:8181";
+      const response = await axios.post(`${endpoint}/auth/login`, {
         username,
         password,
       });
