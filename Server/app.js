@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../Client/build')))
-
+/*
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../Client/build', 'index.html'),
    function(err) {
@@ -22,7 +22,7 @@ app.get('/*', function(req, res) {
     }
   });
 });
-
+*/
 
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
