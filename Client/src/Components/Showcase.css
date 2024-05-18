@@ -191,6 +191,29 @@
     }
 }
 
+.share-details{
+    border-top:1px solid black;
+    padding: 30px 0px;
+    .share-icons{
+        display: flex;
+        justify-content: space-between;
+        padding:15px 80px;
+    }
+    h1{
+        font-size: x-large;
+        font-weight: 700;
+        letter-spacing: 0.25em;
+    }
+    svg{
+        rect{
+            fill: #ffffff00;
+        }
+        path{
+            fill:black;
+        }
+    }
+}
+
 .add-cart{
     button{
         border-radius: 0%;

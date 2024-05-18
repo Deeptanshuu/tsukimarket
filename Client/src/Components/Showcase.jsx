@@ -7,6 +7,20 @@ import { Link, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Slide } from "react-toastify";
+import {
+  EmailShareButton,
+  PinterestShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import {
+  EmailIcon,
+  PinterestIcon,
+  TumblrIcon,
+  WhatsappIcon,
+  XIcon,
+} from "react-share";
 import itemsData from "./items.json";
 import "./Showcase.css";
 
@@ -18,10 +32,15 @@ const Showcase = () => {
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
 
+
   const allItems = Object.values(itemsData).flatMap((category) => category);
   const selectedItem = allItems.find((item) => item.id === id);
 
   const [mainImg, setMainImg] = useState(selectedItem.img);
+
+  
+  const shareUrl = `https://tsukimarket.vercel.app/shop/product/showcase?id=${selectedItem.id}`;
+  const title = 'Hey! Check out my Mini Project\n';
 
   const handleImageClick = (imgSrc) => {
     window.scrollTo(0, 320);
@@ -205,7 +224,55 @@ const Showcase = () => {
               waste free product.
             </p>
           </div>
+          <div className="share-details">
+            <h1>SHARE </h1>
+            <div className="share-icons">
+            <TwitterShareButton
+            url={shareUrl}
+            title={title}
+            className="Demo__some-network__share-button"
+            >
+              <XIcon size={54} round={false} />
+            </TwitterShareButton>
+
+            <WhatsappShareButton
+          url={shareUrl}
+          title={title}
+          separator=":: "
+          className="Demo__some-network__share-button"
+        >
+          <WhatsappIcon size={50} round={false} />
+        </WhatsappShareButton>
+
+        <PinterestShareButton
+          url={String(window.location)}
+          media={`https://tsukimarket.vercel.app/shop/basic-2.png`}
+          className="Demo__some-network__share-button"
+        >
+          <PinterestIcon size={54} round={false} />
+        </PinterestShareButton>
+
+        <TumblrShareButton
+          url={shareUrl}
+          title={title}
+          className="Demo__some-network__share-button"
+        >
+          <TumblrIcon size={54} round={false} />
+        </TumblrShareButton>
+
+        <EmailShareButton
+          url={shareUrl}
+          subject={title}
+          body="body"
+          className="Demo__some-network__share-button"
+        >
+          <EmailIcon size={54} round={false}  />
+        </EmailShareButton>
         </div>
+
+          </div>
+        </div>
+
 
         <div className="more-items-cover">
           <div className="more-items-text">

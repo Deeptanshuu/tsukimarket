@@ -11,9 +11,9 @@ const cookieParser = require('cookie-parser');
 // Serve static files from the React app
 
 const path = require('path');
-
-app.use(express.static(path.join(__dirname, '../Client/build')))
 /*
+app.use(express.static(path.join(__dirname, '../Client/build')));
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../Client/build', 'index.html'),
    function(err) {
@@ -29,7 +29,7 @@ dotenv.config({path: './.env' });
 
 
 // Allow requests from the frontend application at http://localhost:3000
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: '*' }));
 
 // Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: false }));
