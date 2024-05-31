@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 // Serve static files from the React app
 
 const path = require('path');
-/*
+
 app.use(express.static(path.join(__dirname, '../Client/build')));
 
 app.get('/*', function(req, res) {
@@ -22,7 +22,7 @@ app.get('/*', function(req, res) {
     }
   });
 });
-*/
+
 
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
