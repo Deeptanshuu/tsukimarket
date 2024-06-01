@@ -24,7 +24,7 @@ const NavBar = () => {
     <>
       <nav className="Navbar">
         <div className="logo-container">
-        <Link to="/"><img src="/TSUKI_LOGO.png" class="logo" alt="logo img" /></Link>
+        <Link to="/"><img src="/TSUKI_LOGO.png" class="logo" alt="logo img" fetchpriority="high"/></Link>
           <div className="mantra">
             <Link to="/">-Tsuki – Illuminate Your Style, Consciously.-</Link>
           </div>
