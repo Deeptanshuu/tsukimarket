@@ -1,6 +1,6 @@
 .loading-screen{
     display: flex;
-    height: 50vh;
+    height: 80vh;
     justify-content: center;
     padding: 25vh;
 }
