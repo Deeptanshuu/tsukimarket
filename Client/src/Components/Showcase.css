@@ -47,9 +47,54 @@
         padding: 0%;
         min-width: 100px;
         max-height: 80vh;
-        background-color: #fa1212;
+        --background-color: #fa1212;
+    }
+
+    .showcase-text-name{
+        justify-content: center;
+        --background-color: brown;
     }
     
+    .showcase-text-price{
+        margin-left: 3rem ;
+        --background-color: brown;
+    }
+
+    .showcase-text-stock{
+        margin-left: 3rem ;
+        --background-color: brown;
+    }
+
+    .dropdown{
+        display: flex;
+        justify-content: center;
+        margin-left: 3rem ;
+        --background-color: brown;
+        .btn{
+            width: 100%;
+        }
+    }
+    .dropdown-menu{
+        width: 100%;
+    }
+
+    .quantity-box-container{
+        display: flex;
+        justify-content: center;
+        margin-left: 3rem ;
+        --background-color: brown;
+    }
+
+    .add-cart{
+        display: flex;
+        justify-content: center;
+        margin-left: 3rem ;
+        --background-color: brown;
+        .btn{
+            width: 5dvh;
+        }
+    }
+
 }
 
 
@@ -68,6 +113,7 @@
     var(--dot-color);
 
     .showcase-text-name{
+        display: flex;
         padding: 5px;
         --background-color: wheat;
         h2{
@@ -78,13 +124,15 @@
     }
 
     .showcase-text-price{
-        padding: 5px;
+        display: flex;
+        padding: 5px ;
         --background-color: brown;
         h4{
             font-weight: 500;
         }
     }
     .showcase-text-stock{
+        display: flex; 
         --background-color: rgb(253, 253, 253);
         h6{
             font-size: large;
@@ -92,6 +140,7 @@
         }
     }
     .showcase-text-desc{
+        display: flex;
         --background-color: burlywood;
         display: flex;
         padding: 30px 0px 30px 0px;
@@ -167,8 +216,7 @@
     display: flex;
     justify-content: center;
     background-color: #ffffff;
-    padding: 2em;
-    min-height: 80vh;
+    padding: 1.3em;
     min-width: 49vw;
 }
 
