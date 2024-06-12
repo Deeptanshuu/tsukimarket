@@ -35,13 +35,21 @@
     border: 1px solid black;
 }
 
+@media screen and (max-width: 1200px) {
+    ul.nav-links{
+        font-size: small;
+        padding-right: 0rem;
+        padding-left: 0rem;
+        --background-color: aqua;
+    }
+}
 
 ul.nav-links {
     display: flex;
-    justify-content: space-between;
-    padding-left: 20em;
-    padding-right: 20em;
+    justify-content: space-around;
     margin-bottom: 0rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
     li {
         border-radius: 50px;
         color: rgba(0, 0, 0, 0.75);

@@ -117,8 +117,8 @@ const Showcase = () => {
         <h1>- Item details -</h1>
       </div>
 
-      <div className="showcase-wrapper row" key={selectedItem.id}>
-        <div className="showcase-img col-6 z-3">
+      <div className="showcase-wrapper" key={selectedItem.id}>
+        <div className="showcase-img">
           <div className="showcase-img-list-icons">
             {["img2", "img3", "img4"].map((imgKey) => (
               <div className="img-list" key={imgKey}>
@@ -151,7 +151,7 @@ const Showcase = () => {
           </div>
         </div>
 
-        <div className="showcase-text col-6">
+        <div className="showcase-text">
           <div className="showcase-text-name">
             <h2>{selectedItem.name}</h2>
           </div>
@@ -293,9 +293,11 @@ const Showcase = () => {
 
           </div>
         </div>
+      </div>
 
+      
 
-        <div className="more-items-cover">
+      <div className="more-items-cover">
           <div className="more-items-text">
             <h4>- Explore similar items -</h4>
           </div>
@@ -356,7 +358,6 @@ const Showcase = () => {
             <p>- Back to Collection -</p>
           </Link>
         </div>
-      </div>
     </div>
   );
 };

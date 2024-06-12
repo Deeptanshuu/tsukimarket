@@ -90,21 +90,21 @@ const NavBar = () => {
             <ul className="nav-links">
               {localStorage.getItem('token') ? (
                 <Link to="/user">
-                  <li>My Account 私のアカウント</li>
+                  <li>My Account</li>
                 </Link>
               ) : (
                 <Link to="/login">
-                  <li> Loginコレクション </li>
+                  <li> Login</li>
                 </Link>
               )}
               <Link to="/">
-                <li> Homeホームページ </li>
+                <li> Home</li>
               </Link>
               <Link to="/shop">
-                <li> Collectionすべての商品 </li>
+                <li> Collection</li>
               </Link>
               <Link to="/contact">
-                <li> Contact usお問い合わせ </li>
+                <li> Contact us</li>
               </Link>
             </ul>
         </div>

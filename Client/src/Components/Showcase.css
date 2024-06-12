@@ -30,9 +30,28 @@
 }
 
 .showcase-wrapper{
-    margin: 0%;
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
 }
+
+@media screen and (max-width: 1200px) {
+    .showcase-wrapper{
+        flex-direction: column;
+    }
+    .showcase-text{
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 0%;
+    }
+    .showcase-img-list-icons{
+        padding: 0%;
+        min-width: 100px;
+        max-height: 80vh;
+        background-color: #fa1212;
+    }
+    
+}
+
 
 .showcase-text{
     padding: calc(0.15*50vw);
@@ -118,8 +137,8 @@
     flex-direction: column;
     max-width: calc(0.15*50vw);
     max-height: 80vh;
-    padding: 0.5em;
-    margin: 20px;
+    padding: 0.2em;
+    margin: 0.5em;
     gap: 20px;
     img{
         max-width: 100%;
