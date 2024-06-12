@@ -197,6 +197,7 @@ const Showcase = () => {
           </div>
 
           <div className="quantity-box-container">
+            <h6>Selected Size: {size}</h6>
             <QuantitySelector
               quantity={quantity}
               onIncrement={handleIncrement}

@@ -68,11 +68,11 @@
         justify-content: center;
         --background-color: brown;
         .btn{
-            width: 100%;
+            width: 80%;
         }
     }
     .dropdown-menu{
-        width: 100%;
+        width: 80%;
     }
 
     .quantity-box-container{
@@ -81,12 +81,13 @@
         --background-color: brown;
     }
 
+
     .add-cart{
         display: flex;
         justify-content: center;
         --background-color: brown;
         .btn{
-            width: 50%;
+            width: 45%;
         }
     }
 
@@ -148,6 +149,10 @@
     --background-color: aqua;
     display: flex;
     min-height: 83px;
+    h6{
+        font-size: large;
+        font-weight: 600;
+    }
 }
 
 .quantity-box{
@@ -279,7 +284,7 @@
 .add-cart{
     button{
         border-radius: 0%;
-        padding: 10px 40px;
+        padding: 10px;
     }
 }
 
