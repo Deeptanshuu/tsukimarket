@@ -56,19 +56,16 @@
     }
     
     .showcase-text-price{
-        margin-left: 3rem ;
         --background-color: brown;
     }
 
     .showcase-text-stock{
-        margin-left: 3rem ;
         --background-color: brown;
     }
 
     .dropdown{
         display: flex;
         justify-content: center;
-        margin-left: 3rem ;
         --background-color: brown;
         .btn{
             width: 100%;
@@ -81,14 +78,12 @@
     .quantity-box-container{
         display: flex;
         justify-content: center;
-        margin-left: 3rem ;
         --background-color: brown;
     }
 
     .add-cart{
         display: flex;
         justify-content: center;
-        margin-left: 3rem ;
         --background-color: brown;
         .btn{
             width: 50%;
