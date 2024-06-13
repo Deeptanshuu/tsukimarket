@@ -378,7 +378,15 @@
 
     .more-items{
         flex-direction: column;
-        min-width: 90%;
+        min-width: 100%;
+        scale: 0.8;
+    }
+    
+    .more-items-cover{
+        padding: 0px;
+        .more-items-text{
+            border-top: 0px;
+        }
     }
 
     .product-card{
