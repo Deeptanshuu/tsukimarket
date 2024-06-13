@@ -161,10 +161,6 @@ const Showcase = () => {
           </div>
 
           <div className="showcase-text-stock">
-            <h6>{selectedItem.inStock ? "In Stock ✅" : "Out of Stock ❌"}</h6>
-          </div>
-
-          <div className="showcase-text-stock">
             <h6>Selected Size: {size}</h6>
           </div>
 
@@ -196,14 +192,22 @@ const Showcase = () => {
             </ul>
           </div>
 
+          <div className="quantity-box-text">
+          <h6>Quantity:</h6>{/* dont put this in div container*/}
+          </div>
+          
           <div className="quantity-box-container">
-            <h6>Selected Size: {size}</h6>
             <QuantitySelector
               quantity={quantity}
               onIncrement={handleIncrement}
               onDecrement={handleDecrement}
               state={selectedItem.inStock}
             />
+          </div>
+
+
+          <div className="showcase-text-stock">
+            <h6>{selectedItem.inStock ? "In Stock ✅" : "Out of Stock ❌"}</h6>
           </div>
 
           <div className="add-cart" style={{ cursor: selectedItem.inStock ? "pointer" : "not-allowed" }}>
