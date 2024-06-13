@@ -166,8 +166,10 @@
     display: flex;
     justify-content: center;
     background-color: #ffffff;
-    padding: 1em;
-    min-width: 49vw;
+    padding: 1.5em;
+    min-width: 50%;
+    min-height: 100%;
+    max-width: 50%;
 }
 
 .footer-showcase{
@@ -308,6 +310,11 @@
         --border-bottom: 1px solid black;
         padding: 10%;
     }
+
+    .showcase-img{
+        min-width: 100vw;
+    }
+
     .showcase-img-list-icons{
         padding: 0px;
         min-width: 100px;

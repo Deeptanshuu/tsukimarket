@@ -35,23 +35,15 @@
     border: 1px solid black;
 }
 
-@media screen and (max-width: 1200px) {
-    ul.nav-links{
-        font-size: small;
-        padding-right: 0rem;
-        padding-left: 0rem;
-        --background-color: aqua;
-    }
-}
 
 ul.nav-links {
     display: flex;
     justify-content: space-around;
     margin-bottom: 0rem;
-    padding-right: 5rem;
-    padding-left: 5rem;
+    padding-right: 15rem;
+    padding-left: 15rem;
     li {
-        border-radius: 50px;
+        border-radius: 25px;
         color: rgba(0, 0, 0, 0.75);
         font-size: 1em;
         padding: 10px;
@@ -135,3 +127,13 @@ a {
     z-index: 10;
     /* Add any additional styles you need for the sticky state */
   }
+
+
+  @media screen and (max-width: 1200px) {
+    ul.nav-links{
+        font-size: small;
+        padding-right: 0rem;
+        padding-left: 0rem;
+        --background-color: aqua;
+    }
+}
