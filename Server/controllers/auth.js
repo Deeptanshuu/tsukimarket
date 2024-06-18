@@ -65,7 +65,7 @@ exports.signup = async (req, res) => {
         const existingUser = await collection.findOne({ $or: [{ username }, { email }] });
 
         if (existingUser) {
-            return res.status(400).send('Account already exists');
+            return res.status(400).send('Username/email already exists');
         }
         // Insert the new user into the database
         await collection.insertOne({ username, password, email });
