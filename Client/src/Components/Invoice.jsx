@@ -7,12 +7,12 @@ import { toast, ToastContainer } from 'react-toastify';
 const Invoice = () => {
 
   const createPDF = async () => {   
-    toast.success('Invoice generated!');  
     const element = document.querySelector("#pdf");
     const pdf = new jsPDF("portrait", "pt", "a4"); 
     const data = await html2canvas(element, { scale: 2 });
     const img = data.toDataURL("image/png");  
     const imgProperties = pdf.getImageProperties(img);
+    toast.success('Invoice generated!');
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = (imgProperties.height * pdfWidth ) / imgProperties.width;
     pdf.addImage(img, "WEBP", 0, 0, pdfWidth, pdfHeight, undefined, "SLOW");

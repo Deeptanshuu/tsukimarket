@@ -8,7 +8,7 @@ const Cancel = () => {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
-    axios.post("http://localhost:8181/db/payment_status",{
+    axios.post(`${process.env.REACT_APP_API_ENDPOINT}/db/payment_status`,{
         token: token,
         status: "fail"
     }).then((res) => {
