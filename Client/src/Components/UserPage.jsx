@@ -48,7 +48,7 @@ const UserPage = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8181/db/user_address",
+        `${process.env.REACT_APP_API_ENDPOINT}/db/user_address`,
         data
       );
       //console.log(response);
@@ -76,7 +76,7 @@ const UserPage = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8181/db/user_phone",
+        `${process.env.REACT_APP_API_ENDPOINT}/db/user_phone`,
         data
       );
 

@@ -57,7 +57,7 @@ const CartPage = () => {
       "Content-Type":"application/json",
     }
 
-    const response = await fetch("http://localhost:8181/db/payment", {
+    const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/db/payment`, {
       method: "POST",  
       headers: header,
       body: JSON.stringify(body),

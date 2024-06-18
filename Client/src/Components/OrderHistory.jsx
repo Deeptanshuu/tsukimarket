@@ -15,7 +15,7 @@ const OrderHistory = () => {
       try {
         const token = JSON.parse(localStorage.getItem("token"));
         const response = await axios.post(
-          "http://localhost:8181/db/order_history",
+          `${process.env.REACT_APP_API_ENDPOINT}/db/order_history`,
           { token }
         );
 
@@ -46,7 +46,7 @@ const OrderHistory = () => {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const response = await axios.post(
-        "http://localhost:8181/db/invoice",
+        `${process.env.REACT_APP_API_ENDPOINT}/db/invoice`,
         { token, id });
       localStorage.setItem("invoice", JSON.stringify(response.data));
       navigate("invoice");
