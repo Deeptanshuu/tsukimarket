@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}auth/signup`, { username, email, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/auth/signup`, { username, email, password });
 
       if (response.data) {
         // Handle successful login (e.g., redirect to dashboard)
