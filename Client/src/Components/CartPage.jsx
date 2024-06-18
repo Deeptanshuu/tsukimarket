@@ -4,7 +4,7 @@ import { useCart } from "./CartContext";
 import "./CartPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import QuantitySelector from "./QuatitySelector";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import {loadStripe} from '@stripe/stripe-js';
 import { decodeToken, isExpired } from "react-jwt";
 
@@ -43,8 +43,9 @@ const CartPage = () => {
     const decoded = decodeToken(token);
 
     if(decoded.phone === undefined || decoded.address === undefined || isExpired(token)) {
-      navigate("/user");
-      toast.error("Please update your profile");
+      setTimeout(() => {
+        navigate("/user?update_profile");
+      }, 0);
       return null;
     }
     
@@ -88,6 +89,7 @@ const CartPage = () => {
 
   return (
     <>
+    <ToastContainer/>
       <div className="cart-header">
         <h1>-Your Cart-</h1>
       </div>

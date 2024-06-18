@@ -27,8 +27,10 @@ const Register = () => {
 
       if (response.data) {
         // Handle successful login (e.g., redirect to dashboard)
-        navigate('/login');
         toast.success('Sign up successful!');
+        setTimeout(() => {
+          navigate('/login');
+        }, 600);
 
       }
     }

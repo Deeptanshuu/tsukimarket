@@ -28,9 +28,11 @@ const Login = () => {
       if (response.data) {
         //console.log(response.data);
         localStorage.setItem("token", JSON.stringify(response.data));
-        window.location.replace("/user");//dont switch to navigate nav bar wont update
-        // Handle successful login (e.g., redirect to dashboard)
         toast.success("Login successful!");
+        setTimeout(() => {
+          window.location.replace("/user");//dont switch to navigate nav bar wont update
+        }, 600);
+        // Handle successful login (e.g., redirect to dashboard)
       }
     } catch (error) {
       console.error("Login failed:", error.response.data);

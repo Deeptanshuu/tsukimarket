@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
                 address: user.address
             };
             //console.log(process.env.JWT_KEY);
-            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '3h' });
+            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '6h' });
             return res.status(200).send(token);
 
         } else {
@@ -62,9 +62,9 @@ exports.signup = async (req, res) => {
 
     try {
         // Check if the username or email already exists
-        const existingUser = await collection.findOne({ $or: username });
+        const existingUser = await collection.findOne({ username });
 
-        const existingEmail = await collection.findOne({ $or: email })
+        const existingEmail = await collection.findOne({ email })
 
         if (existingUser) {
             return res.status(400).send('Username already in use');

@@ -1,42 +1,48 @@
 import React, { useState, useEffect } from "react";
 import "./UserPage.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
 
 const UserPage = () => {
+  const location = useLocation;
+  const navigate = useNavigate();
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [UserData, setUserData] = useState({});
   const [edit_phone, setEdit_phone] = useState(false);
   const [edit_address, setEdit_address] = useState(false);
+  // eslint-disable-next-line
+  const [isProfileUpdateRequired, setIsProfileUpdateRequired] = useState(false);
 
   const token = JSON.parse(localStorage.getItem("token"));
-  //console.log(UserData);
+  //console.log(UserData); 
+  
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+  
+    if (params.has('update_profile')) {
+      setIsProfileUpdateRequired(true);
+      toast.error('Please update your profile.');
+    }
+  }, [location.search,]);
+
 
   useEffect(() => {
     if (!token || isExpired(token)) {
       localStorage.removeItem("token");
       toast.error("Session expired. Please login again.");
-      window.location.replace("/login");
-      return null;
-    } 
-    else {
+      navigate("/login");
+      return;
+    } else {
       const userData = decodeToken(token);
       if (userData) {
         setUserData(userData);
-        //Capital U is for display purpose Small u is for if else ladder
-        toast.success("Welcome, " + userData.username);
-      } 
-      else {
-        localStorage.removeItem("token");
-        toast.error("Session expired. Please login again.");
-        window.location.replace("/login");
-        return null;
       }
     }
-  }, [token]);
+  }, [token, navigate, location]);
 
   const handle_addressSubmit = async (e) => {
     e.preventDefault();
@@ -97,8 +103,8 @@ const UserPage = () => {
 
   return (
     <>
+     <ToastContainer />
       <div className="dotted-bg">
-        <ToastContainer limit={1} />
         <div className="user-page">
           <div className="sidebar col-4">
             <ul>
