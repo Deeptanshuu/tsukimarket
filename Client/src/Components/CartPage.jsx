@@ -103,9 +103,19 @@ const CartPage = () => {
       ) : (
         <div className="cart-wrapper">
           <div className="cart-list">
-            <div className="cart-item-header">- Invoice -</div>
+            <div className="cart-item-header">- Cart Items -</div>
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
+                <div className="cart-item-pic">
+                  <Link to={`/shop/product/showcase?id=${item.ref}`}>
+                    <img
+                      src= {item.img}
+                      class="img-fluid"
+                      alt="cart item pic"
+                    />
+                  </Link>
+                  
+                </div>
                 <div className="cart-item-details" style={{ display: "flex", flexDirection: "column" }}>
                   <ul>{item.name} </ul>
                   <ul><p>Size: {item.size}</p></ul>

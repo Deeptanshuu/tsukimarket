@@ -77,9 +77,11 @@ const Showcase = () => {
       const addedItem = {
         id: selectedItem.id +" "+ size,
         name: selectedItem.name,
+        img: selectedItem.img,
         price: selectedItem.price,
         inStock: selectedItem.inStock,
         category: selectedItem.category,
+        ref: selectedItem.id
       }
       addToCart(addedItem, quantity, size);
       toast.success("Item added to your cart!", {
