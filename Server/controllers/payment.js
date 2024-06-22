@@ -11,8 +11,6 @@ exports.makePayment = async (req, res) => {
     const cart = JSON.parse(req.body.cart);
     const token = JSON.parse(req.body.token);
 
-    
-
     const lineitems = cart.map((item) => {
         const item_name = item.name + " -" + item.size + "- ";
         return {
@@ -21,7 +19,7 @@ exports.makePayment = async (req, res) => {
                 product_data: {
                     name: item_name,
                     metadata: {
-                        size: item.size
+                        size: item.size,
                     }
                 },
                 unit_amount: item.price * 100,
@@ -38,7 +36,7 @@ exports.makePayment = async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineitems,
         mode: "payment",
-        success_url: `${origin}/success`,
+        success_url: `${origin}/success?id=session.id`,
         cancel_url: `${origin}/cancel`,
     });
 
