@@ -85,7 +85,7 @@ const Invoice = () => {
             </tfoot>
           </table>
           <div className="invoice-footer">
-          <h5><b>Paymet Mehod:</b></h5>
+          <h5><b>Paymet Method:</b></h5>
           <h5><b>CARD</b></h5>
           <h5>{" "}<br/></h5>
           <h5><b>Terms and Conditions applied:</b></h5>
