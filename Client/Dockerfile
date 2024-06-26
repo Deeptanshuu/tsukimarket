@@ -1,10 +1,10 @@
-FROM node:21.2.0
+FROM node:21.2.0-alpine
 
-WORKDIR V:\Deeptanshu Lal\INTERN\E-com + MongoDB
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
 
-RUN npm install --force
+RUN npm install
 
 COPY . .
 
@@ -12,4 +12,6 @@ ENV PORT=3000
 
 EXPOSE 3000
 
-CMD ["npm","run","start"]
+CMD [ "npm" , "start" ]
+
+
