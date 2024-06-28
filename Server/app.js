@@ -12,10 +12,10 @@ const cookieParser = require('cookie-parser');
 
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, '../Server/build')));
+app.use(express.static(path.join(__dirname, '../Client/build')));
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../Server/build', 'index.html'),
+  res.sendFile(path.join(__dirname, '../Client/build', 'index.html'),
    function(err) {
     if (err) {
       res.status(500).send(err);
