@@ -8,7 +8,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 
-// Serve static files from the React app
+// Serve static files from the React app buil folder or server folder
 
 const path = require('path');
 
@@ -28,7 +28,6 @@ const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
 
 
-// Allow requests from the frontend application at http://localhost:3000
 app.use(cors({ origin: '*' }));
 
 // Parse URL-encoded bodies
