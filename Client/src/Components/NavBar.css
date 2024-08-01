@@ -42,7 +42,6 @@ ul.nav-links {
     margin-bottom: 0rem;
     padding-right: 15rem;
     padding-left: 15rem;
-    font-style: italic;
     font-weight: 500;
     letter-spacing: 0.3rem;
     li {
@@ -58,7 +57,7 @@ ul.nav-links {
         background-color: #fbd1a2;
         box-shadow: 15px 15px black;
         color: #535353;
-        scale: 1.11;
+        scale: 1.06;
     }
     
     li:active{
