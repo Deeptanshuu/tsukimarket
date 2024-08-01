@@ -140,9 +140,14 @@ const Home = () => {
         </div>
 
         <div id="more-items-homepage" className="more-items-cover">
+        <Link
+              to={`/shop`}
+              className="view-item-button"
+            >
           <div className="more-items-text">
             <h4>- Explore Our Collection -</h4>
           </div>
+          </Link>
           <div className="more-items">
             {allItems
               .sort(() => Math.random() - 0.5)
@@ -191,7 +196,7 @@ const Home = () => {
               to={`/shop`}
               className="view-item-button"
             > 
-          <div className="more-items-text">
+          <div className="more-items-text" id="view-items">
 
             <h2>- View Items -</h2>
           </div>

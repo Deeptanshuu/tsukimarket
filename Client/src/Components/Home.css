@@ -165,3 +165,8 @@
     letter-spacing: 0.2rem;
   }
 }
+
+#view-items{
+  display: flex;
+  margin-top: 1rem;
+}

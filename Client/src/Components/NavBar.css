@@ -42,12 +42,14 @@ ul.nav-links {
     margin-bottom: 0rem;
     padding-right: 15rem;
     padding-left: 15rem;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.3rem;
     li {
         border-radius: 25px;
         color: rgba(0, 0, 0, 0.75);
         font-size: 1em;
         padding: 10px;
-        font-weight: 500;
         transition: all 0.3s cubic-bezier(.79,.14,.15,.86); 
     }
 
