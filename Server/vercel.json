@@ -11,17 +11,6 @@
       "src": "/(.*)",
       "dest": "app.js"
     }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src *; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline'; script-src 'self'"
-        }
-      ]
-    }    
   ]
 }
 
