@@ -28,7 +28,6 @@ app.get('/*', function(req, res) {
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
 
-
 app.use(cors({ origin: '*' }));
 
 // Parse URL-encoded bodies
