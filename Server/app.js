@@ -10,20 +10,20 @@ const cookieParser = require('cookie-parser');
 
 // Serve static files from the React app buil folder or server folder
 
-/*
+
 const path = require('path');
 
-app.use(express.static(path.join(__dirname, '../Client/build')));
+app.use(express.static(path.join(__dirname, './build')));
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../Client/build', 'index.html'),
+  res.sendFile(path.join(__dirname, './build', 'index.html'),
    function(err) {
     if (err) {
       res.status(500).send(err);
     }
   });
 });
-*/
+
 
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
