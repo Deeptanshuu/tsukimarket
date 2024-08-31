@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 
 // Serve static files from the React app buil folder or server folder
 
+/*
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, '../Client/build')));
@@ -22,7 +23,7 @@ app.get('/*', function(req, res) {
     }
   });
 });
-
+*/
 
 const dotenv = require("dotenv");
 dotenv.config({path: './.env' });
@@ -48,3 +49,7 @@ connect()
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
   });
+
+  app.use("/", (res,req)=>{
+    res.send("Peta the serverless function is here.");
+  })
