@@ -24,7 +24,7 @@ async function connect() {
     console.error("Failed to connect to MongoDB", err);
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    //await client.close();
   }
 }
 

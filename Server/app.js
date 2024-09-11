@@ -47,10 +47,3 @@ connect()
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
 });
-
-
-
-  // Corrected route handler
-app.use("/", (req, res) => {
-  res.send("Peta the serverless function is here.");
-});
