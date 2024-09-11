@@ -8,8 +8,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 
-// Serve static files from the React app buil folder or server folder
-
+// Serve static files from the React app build folder or server folder
 
 const path = require('path');
 
