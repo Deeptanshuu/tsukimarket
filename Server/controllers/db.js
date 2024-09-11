@@ -29,4 +29,4 @@ async function connect() {
 }
 
 // Export the connect function
-module.exports = { connect };
+module.exports = { client, connect }; 
