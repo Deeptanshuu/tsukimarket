@@ -81,7 +81,9 @@ const CartPage = () => {
     const token = localStorage.getItem("token");
     if (!token) {
       toast.error("Please login first!");
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      },800);
       return null;
     }
     makePayment();
