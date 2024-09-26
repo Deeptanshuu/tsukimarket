@@ -1,10 +1,24 @@
-
 .pic-wrapper {
   display: flex;
+  flex-direction: row;
   padding: 5rem 5rem;
   padding-bottom: 5rem;
   overflow: hidden;
 }
+
+@media (max-width: 768px) {
+  .pic-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    scale: 0.90; /* Adjust padding for smaller screens if needed */
+  }
+
+  .pic-container{
+    padding: 0px;
+  }
+}
+
 
 .pic-container {
   display: flex;
