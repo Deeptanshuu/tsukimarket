@@ -1,12 +1,17 @@
 const { client } = require("../controllers/db");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
+const SALT_ROUNDS = 10;
+
+const isHashed = (password) => typeof password === "string" && /^\$2[aby]\$/.test(password);
 
 // Function to handle login form submission
 exports.login = async (req, res) => {
     const { username, password } = req.body;
 
-    if(!username || !password) {
+    // only accept plain strings, stops stuff like { "$ne": null } reaching mongo
+    if (typeof username !== "string" || typeof password !== "string" || !username || !password) {
         return res.status(400).send('Please fill all required fields');
     }
 
@@ -16,21 +21,30 @@ exports.login = async (req, res) => {
     try {
         const user = await collection.findOne({ username });
 
-        if (user && user.password === password) {
-            const userdata = {
-                username: user.username,
-                email: user.email,
-                id: user._id,
-                phone: user.phone,
-                address: user.address
-            };
-            //console.log(process.env.JWT_KEY);
-            const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '6h' });
-            return res.status(200).send(token);
+        let valid = false;
+        if (user && isHashed(user.password)) {
+            valid = await bcrypt.compare(password, user.password);
+        } else if (user && user.password === password) {
+            // old account from before hashing, upgrade it now that we know the password
+            valid = true;
+            const hash = await bcrypt.hash(password, SALT_ROUNDS);
+            await collection.updateOne({ _id: user._id }, { $set: { password: hash } });
+        }
 
-        } else {
+        if (!valid) {
             return res.status(401).send('Invalid credentials. Try again');
         }
+
+        const userdata = {
+            username: user.username,
+            email: user.email,
+            id: user._id,
+            phone: user.phone,
+            address: user.address
+        };
+        const token = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '6h' });
+        return res.status(200).send(token);
+
     } catch (error) {
         console.error('Error during login:', error);
         res.status(500).send('Internal Server Error');
@@ -43,19 +57,16 @@ exports.signup = async (req, res) => {
     // Regular expression for basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Function to check if an email is valid
-    function isValidEmail(email) {
-        return emailRegex.test(email);
-    }
-
-    if (!username || !password || !email) {
+    if (typeof username !== "string" || typeof password !== "string" || typeof email !== "string"
+        || !username || !password || !email) {
         return res.status(400).send('Please fill all required fields');
     }
-    if (!isValidEmail(email)) {
+    if (!emailRegex.test(email)) {
         return res.status(400).send('Invalid email address');
     }
-
-    // Check if username or email already exists
+    if (password.length < 6) {
+        return res.status(400).send('Password must be at least 6 characters');
+    }
 
     const db = client.db("Tsuki");
     const collection = db.collection("Users");
@@ -63,19 +74,17 @@ exports.signup = async (req, res) => {
     try {
         // Check if the username or email already exists
         const existingUser = await collection.findOne({ username });
-
-        const existingEmail = await collection.findOne({ email })
-
         if (existingUser) {
             return res.status(400).send('Username already in use');
         }
 
+        const existingEmail = await collection.findOne({ email });
         if (existingEmail) {
-            return res.status(400).send('Email already in use')
+            return res.status(400).send('Email already in use');
         }
 
-        // Insert the new user into the database
-        await collection.insertOne({ username, password, email });
+        const hash = await bcrypt.hash(password, SALT_ROUNDS);
+        await collection.insertOne({ username, password: hash, email });
         res.send('Sign Up successful');
     } catch (error) {
         console.error('Error during signup:', error);
