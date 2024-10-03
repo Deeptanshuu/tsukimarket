@@ -60,6 +60,9 @@ const cartReducer = (state, action) => {
         return state;
       }
 
+    case "CLEAR_CART":
+      return [];
+
     default:
       return state;
   }
@@ -102,20 +105,18 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: { ...item, size: size } });
   };
 
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   // Calculate total price of items in the cart
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  // Add tax and shipping charges
+  // Add tax and shipping charges, has to match what the server charges on stripe
   const calculateTotalWithTaxAndShipping = () => {
-    const subtotal = calculateTotal();
-    const taxRate = 0.1; // 10% tax
-    const shippingCost = 100; // Fixed shipping cost
-
-    const tax = subtotal * taxRate;
-    const total = subtotal + tax + shippingCost;
-
+    const total = calculateTotal() + Number(calculateTax()) + Number(calculateShipping());
     return total.toFixed(2); // Round to 2 decimal places
   };
 
@@ -138,6 +139,7 @@ const CartProvider = ({ children }) => {
         addToCart,
         addToCartpage,
         removeFromCart,
+        clearCart,
         calculateTotal,
         calculateTotalWithTaxAndShipping,
         calculateTax,

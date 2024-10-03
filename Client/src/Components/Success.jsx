@@ -1,25 +1,32 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Success.css";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+import { useCart } from "./CartContext";
 
 
 const Success = () => {
+    const location = useLocation();
+    const { clearCart } = useCart();
 
     useEffect(() => {
       const token = JSON.parse(localStorage.getItem("token"));
+      const sessionId = new URLSearchParams(location.search).get("session_id");
+
+      // server checks with stripe that this session was really paid
       axios.post(`${process.env.REACT_APP_API_ENDPOINT}/db/payment_status`,{
           token: token,
+          session_id: sessionId,
           status: "ok"
-      }).then((res) => {
-          console.log(res.data);
+      }).then(() => {
+          clearCart();
+          toast.success("Payment Successful");
       }).catch((err) => {
           console.log(err);
+          toast.error("Could not verify payment, check your order history");
       });
-
-    toast.success("Payment Successful");
-    }, []);
+    }, [location.search]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
 

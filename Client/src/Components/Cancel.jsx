@@ -1,15 +1,18 @@
 import React, { useEffect} from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import './Cancel.css';
 import axios from "axios";
 
 const Cancel = () => {
+  const location = useLocation();
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
+    const orderId = new URLSearchParams(location.search).get("order_id");
     axios.post(`${process.env.REACT_APP_API_ENDPOINT}/db/payment_status`,{
         token: token,
+        order_id: orderId,
         status: "fail"
     }).then((res) => {
         console.log(res.data);
@@ -17,7 +20,7 @@ const Cancel = () => {
         console.log(err);
     });
   toast.error("Transaction Cancelled");
-  }, []);
+  }, [location.search]);
 
   return (
     <>

@@ -42,7 +42,7 @@ const CartPage = () => {
     const token = localStorage.getItem("token");
     const decoded = decodeToken(token);
 
-    if(decoded.phone === undefined || decoded.address === undefined || isExpired(token)) {
+    if(!decoded || decoded.phone === undefined || decoded.address === undefined || isExpired(token)) {
       setTimeout(() => {
         navigate("/user?update_profile");
       }, 0);
@@ -65,6 +65,17 @@ const CartPage = () => {
     })
 
     const Session = await response.json();
+
+    if (!response.ok) {
+      toast.error(Session.error || "Could not start checkout");
+      if (response.status === 401) {
+        setTimeout(() => {
+          navigate("/login");
+        }, 800);
+      }
+      return null;
+    }
+
     const stripe = await stripePromise;
     
     const result = await stripe.redirectToCheckout({
