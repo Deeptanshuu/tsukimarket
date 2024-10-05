@@ -11,7 +11,7 @@ exports.userphone = async (req, res) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_KEY);
 
-        if (!phone) return res.status(400).send('Phone number is required');
+        if (!phone || typeof phone !== 'string') return res.status(400).send('Phone number is required');
         
         // Your phone number validation logic here
         const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
@@ -39,7 +39,7 @@ exports.userphone = async (req, res) => {
             address: newuser.address
         };       
 
-        const newtoken = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1h' });
+        const newtoken = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '6h' });
         return res.status(200).send(newtoken);
 
     } catch (error) {
@@ -58,7 +58,7 @@ exports.useraddress = async (req, res) => {
 
         const { address } = req.body;
 
-        if (!address) return res.status(400).send('Address is required');
+        if (!address || typeof address !== 'string') return res.status(400).send('Address is required');
 
 
         const db = client.db("Tsuki");
@@ -83,7 +83,7 @@ exports.useraddress = async (req, res) => {
             address: newuser.address
         };
 
-        const newtoken = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '1h' });
+        const newtoken = jwt.sign(userdata, process.env.JWT_KEY, { expiresIn: '6h' });
         return res.status(200).send(newtoken);
 
     } catch (error) {
@@ -135,9 +135,10 @@ exports.orderhistory = async (req, res) => {
 
 exports.invoice = async (req, res) => {
     const order_id = req.body.id;
-    const o_id = new mongo.ObjectId(order_id);
     const token = req.body.token;
     if (!token) return res.status(401).send('Missing token');
+    if (!mongo.ObjectId.isValid(order_id)) return res.status(400).send('Invalid order id');
+    const o_id = new mongo.ObjectId(order_id);
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_KEY);
@@ -155,12 +156,15 @@ exports.invoice = async (req, res) => {
 
         const collection_order = db.collection("Order");
 
+        // only return the order if it belongs to whoever is asking
         const user_order = await collection_order.findOne({
             '_id': o_id,
+            customer: decoded.username,
+            customer_email: decoded.email,
         });
         
         if (!user_order) {
-            return res.status(400).send('You have no order history');
+            return res.status(404).send('Order not found');
         }
 
         const payload = {

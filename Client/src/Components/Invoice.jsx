@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import './Invoice.css';
@@ -24,7 +25,11 @@ const Invoice = () => {
     createPDF();
   };
 
-  const invoiceData = JSON.parse(localStorage.getItem('invoice')).payload;
+  const invoiceData = JSON.parse(localStorage.getItem('invoice') || 'null')?.payload;
+
+  if (!invoiceData) {
+    return <Navigate to="/order_history" replace />;
+  }
 
 
   const formatDate = (dateStr) => {
@@ -85,7 +90,7 @@ const Invoice = () => {
             </tfoot>
           </table>
           <div className="invoice-footer">
-          <h5><b>Paymet Method:</b></h5>
+          <h5><b>Payment Method:</b></h5>
           <h5><b>CARD</b></h5>
           <h5>{" "}<br/></h5>
           <h5><b>Terms and Conditions applied:</b></h5>
