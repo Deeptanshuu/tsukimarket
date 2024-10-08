@@ -18,6 +18,11 @@ const allowedOrigins = process.env.CLIENT_ORIGIN
   : "*";
 app.use(cors({ origin: allowedOrigins }));
 
+// Stripe webhook wants the raw body, has to be registered before express.json()
+if (process.env.STRIPE_WEBHOOK_SECRET) {
+  app.use("/webhook", require("./routes/webhooks"));
+}
+
 // Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // Parse JSON bodies

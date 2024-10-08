@@ -1,13 +1,17 @@
+const path = require('path');
 const dotenv = require('dotenv');
-dotenv.config({path: './.env'});
+dotenv.config({ path: path.join(__dirname, '..', '.env') });
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const express = require('express');
+const { markOrderPaid } = require('../controllers/payment');
 
+const router = express.Router();
 
-// This is your Stripe CLI webhook secret for testing your endpoint locally.
+// Signing secret comes from `stripe listen` locally or the dashboard in prod, never commit it
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
-app.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
+// Stripe needs the raw body to check the signature, so this is mounted before express.json()
+router.post('/', express.raw({ type: 'application/json' }), async (request, response) => {
   const sig = request.headers['stripe-signature'];
 
   let event;
@@ -15,22 +19,26 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
   try {
     event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
   } catch (err) {
-    response.status(400).send(`Webhook Error: ${err.message}`);
-    return;
+    return response.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle the event
-  switch (event.type) {
-    case 'payment_intent.succeeded':
-      const paymentIntentSucceeded = event.data.object;
-      // Then define and call a function to handle the event payment_intent.succeeded
-      break;
-    // ... handle other event types
-    default:
-      console.log(`Unhandled event type ${event.type}`);
+  try {
+    switch (event.type) {
+      case 'checkout.session.completed':
+      case 'checkout.session.async_payment_succeeded':
+        // backup for when the user closes the tab before reaching /success
+        await markOrderPaid(event.data.object);
+        break;
+      default:
+        break;
+    }
+  } catch (err) {
+    console.error('Error handling webhook:', err);
+    return response.status(500).send('Webhook handler failed');
   }
 
   // Return a 200 response to acknowledge receipt of the event
-  response.send(200);
+  response.sendStatus(200);
 });
 
+module.exports = router;
