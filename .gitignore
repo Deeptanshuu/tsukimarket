@@ -1,0 +1,6 @@
+node_modules/
+
+# secrets, copy the .env.example in Client/ and Server/ instead
+.env
+.env.*
+!.env.example
