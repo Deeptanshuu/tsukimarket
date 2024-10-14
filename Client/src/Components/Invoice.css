@@ -57,7 +57,7 @@
     padding: 0.5rem;
     font-size: 1.5rem;
     max-width: 350px;
-    margin-left: -28rem;
+    align-self: flex-start;
     p{
         line-height: 1.7em;
     }

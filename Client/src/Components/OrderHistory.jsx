@@ -34,6 +34,12 @@ const OrderHistory = () => {
   }, []);
 
 
+  // older orders saved the date as a locale string, newer ones as a real date
+  const formatDate = (value) => {
+    const date = new Date(value);
+    return isNaN(date) ? value : date.toLocaleString();
+  };
+
   const calculateTotal = (items) => {
     let total = 0;
     items.forEach((item) => {
@@ -83,7 +89,7 @@ const OrderHistory = () => {
                     <b>Order ID:</b> {order.id}
                   </p>
                   <p>
-                    <b>Order Placed on:</b> {order.date}
+                    <b>Order Placed on:</b> {formatDate(order.date)}
                   </p>
                   <p>
                     <b>Order Placed by: </b>
