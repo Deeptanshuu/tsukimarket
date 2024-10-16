@@ -4,7 +4,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import itemsData from './items.json';
 import './Product.css';
-import { ToastContainer } from "react-toastify";
 
 const Products = () => {
   const location = useLocation();
@@ -20,7 +19,6 @@ const Products = () => {
 
   return (
     <div>
-      <ToastContainer/>
       <div className={`header-prod header-prod-${category}`}><h2>-{category}-</h2></div>
       <div className="product-grid">
 

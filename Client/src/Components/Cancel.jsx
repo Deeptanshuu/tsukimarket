@@ -1,6 +1,6 @@
 import React, { useEffect} from "react";
 import { Link, useLocation } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import './Cancel.css';
 import axios from "axios";
 
@@ -19,13 +19,12 @@ const Cancel = () => {
     }).catch((err) => {
         console.log(err);
     });
-  toast.error("Transaction Cancelled");
+  toast.error("Transaction Cancelled", { toastId: "payment-cancelled" });
   }, [location.search]);
 
   return (
     <>
     <div className="dotted-bg">
-      <ToastContainer limit={1}/>
       <div className="cancel-container">
       <h1>Transaction Cancelled</h1>
 

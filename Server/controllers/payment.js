@@ -32,7 +32,9 @@ const getOrigin = (req) => {
     const allowed = process.env.CLIENT_ORIGIN
         ? process.env.CLIENT_ORIGIN.split(",").map((o) => o.trim())
         : null;
-    const origin = req.get("origin");
+    // no Origin header (curl, scripts) -> assume the frontend is served by this same host
+    const proto = (req.get("x-forwarded-proto") || req.protocol).split(",")[0];
+    const origin = req.get("origin") || `${proto}://${req.get("host")}`;
     if (!allowed) return origin;
     return allowed.includes(origin) ? origin : allowed[0];
 };
@@ -129,10 +131,11 @@ exports.makePayment = async (req, res) => {
         });
 
         await Order.updateOne({ _id: orderId }, { $set: { stripe_session_id: session.id } });
-        return res.json({ id: session.id });
+        // session.url is stripe's hosted checkout page, the client just redirects to it
+        return res.json({ id: session.id, url: session.url });
 
     } catch (error) {
-        console.error("Error creating checkout session:", error);
+        console.error("Error creating checkout session:", error.message);
         if (orderId) await Order.deleteOne({ _id: orderId }).catch(() => {});
         return res.status(500).json({ error: "Could not start checkout, try again" });
     }

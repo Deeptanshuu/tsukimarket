@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Success.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 import { useCart } from "./CartContext";
 
@@ -21,10 +21,10 @@ const Success = () => {
           status: "ok"
       }).then(() => {
           clearCart();
-          toast.success("Payment Successful");
+          toast.success("Payment Successful", { toastId: "payment-ok" });
       }).catch((err) => {
           console.log(err);
-          toast.error("Could not verify payment, check your order history");
+          toast.error("Could not verify payment, check your order history", { toastId: "payment-unverified" });
       });
     }, [location.search]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -34,7 +34,6 @@ const Success = () => {
   return (
     <>
     <div className="dotted-bg">
-      <ToastContainer limit={1} />
       <div className="success-container">
       <h1>Payment Successful</h1>
 

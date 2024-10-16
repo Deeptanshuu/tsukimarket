@@ -4,8 +4,7 @@ import { useCart } from "./CartContext";
 import "./CartPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import QuantitySelector from "./QuatitySelector";
-import { ToastContainer, toast } from "react-toastify";
-import {loadStripe} from '@stripe/stripe-js';
+import { toast } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
 
 const CartPage = () => {
@@ -38,7 +37,6 @@ const CartPage = () => {
   };
 
   const makePayment = async () => {
-    const stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
     const token = localStorage.getItem("token");
     const decoded = decodeToken(token);
 
@@ -76,16 +74,8 @@ const CartPage = () => {
       return null;
     }
 
-    const stripe = await stripePromise;
-    
-    const result = await stripe.redirectToCheckout({
-      sessionId: Session.id
-    });
-    
-    if (result.error) {
-      console.log(result.error.message);
-      toast.error(result.error.message);
-    }
+    // redirectToCheckout is deprecated, the server gives us the hosted checkout url
+    window.location.assign(Session.url);
   };
 
   const handleCheckout = () => {
@@ -102,7 +92,6 @@ const CartPage = () => {
 
   return (
     <>
-    <ToastContainer/>
       <div className="cart-header">
         <h1>-Your Cart-</h1>
       </div>

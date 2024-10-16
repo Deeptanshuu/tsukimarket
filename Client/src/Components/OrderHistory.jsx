@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./OrderHistory.css";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import LoadingScreen from './LoadingScreen';
 
 const OrderHistory = () => {
@@ -40,12 +40,15 @@ const OrderHistory = () => {
     return isNaN(date) ? value : date.toLocaleString();
   };
 
+  // what was actually charged: items + 10% tax + ₹100 shipping per item
   const calculateTotal = (items) => {
-    let total = 0;
+    let subtotal = 0;
+    let count = 0;
     items.forEach((item) => {
-      total += item.quantity * item.price;
+      subtotal += item.quantity * item.price;
+      count += item.quantity;
     });
-    return total;
+    return (subtotal * 1.1 + 100 * count).toFixed(2);
   };
 
   const HandleInvoice = async (id) => {
@@ -64,7 +67,6 @@ const OrderHistory = () => {
 
   return (
     <>
-      <ToastContainer/>
       {loading ? (
         <LoadingScreen/>
       )
@@ -122,7 +124,7 @@ const OrderHistory = () => {
                   </ul>
 
                   <h5>
-                    <b>Total: </b>₹{calculateTotal(order.item)}
+                    <b>Total (incl. tax + shipping): </b>₹{calculateTotal(order.item)}
                   </h5>
                   {order.status === "paid" ? (
                     <button className="btn btn-outline-dark" id="logout" onClick={() => HandleInvoice(order.id)}>

@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import QuantitySelector from "./QuatitySelector";
 import { useCart } from "./CartContext";
 import { Link, useLocation } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Slide } from "react-toastify";
 import {
@@ -114,7 +114,6 @@ const Showcase = () => {
 
   return (
     <div>
-      <ToastContainer />
       <div className="header-showcase">
         <h1>- Item details -</h1>
       </div>

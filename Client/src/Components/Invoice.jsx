@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import './Invoice.css';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Invoice = () => {
 
@@ -32,6 +32,11 @@ const Invoice = () => {
   }
 
 
+  // same numbers the server charges on stripe: 10% tax + ₹100 shipping per item
+  const subtotal = invoiceData.order.reduce((total, item) => total + item.quantity * item.price, 0);
+  const tax = subtotal * 0.1;
+  const shipping = 100 * invoiceData.order.reduce((total, item) => total + item.quantity, 0);
+
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
     return date.toLocaleString();
@@ -39,7 +44,6 @@ const Invoice = () => {
 
   return (
     <div className="invoice-wrapper">
-    <ToastContainer/>
     <div id='pdf' className="invoice-container">
       <div className="invoice">
         <div className="invoice-header">
@@ -78,14 +82,20 @@ const Invoice = () => {
             </tbody>
             <tfoot>
               <tr>
+                <td colSpan="3"> Subtotal: </td>
+                <td>₹{subtotal.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan="3"> Tax (10%): </td>
+                <td>₹{tax.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colSpan="3"> Shipping: </td>
+                <td>₹{shipping.toFixed(2)}</td>
+              </tr>
+              <tr>
                 <td colSpan="3"> Grand Total: </td>
-                <td>
-                  ₹
-                  {invoiceData.order.reduce(
-                    (total, item) => total + item.quantity * item.price,
-                    0
-                  ).toFixed(2)}
-                </td>
+                <td>₹{(subtotal + tax + shipping).toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>

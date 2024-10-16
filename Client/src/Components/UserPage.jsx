@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./UserPage.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
 
 const UserPage = () => {
@@ -103,7 +103,6 @@ const UserPage = () => {
 
   return (
     <>
-     <ToastContainer />
       <div className="dotted-bg">
         <div className="user-page">
           <div className="sidebar col-4">
