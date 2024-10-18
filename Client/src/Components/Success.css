@@ -13,6 +13,9 @@
     p{
         font-size: 1.5rem;
         font-weight: 100;
+        max-width: 640px;
+        padding: 0 1rem;
+        text-align: center;
     }
 }
 
