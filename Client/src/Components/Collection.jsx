@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from "react-router-dom";
 import './Collection.css'
 
-const Collecton = () => {
+const Collection = () => {
 
   return (
     <>
@@ -195,4 +195,4 @@ const Collecton = () => {
   );
 };
 
-export default Collecton;
+export default Collection;

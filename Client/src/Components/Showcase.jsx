@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GlassMagnifier } from "react-image-magnifiers";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import QuantitySelector from "./QuatitySelector";
+import QuantitySelector from "./QuantitySelector";
 import { useCart } from "./CartContext";
 import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";

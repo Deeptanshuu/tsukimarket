@@ -3,7 +3,7 @@ import React from "react";
 import { useCart } from "./CartContext";
 import "./CartPage.css";
 import { Link, useNavigate } from "react-router-dom";
-import QuantitySelector from "./QuatitySelector";
+import QuantitySelector from "./QuantitySelector";
 import { toast } from "react-toastify";
 import { decodeToken, isExpired } from "react-jwt";
 

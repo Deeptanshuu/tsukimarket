@@ -7,10 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Login';
 import NavBar from './Components/NavBar';
 import Home from './Components/Home';
-import Footer from './Components/Foooter';
+import Footer from './Components/Footer';
 import Header from './Components/Header';
 import Register from './Components/Register';
-import Collecton from './Components/Collecton';
+import Collection from './Components/Collection';
 import Contact from './Components/Contact';
 import Product from './Components/Product';
 import Showcase from './Components/Showcase';
@@ -35,7 +35,6 @@ function App() {
     const images = document.querySelectorAll('img');
     const imageCount = images.length;
 
-    console.log(images);
 
     let loadedCount = 0;
 
@@ -80,7 +79,7 @@ function App() {
           <Route path='/' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
-          <Route path='/shop' element={<Collecton/>}></Route>
+          <Route path='/shop' element={<Collection/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/shop/product' element={<Product/>}></Route>
           <Route path='/shop/product/showcase' element={<Showcase/>}></Route>
