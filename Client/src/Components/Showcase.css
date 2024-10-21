@@ -394,3 +394,12 @@
 
 }
 
+
+
+/* phones: scale() leaves big empty bands around the "more items" list; use padding instead */
+@media screen and (max-width: 768px) {
+    .more-items {
+        scale: 1;
+        padding: 1.5rem 1.5rem 2.5rem;
+    }
+}

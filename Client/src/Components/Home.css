@@ -184,3 +184,32 @@
   display: flex;
   margin-top: 1rem;
 }
+
+/* phones: keep hero labels / "Shop Now" on one line and centred over the tile */
+@media (max-width: 768px) {
+  .button {
+    left: 0;
+    right: 0;
+
+    h3 {
+      white-space: nowrap;
+      letter-spacing: 0.4em;
+      padding-left: 0.4em; /* balance the trailing letter-spacing */
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+    }
+
+    button {
+      white-space: nowrap;
+      padding: 5px 40px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .help-box {
+    padding: 2.5rem 1.5rem 3.5rem;
+    .help-text {
+      box-shadow: 12px 12px black;
+    }
+  }
+}

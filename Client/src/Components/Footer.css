@@ -53,3 +53,33 @@
     display: flex;
     gap: 30px;
 }
+
+/* phones: stack newsletter and socials instead of two cramped columns */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 2.5rem 1.5rem;
+        .row > .col-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            width: 100%;
+        }
+        .row > .col-6 + .col-6 {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .icons-container {
+        display: flex;
+        gap: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .icon {
+        margin: 0;
+    }
+
+    .copyright {
+        flex-wrap: wrap;
+        gap: 0 1.5rem;
+    }
+}

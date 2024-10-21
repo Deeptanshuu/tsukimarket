@@ -124,7 +124,7 @@ const Home = () => {
               <img src="/pic-2_low.png" alt="pic-1 low res"></img>
             )}
             <div className="button">
-              <h3>-KINTS-</h3>
+              <h3>-KNITS-</h3>
               <Link to="/shop">
                 <button
                   className="btn btn-outline-light"

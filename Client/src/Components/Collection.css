@@ -134,3 +134,22 @@
         max-height: 100%;
     }
 }
+
+/* phones: keep the "See More" button inside its half-width banner column */
+@media (max-width: 768px) {
+    .banner-text {
+        padding-left: 4vw;
+        padding-right: 4vw;
+        a {
+            min-width: 0;
+            width: 100%;
+            font-size: 18px;
+            padding: 8px 4px;
+            align-self: flex-start;
+        }
+    }
+
+    .banner-text-above-btn {
+        font-size: 28px;
+    }
+}

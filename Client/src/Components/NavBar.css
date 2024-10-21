@@ -138,3 +138,50 @@ a {
         --background-color: aqua;
     }
 }
+
+/* phones: centred tagline, tidy single-row nav links without overlapping list markers */
+@media screen and (max-width: 768px) {
+    .mantra {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding: 0.25rem 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        scale: 1;
+        a {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background-color: #ffffff;
+        }
+    }
+
+    /* no letter-spacing growth on touch: it would push the text off-screen */
+    .mantra:hover,
+    .logo-container:hover .mantra {
+        letter-spacing: 0.1em;
+    }
+
+    .nav-icons {
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    ul.nav-links {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        max-height: none;
+        padding: 0.4rem 0.25rem;
+        letter-spacing: 0.12rem;
+        font-size: 0.8rem;
+        li {
+            list-style: none;
+            white-space: nowrap;
+            padding: 6px 8px;
+        }
+        li:hover {
+            box-shadow: 6px 6px black;
+        }
+    }
+}
