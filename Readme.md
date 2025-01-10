@@ -3,6 +3,8 @@
 ## Project Overview
 This is a full-stack e-commerce application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) with modern features and integrations.
 
+![Screenshot 2025-01-10 at 18-42-50 Tsuki Market](https://github.com/user-attachments/assets/80b82e10-4aa5-4eee-ab1f-d07257bd853a)
+
 ## Architecture
 
 ### Frontend (Client)
