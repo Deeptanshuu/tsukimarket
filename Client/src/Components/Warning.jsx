@@ -22,7 +22,7 @@ function Warning() {
                 </div>
                 <div className='warning-text-content'>
                     <h3 className='warning-title'>Demo Website</h3>
-                    <p className='warning-text'>This is not a real website — created for fun and learning purposes. Sorry, Felix</p>
+                    <p className='warning-text'>This is not a real website. I made it for fun and learning react and nodejs. Sorry, Felix</p>
                 </div>
                 <div className='close-button' onClick={dismissWarning}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

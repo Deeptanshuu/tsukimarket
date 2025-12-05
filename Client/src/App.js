@@ -2,6 +2,7 @@ import { BrowserRouter as Router , Routes , Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { CartProvider } from './Components/CartContext';
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import  ScrollRestoration from './Components/ScrollRestoration';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Login';
@@ -68,7 +69,8 @@ function App() {
 
   return (
     <CartProvider>
-      <SpeedInsights/>
+      <SpeedInsights />
+      <Analytics />
       <Router restoreScroll={false} >
       <ScrollRestoration/>
       <Warning/>
