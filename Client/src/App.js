@@ -25,6 +25,7 @@ import Cancel from './Components/Cancel';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Warning from './Components/Warning';
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
       <SpeedInsights/>
       <Router restoreScroll={false} >
       <ScrollRestoration/>
+      <Warning/>
       <Header/>
       <NavBar/>
       <ToastContainer/>
