@@ -47,6 +47,10 @@
 |---|---|
 | ![Cart with tax and shipping](Doc/screenshots/cart.png) | ![Login](Doc/screenshots/login.png) |
 
+**Stripe Checkout (sandbox)**: line items, shipping and tax are priced on the server from the catalog, so a tampered cart can't change what gets charged.
+
+![Stripe Checkout](Doc/screenshots/checkout.png)
+
 | Order history | Invoice (exports to PDF) |
 |---|---|
 | ![Order history](Doc/screenshots/orders.png) | <img src="Doc/screenshots/invoice.png" alt="Invoice" width="360"> |
