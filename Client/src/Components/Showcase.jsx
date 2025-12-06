@@ -130,6 +130,7 @@ const Showcase = () => {
                   <img
                     src={selectedItem[imgKey]}
                     alt={`showcase-img-${imgKey}`}
+                    loading="lazy"
                   />
                 </button>
               </div>
@@ -265,7 +266,7 @@ const Showcase = () => {
 
         <PinterestShareButton
           url={String(window.location)}
-          media={`https://tsukimarket.vercel.app/shop/basic-2.png`}
+          media={`https://tsukimarket.vercel.app/shop/basic-2.webp`}
           className="Demo__some-network__share-button"
         >
           <PinterestIcon size={54} round={false} />

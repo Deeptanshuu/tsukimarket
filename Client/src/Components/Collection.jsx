@@ -19,7 +19,7 @@ const Collection = () => {
           <Link to="/shop/product?category=basics">-See More-</Link>
           </div>
           <div className="banner-img col-6">
-            <img src="/shop/basic-banner.png" alt="basic-banner" decoding="asycn" fetchpriority="high"/>
+            <img src="/shop/basic-banner.webp" alt="basic-banner" decoding="async" fetchpriority="high"/>
           </div>
         </div>
         <div className="product-grid">
@@ -27,7 +27,7 @@ const Collection = () => {
                 <div className="product-status-chip" style={{ opacity: 0 }}>
                   <h6>SOLD OUT</h6>
                 </div>
-                <div className="product-card-image"><Link to="/shop/product/showcase?id=b-2"><LazyLoadImage effect="blur" src="/shop/k-cor-cap.png" alt="img for card" loading='lazy'/></Link></div>
+                <div className="product-card-image"><Link to="/shop/product/showcase?id=b-2"><LazyLoadImage effect="blur" src="/shop/k-cor-cap.webp" alt="img for card" loading='lazy'/></Link></div>
                 <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
                 <div className="product-card-text"><h3>Corduroy Tsuki Cap</h3><Link to="/shop/product/showcase?id=b-2">VIEW ITEM</Link></div>
             </div>
@@ -35,7 +35,7 @@ const Collection = () => {
             <div className="product-status-chip" style={{ opacity: 0 }}>
                   <h6>SOLD OUT</h6>
               </div>
-            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-4"><LazyLoadImage effect="blur" src="/shop/basic-2.png" alt="img for card" loading='lazy'/></Link></div>
+            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-4"><LazyLoadImage effect="blur" src="/shop/basic-2.webp" alt="img for card" loading='lazy'/></Link></div>
             <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
             <div className="product-card-text"><h3>夕焼け Sunset Glow Sweatshirt</h3><Link to="/shop/product/showcase?id=b-4">VIEW ITEM</Link></div>
             </div>
@@ -43,7 +43,7 @@ const Collection = () => {
             <div className="product-status-chip" style={{ opacity: 0 }}>
                   <h6>SOLD OUT</h6>
                 </div>
-            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-1"><LazyLoadImage effect="blur" src="/shop/basic-3.png" alt="img for card" loading='lazy'/></Link></div>
+            <div className="product-card-image"><Link to="/shop/product/showcase?id=b-1"><LazyLoadImage effect="blur" src="/shop/basic-3.webp" alt="img for card" loading='lazy'/></Link></div>
             <div className="quick-view">      <h1>QUICK VIEW</h1>      </div>
             <div className="product-card-text"><h3>Embroidered Logo T-shirt</h3><Link to="/shop/product/showcase?id=b-1">VIEW ITEM</Link></div>
             </div>
@@ -58,7 +58,7 @@ const Collection = () => {
         <Link to="/shop/product?category=melts">-See More-</Link>
         </div>
         <div className="banner-img col-6">
-          <img src="/shop/melts-banner.png" alt="melts-banner" loading='lazy'/>
+          <img src="/shop/melts-banner.webp" alt="melts-banner" loading='lazy'/>
         </div>
       </div>
       <div className="product-grid">
@@ -68,7 +68,7 @@ const Collection = () => {
                 </div>
         <div className="product-card-image">
             <Link to="/shop/product/showcase?id=m-1">
-                <LazyLoadImage effect="blur" src="/shop/melt-sweat.png" alt="img for card" loading='lazy' />
+                <LazyLoadImage effect="blur" src="/shop/melt-sweat.webp" alt="img for card" loading='lazy' />
             </Link>
         </div>
         <div className="quick-view">
@@ -86,7 +86,7 @@ const Collection = () => {
         </div>
         <div className="product-card-image">
             <Link to="/shop/product/showcase?id=m-2">
-                <LazyLoadImage effect="blur" src="/shop/melt-pants.png" alt="img for card" loading='lazy'/>
+                <LazyLoadImage effect="blur" src="/shop/melt-pants.webp" alt="img for card" loading='lazy'/>
             </Link>
         </div>
         <div className="quick-view">
@@ -104,7 +104,7 @@ const Collection = () => {
         </div>
         <div className="product-card-image">
             <Link to="/shop/product/showcase?id=m-4">
-                <LazyLoadImage effect="blur" src="/shop/melt-socks.png" alt="img for card" loading='lazy' />
+                <LazyLoadImage effect="blur" src="/shop/melt-socks.webp" alt="img for card" loading='lazy' />
             </Link>
         </div>
         <div className="quick-view">
@@ -125,7 +125,7 @@ const Collection = () => {
           <Link to="/shop/product?category=knits">-See More-</Link>
         </div>
         <div className="banner-img col-6">
-          <Link to="/shop/product?category=knits"><LazyLoadImage effect="blur" src="/shop/knits-banner.png" alt="knits-banner" loading='lazy'/></Link>
+          <Link to="/shop/product?category=knits"><LazyLoadImage effect="blur" src="/shop/knits-banner.webp" alt="knits-banner" loading='lazy'/></Link>
         </div>
       </div>
 
@@ -136,7 +136,7 @@ const Collection = () => {
                 </div>
                 <div className="product-card-image">
                     <Link to="/shop/product/showcase?id=k-3">
-                        <LazyLoadImage effect="blur" src="/shop/k-beanie.png" alt="img for card" loading="lazy" />
+                        <LazyLoadImage effect="blur" src="/shop/k-beanie.webp" alt="img for card" loading="lazy" />
                     </Link>
                 </div>
                 <div className="quick-view">
@@ -154,7 +154,7 @@ const Collection = () => {
                 </div>
                 <div className="product-card-image">
                     <Link to="/shop/product/showcase?id=k-1">
-                        <LazyLoadImage effect="blur" src="/shop/knits-2.png" alt="img for card" loading="lazy" />
+                        <LazyLoadImage effect="blur" src="/shop/knits-2.webp" alt="img for card" loading="lazy" />
                     </Link>
                 </div>
                 <div className="quick-view">
@@ -172,7 +172,7 @@ const Collection = () => {
                 </div>
                 <div className="product-card-image">
                     <Link to="/shop/product/showcase?id=k-2">
-                        <img src="shop/knits-3.png" alt="img for card" loading="lazy" />
+                        <img src="shop/knits-3.webp" alt="img for card" loading="lazy" />
                     </Link>
                 </div>
                 <div className="quick-view">

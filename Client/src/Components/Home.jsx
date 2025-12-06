@@ -16,19 +16,19 @@ const Home = () => {
     img1.onload = () => {
       setHighResLoaded1(true);
     };
-    img1.src = "/pic-1.png";
+    img1.src = "/pic-1.webp";
 
     const img2 = new Image();
     img2.onload = () => {
       setHighResLoaded2(true);
     };
-    img2.src = "/pic-3.png";
+    img2.src = "/pic-3.webp";
 
     const img3 = new Image();
     img3.onload = () => {
       setHighResLoaded3(true);
     };
-    img3.src = "/pic-2.png";
+    img3.src = "/pic-2.webp";
   }, []);
 
   const handleClick = (sectionId) => {
@@ -57,7 +57,7 @@ const Home = () => {
                   rel="preload"
                   as="image"
                   fetchpriority="high"
-                  src="/pic-1.png"
+                  src="/pic-1.webp"
                   alt="pic-1"
                   id="pic-1"
                   className="img"
@@ -86,7 +86,7 @@ const Home = () => {
                   rel="preload"
                   as="image"
                   fetchpriority="high"
-                  src="/pic-3.png"
+                  src="/pic-3.webp"
                   alt="pic-2"
                   id="pic-3"
                   className="img"
@@ -111,7 +111,7 @@ const Home = () => {
             {highResLoaded3 ? (
               <Link to="/shop" onClick={handleClick("kints")}>
                 <img
-                  src="/pic-2.png"
+                  src="/pic-2.webp"
                   rel="preload"
                   as="image"
                   fetchpriority="high"
@@ -227,7 +227,7 @@ const Home = () => {
 
           <div class="carousel-inner">
             <div class="carousel-item active" >
-              <img src="/about-pic.png" class="d-block w-100" alt="img1"></img>
+              <img src="/about-pic.webp" className="d-block w-100" alt="img1" loading="lazy" decoding="async"></img>
               <div class="carousel-caption d-none d-md-block">
                 <h2>-ABOUT-</h2>
                 <p>Welcome to Tsuki, where <b>"Tsuki [つき]" meaning 'moon'</b> in
@@ -240,7 +240,7 @@ const Home = () => {
               </div>
             </div>
             <div class="carousel-item" >
-              <img src="/carft.png" class="d-block w-100" alt="img2"></img>
+              <img src="/carft.webp" className="d-block w-100" alt="img2" loading="lazy" decoding="async"></img>
               <div class="carousel-caption d-none d-md-block">
                 <h2>-CRAFTSMANSHIP-</h2>
                 <p>At Tsuki, we believe that fashion and home products should not
@@ -253,8 +253,10 @@ const Home = () => {
             </div>
             <div class="carousel-item">
               <img
-                src="/shop/basic-banner.png"
+                src="/shop/basic-banner.webp"
                 class="d-block w-100"
+                loading="lazy"
+                decoding="async"
                 alt="img3"
               ></img>
               <div class="carousel-caption d-none d-md-block">
@@ -299,7 +301,7 @@ const Home = () => {
             <div className="help-img">
               <LazyLoadImage
                 effect="blur"
-                src="/bottom.png"
+                src="/bottom.webp"
                 alt=""
                 loading="lazy"
               />
