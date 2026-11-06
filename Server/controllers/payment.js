@@ -120,7 +120,6 @@ exports.makePayment = async (req, res) => {
 
         const origin = getOrigin(req);
         const session = await stripe.checkout.sessions.create({
-            payment_method_types: ["card"],
             line_items: lineitems,
             mode: "payment",
             customer_email: decoded.email,

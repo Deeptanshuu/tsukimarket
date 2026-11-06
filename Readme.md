@@ -129,7 +129,7 @@ Optional, enabled when `STRIPE_WEBHOOK_SECRET` is set. `checkout.session.complet
 
 ## Development Setup
 
-Needs Node 18+, a MongoDB Atlas cluster (the free tier is fine) and a Stripe account in test mode.
+Needs Node 20+, a MongoDB Atlas cluster (the free tier is fine) and a Stripe account in test mode.
 
 1. **Backend**
    ```bash
